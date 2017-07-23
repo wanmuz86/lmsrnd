@@ -19,3 +19,6 @@ Route::get('/', function () {
 Route::get('/hello', function(){
 	return view('master');
 });
+Route::get('/grade', function(){
+	return view('grade/grade');
+});
