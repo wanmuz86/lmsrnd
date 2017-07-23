@@ -53,7 +53,7 @@
           </ul>
         </li>
         <li class="treeview">
-          <a href="Lessons.html">
+          <a href="{{route('lessons')}}">
             <i class="fa fa-book"></i> <span>Lessons</span>
             <span class="pull-right-container">
 
@@ -61,7 +61,7 @@
           </a>
         </li>
         <li class="treeview">
-          <a href="News.html">
+          <a href="{{route('news')}}">
             <i class="fa  fa-bell"></i> <span>News</span>
             <span class="pull-right-container">
 
@@ -69,7 +69,7 @@
           </a>
         </li>
         <li class="active  treeview ">
-          <a href="Assignments.html">
+          <a href="{{route('assignments')}}">
             <i class="fa fa-file-o"></i> <span>Assignments</span>
             <span class="pull-right-container">
 
@@ -77,7 +77,7 @@
           </a>
         </li>
         <li class="treeview">
-          <a href="Calendar.html">
+          <a href="{{route('calendar')}}">
             <i class="fa fa-calendar"></i> <span>Calendar</span>
             <span class="pull-right-container">
 
@@ -85,7 +85,7 @@
           </a>
         </li>
         <li class="treeview">
-          <a href="Gradebook.html">
+          <a href="{{route('grade')}}">
             <i class="fa fa-calculator"></i> <span>Gradebook</span>
             <span class="pull-right-container">
 
@@ -93,7 +93,7 @@
           </a>
         </li>
         <li class="treeview">
-          <a href="starter.html">
+          <a href="{{route('mastery')}}">
             <i class="fa  fa-bar-chart-o (alias)"></i> <span>Mastery</span>
             <span class="pull-right-container">
 
@@ -101,7 +101,7 @@
           </a>
         </li>
         <li class="treeview">
-          <a href="Resources.html">
+          <a href="{{route('grade')}}">
             <i class="fa  fa-server"></i> <span>Resources</span>
             <span class="pull-right-container">
 
@@ -109,7 +109,7 @@
           </a>
         </li>
         <li class="treeview">
-          <a href="Student.html">
+          <a href="{{route('students')}}">
             <i class="fa  fa-user"></i> <span>Students</span>
             <span class="pull-right-container">
 
@@ -125,7 +125,7 @@
           </a>
         </li>
         <li class="treeview">
-          <a href="Games.html">
+          <a href="{{route('games')}}">
             <i class="fa  fa-gamepad"></i> <span>Games</span>
             <span class="pull-right-container">
 
@@ -133,7 +133,7 @@
           </a>
         </li>
         <li class="treeview">
-          <a href="Attendance.html">
+          <a href="{{route('attendances')}}">
             <i class="fa  fa-users"></i> <span>Attendance</span>
             <span class="pull-right-container">
 
@@ -141,7 +141,7 @@
           </a>
         </li>
         <li class="treeview">
-          <a href="Forums.html">
+          <a href="{{route('forums')}}">
             <i class="fa fa-dashboard"></i> <span>Forums</span>
             <span class="pull-right-container">
 
@@ -149,7 +149,7 @@
           </a>
         </li>
         <li class="treeview">
-          <a href="Syllabus.html">
+          <a href="{{route('syllabus')}}">
             <i class="fa  fa-info-circle"></i> <span>Syllabus</span>
             <span class="pull-right-container">
 

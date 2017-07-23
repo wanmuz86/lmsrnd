@@ -19,6 +19,47 @@ Route::get('/', function () {
 Route::get('/hello', function(){
 	return view('master');
 });
-Route::get('/grade', function(){
+Route::get('/grade', ['as'=>'grade', 'uses'=>function(){
 	return view('grade/grade');
-});
+}]);
+
+Route::get('/calendar', ['as'=>'calendar', 'uses'=>function(){
+	return view('calendar/calendar');
+}]);
+
+Route::get('/lessons',['as'=>'lessons', 'uses'=>function(){
+	return view('lessons/lessons');
+}]);
+Route::get('/students', ['as'=>'students','uses'=> function(){
+	return view('student/student');
+}]);
+
+Route::get('/news',['as'=>'news', 'uses'=>function(){
+	return view('news/news');
+}]);
+
+
+Route::get('/assignments', ['as'=>'assignments', 'uses'=>function(){
+	return view('assignments/assignments');
+}]);
+
+
+Route::get('/mastery', ['as'=>'mastery', 'uses'=>function(){
+	return view('mastery/mastery');
+}]);
+
+Route::get('/forums', ['as'=>'forums', 'uses'=>function(){
+	return view('forums/forums');
+}]);
+
+Route::get('/games', ['as'=>'games', 'uses'=>function(){
+	return view('games/games');
+}]);
+
+Route::get('/attendances', ['as'=>'attendances', 'uses'=>function(){
+	return view('attendance/attendance');
+}]);
+
+Route::get('/syllabus', ['as'=>'syllabus', 'uses'=>function(){
+	return view('syllabus/syllabus');
+}]);
