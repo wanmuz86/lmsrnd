@@ -157,39 +157,19 @@
                             <td class="mailbox-date"><a href="#">Enroll</a></td>
                             <td class="mailbox-date"><a href="#">More</a></td>
                           </tr>
+                          @foreach($students as $student)
                           <tr>
                             <td><input type="checkbox"></td>
-                            <td class="mailbox-star"><a href="#"><i class="fa fa-male"> Afiq</i></a></td>
+                            <td class="mailbox-star"><a href="#"><i class="fa fa-male"> {{$student->first_name}}</i></a></td>
                             <td class="mailbox-name"><a href="#"><i class="fa fa-tasks"></i></a></td>
                             <td class="mailbox-subject">-</i></td>
                             <td class="mailbox-attachment"><a>-</a></td>
                             <td class="mailbox-date">-</td>
                             <td class="mailbox-date">-</td>
-                            <td class="mailbox-date">14 JULY 2017</td>
+                            <td class="mailbox-date">{{$student->startdate}}</td>
                             <td class="mailbox-date"><i class="fa fa-gear"></td>
                           </tr>
-                          <tr>
-                            <td><input type="checkbox"></td>
-                            <td class="mailbox-star"><a href="#"><i class="fa fa-female"> Saleha</i></a></td>
-                            <td class="mailbox-name"><a href="#"><i class="fa fa-tasks"></i></a></td>
-                            <td class="mailbox-subject">-</i></td>
-                            <td class="mailbox-attachment"><a>-</a></td>
-                            <td class="mailbox-date">-</td>
-                            <td class="mailbox-date">-</td>
-                            <td class="mailbox-date">14 JULY 2017</td>
-                            <td class="mailbox-date"><i class="fa fa-gear"></td>
-                          </tr>
-                          <tr>
-                            <td><input type="checkbox"></td>
-                            <td class="mailbox-star"><a href="#"><i class="fa fa-male"> Kanesh</i></a></td>
-                            <td class="mailbox-name"><a href="#"><i class="fa fa-tasks"></i></a></td>
-                            <td class="mailbox-subject">-</i></td>
-                            <td class="mailbox-attachment"><a>-</a></td>
-                            <td class="mailbox-date">-</td>
-                            <td class="mailbox-date">-</td>
-                            <td class="mailbox-date">14 JULY 2017</td>
-                            <td class="mailbox-date"><i class="fa fa-gear"></td>
-                          </tr>
+                          @endforeach
 
                           </tbody>
                         </table>

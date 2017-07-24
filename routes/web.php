@@ -30,9 +30,7 @@ Route::get('/calendar', ['as'=>'calendar', 'uses'=>function(){
 Route::get('/lessons',['as'=>'lessons', 'uses'=>function(){
 	return view('lessons/lessons');
 }]);
-Route::get('/students', ['as'=>'students','uses'=> function(){
-	return view('student/student');
-}]);
+
 
 Route::get('/news',['as'=>'news', 'uses'=>function(){
 	return view('news/news');
@@ -65,4 +63,6 @@ Route::get('/syllabus', ['as'=>'syllabus', 'uses'=>function(){
 }]);
 
 
-Route::post('/manage/course/student',['as'=>'createStudent','uses'=>'CourseController@createStudent']);
+Route::post('/manage/course/student',['as'=>'createStudent','uses'=>'StudentController@createStudent']);
+
+Route::get('/students', ['as'=>'students','uses'=> 'StudentController@getStudents']);

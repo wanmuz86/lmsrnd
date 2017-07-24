@@ -10,11 +10,5 @@ class CourseController extends BaseController
    public function __construct(){
     	
     }
-     public function createStudent(Request $request){
-
-        if ($request->ajax()){
-            return response(Student::create($request->all()));
-        }
-    }
-
+   
 }
