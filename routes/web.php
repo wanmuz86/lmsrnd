@@ -63,3 +63,6 @@ Route::get('/attendances', ['as'=>'attendances', 'uses'=>function(){
 Route::get('/syllabus', ['as'=>'syllabus', 'uses'=>function(){
 	return view('syllabus/syllabus');
 }]);
+
+
+Route::post('/manage/course/student',['as'=>'createStudent','uses'=>'CourseController@createStudent']);

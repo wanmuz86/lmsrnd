@@ -49,7 +49,6 @@
                   <span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title">Add Lessons</h4>
               </div>
-              <div class="modal-body ">
                 <div class="modal-body">
                   <!-- Custom Tabs (Pulled to the right) -->
 
@@ -95,7 +94,6 @@
 
                   </form>
                   </div>
-                </div>
               </div>
               <div class="modal-footer">
                   <button type="submit" class="btn btn-primary">Submit</button>

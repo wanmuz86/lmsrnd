@@ -27,14 +27,87 @@
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Add Assignment</h4>
+            <h4 class="modal-title">Add Student</h4>
           </div>
           <div class="modal-body">
-            <p>One fine body&hellip;</p>
-          </div>
+                  <!-- Custom Tabs (Pulled to the right) -->
+                  <form action="#" method="POST" id="frm-student-create">
+                  {!! csrf_field() !!}
+                    <div class="row">
+                        <div class="form-group">
+                          <label for="first_name" class="col-sm-3 control-label">First Name: </label>
+                          <div class="col-sm-9">
+                          <input type="text" class="form-control" name="first_name" id="first_name" placeholder="First Name">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="last_name" class="col-sm-3 control-label">Last Name: </label>
+                          <div class="col-sm-9">
+                          <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Last Name">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="email" class="col-sm-3 control-label">Email: </label>
+                          <div class="col-sm-9">
+                          <input type="text" class="form-control" name="email" id="email" placeholder="Email">
+                          </div>
+                        </div>
+              
+                        <div class="form-group">
+                          <label for="startdate" class="col-sm-3 control-label">Start Date: </label>
+
+                          <div class="col-sm-9">
+                          <input type="date" class="form-control" name="startdate" id="startdate" placeholder="Start Date">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="batch_id" class="col-sm-3 control-label">Batch: </label>
+
+                          <div class="col-sm-9">
+                          <select class="form-control" name="batch_id" id="batch_id" data-placeholder="Select " style="width: 100%;">
+                             <option value="1"></option>
+                             <option value="1"></option>
+                             <option value="1"></option>
+                             <option value="1"></option>
+                             <option value="1"></option>
+                          </select>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="inputEmail3" class="col-sm-3 control-label">Company: </label>
+
+                          <div class="col-sm-9">
+                          <select class="form-control" name="company_id" id="company_id"  data-placeholder="Select " style="width: 100%;">
+                             <option value="1"></option>
+                             <option value="1"></option>
+                             <option value="1"></option>
+                             <option value="1"></option>
+                             <option value="1"></option>
+                          </select>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="country_id"  class="col-sm-3 control-label">Country: </label>
+
+                          <div class="col-sm-9">
+                          <select class="form-control" name="country_id" id="country_id" data-placeholder="Select " style="width: 100%;">
+                             <option value="1"></option>
+                             <option value="1"></option>
+                             <option value="1"></option>
+                             <option value="1"></option>
+                             <option value="1"></option>
+                          </select>
+                          </div>
+                        </div>
+                    </div>
+                
+                  </div>
           <div class="modal-footer">
+           <button type="submit" class="btn btn-primary">Submit</button>
           </div>
+          </form>
         </div>
+        
         <!-- /.modal-content -->
       </div>
       <!-- /.modal-dialog -->
@@ -215,6 +288,18 @@
 @endsection
 
 @section('script')
+<script>
+$('#frm-student-create').on('submit',function(e){
+  e.preventDefault();
+  console.log('pressed');
+  var data = $(this).serialize();
+  console.log(data);
+  $.post("{{route('createStudent')}}", data, function(response){
+    
+    console.log(response);
+  });
+});
 
+</script>
 @endsection
 
