@@ -63,6 +63,18 @@ Route::get('/syllabus', ['as'=>'syllabus', 'uses'=>function(){
 }]);
 
 
+
+Route::post( '/manage/course/category',['as'=>'createCategory','uses'=>'CategoryController@createCategory']);
+
+Route::get('/categories', ['as'=>'Categories', 'uses'=>'CategoryController@getCategories']);
+
+
+
+Route::post( '/manage/course/course',['as'=>'createCourse','uses'=>'CourseController@createCourse']);
+
+Route::get('/courses', ['as'=>'courses', 'uses'=>'CourseController@getCourses']);
+
+
 Route::post('/manage/course/student',['as'=>'createStudent','uses'=>'StudentController@createStudent']);
 
 Route::get('/students', ['as'=>'students','uses'=> 'StudentController@getStudents']);
