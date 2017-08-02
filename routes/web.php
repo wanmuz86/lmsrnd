@@ -66,7 +66,7 @@ Route::get('/syllabus', ['as'=>'syllabus', 'uses'=>function(){
 
 Route::post( '/manage/course/category',['as'=>'createCategory','uses'=>'CategoryController@createCategory']);
 
-Route::get('/categories', ['as'=>'Categories', 'uses'=>'CategoryController@getCategories']);
+Route::get('/categories', ['as'=>'categories', 'uses'=>'CategoryController@getCategories']);
 
 Route::post( '/manage/course/newcategory',['as'=>'createNewcategory','uses'=>'NewcategoryController@createNewcategory']);
 

@@ -46,12 +46,12 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i> Course Category Management</a></li>
+            <li><a href="{{route('categories')}}"><i class="fa fa-circle-o"></i> Course Category Management</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Bundle</a></li>
           </ul>
         </li>
         <li class="treeview">
-          <a href="courses.html">
+          <a href="{{route('courses')}}">
             <i class="fa fa-share"></i> <span>Courses</span>
           </a>
 

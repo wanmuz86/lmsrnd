@@ -114,9 +114,7 @@
 
                        @endif
                           </tbody>
-                       }
-                       }
-                       }
+                      
                         </table>
                         <!-- /.table -->
                       </div>
