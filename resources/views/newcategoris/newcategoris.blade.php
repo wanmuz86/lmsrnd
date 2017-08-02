@@ -1,15 +1,17 @@
-@extends('layouts.mastercourse')
+@extends('layouts.master')
+
 
 @section('style')
+
 
 @endsection
 
 @section('content')
 
- <!-- Content Header (Page header) -->
+<!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-      Games
+      Categories
       </h1>
       <ol class="breadcrumb">
         <button type="button" class="btn btn-info btn-sm " data-toggle="modal" data-target="#modal-info">
@@ -25,17 +27,27 @@
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Add more Games</h4>
+            <h4 class="modal-title">Add Category</h4>
           </div>
           <div class="modal-body">
-            <div>
-            <label for="exampleInputPassword1">Name:</label>
-            <input type="text" class="form-control" id="" placeholder="">
-            </div>
-          </div>
+                  <!-- Custom Tabs (Pulled to the right) -->
+                  <form action="#" method="POST" id="frm-newcategory-create">
+                  {!! csrf_field() !!}
+                    <div class="row">
+                        <div class="form-group">
+                          <label for="category_name" class="col-sm-3 control-label">Category Name: </label>
+                          <div class="col-sm-12">
+                          <input type="text" class="form-control" name="category_name" id="category_name" placeholder="First Name">
+                          </div>
+                        </div>
+                    </div>
+                  </div>
           <div class="modal-footer">
+           <button type="submit" class="btn btn-primary">Submit</button>
           </div>
+          </form>
         </div>
+
         <!-- /.modal-content -->
       </div>
       <!-- /.modal-dialog -->
@@ -47,44 +59,64 @@
         <!-- Custom Tabs (Pulled to the right) -->
         <div class="nav-tabs-custom">
           <ul class="nav nav-tabs ">
-            <li class="active"><a href="#tab_1" data-toggle="tab">Delete</a></li>
+            <li class="active"><a href="#tab_1" data-toggle="tab">Active</a></li>
           </ul>
           <div class="tab-content">
             <div class="tab-pane active" id="tab_1">
               <div class="box">
 
-
                     <!-- /.box-header -->
                     <div class="box-body no-padding">
+                      <div class="mailbox-controls">
+                        <!-- Check all button -->
+                        <div class="btn-group">
 
+                        <button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="fa fa-envelope"> Message</i>
+                        </button>
+                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-check"> Grades</i></button>
+                          <button type="button" class="btn btn-default btn-sm"><i class="fa fa-key"> Password</i></button>
+                          <button type="button" class="btn btn-default btn-sm"><i class="fa fa-star"> Award</i></button>
+                          <button type="button" class="btn btn-default btn-sm"><i class="fa fa-minus-square"> Unenroll</i></button>
+                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-gear"></i> Setting</button>
+                        </div>
+                        <!-- /.btn-group -->
+
+                        <!-- /.pull-right -->
+                      </div>
                       <div class="table-responsive mailbox-messages">
                         <table class="table table-hover table-striped">
                           <tbody>
                           <tr class="info">
                             <td><input type="checkbox"></td>
-                            <td class="mailbox-star"><a href="#"> Game</a></td>
-                            <td class="mailbox-name"><a href="#"><i class="fa fa-bar-chart-o"> Level</a></td>
-                            <td class="mailbox-subject"><a href="#"><i class="fa fa-shield"> Badges</a></td>
-                            <td class="mailbox-attachment"><a href="#"><i class="fa fa-star"> Points</a></td>
-                            <td class="mailbox-date"><a href="#"><i class="fa fa-male"> Players</a></td>
+                            <td class="mailbox-star"><a href="#">Category </a></td>
+                            <td class="mailbox-name"><a href="#">Progress</a></td>
+                            <td class="mailbox-subject"><a>Score</a></td>
+                            <td class="mailbox-attachment"><a href="#">Grades</a></td>
+                            <td class="mailbox-date"><a href="#">Due</a></td>
+                            <td class="mailbox-date"><a href="#">Mastery</a></td>
+                            <td class="mailbox-date"><a href="#">Enroll</a></td>
+                            <td class="mailbox-date"><a href="#">More</a></td>
                           </tr>
-                          <tr>
+                          @if (count($newcategories) > 0)
+                          @foreach($newcategories as $newcategory)
+                          <tr class="info">
                             <td><input type="checkbox"></td>
-                            <td class="mailbox-star"><a href="#">Code Hunt</i></a></td>
-                            <td class="mailbox-name"><a href="#">0</td>
-                            <td class="mailbox-subject"><a href="#">0</td>
-                            <td class="mailbox-attachment"><a href="#">0</a></td>
-                            <td class="mailbox-date"><a href="#">0</td>
+                            <td class="mailbox-star"><a href="#">{{$newcategory->category_name}}</a></td>
+                            <td class="mailbox-name"><a href="#"></a></td>
+                            <td class="mailbox-subject"><a></a></td>
+                            <td class="mailbox-attachment"><a href="#"></a></td>
+                            <td class="mailbox-date"><a href="#"></a></td>
+                            <td class="mailbox-date"><a href="#"></a></td>
+                            <td class="mailbox-date"><a href="#"></a> </td>
+                            <td class="mailbox-date"><a href="#"></a></td>
                           </tr>
-                          <tr>
-                            <td><input type="checkbox"></td>
-                            <td class="mailbox-star"><a href="#">ExploreCode</i></a></td>
-                            <td class="mailbox-name"><a href="#">0</td>
-                            <td class="mailbox-subject"><a href="#">0</td>
-                            <td class="mailbox-attachment"><a href="#">0</a></td>
-                            <td class="mailbox-date"><a href="#">0</td>
-                          </tr>
+                       @endforeach
+
+                       @endif
                           </tbody>
+                       }
+                       }
+                       }
                         </table>
                         <!-- /.table -->
                       </div>
@@ -177,8 +209,21 @@
       <!-- Main content -->
     </section>
 
-    @endsection
+
+@endsection
 
 @section('script')
+<script>
+$('#frm-newcategory-create').on('submit',function(e){
+  e.preventDefault();
+  console.log('pressed');
+  var data = $(this).serialize();
+  console.log(data);
+  $.post("{{route('createCategory')}}", data, function(response){
 
+    console.log(response);
+  });
+});
+
+</script>
 @endsection

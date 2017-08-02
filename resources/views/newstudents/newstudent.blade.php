@@ -1,4 +1,4 @@
-@extends('layouts.mastercourse')
+@extends('layouts.master')
 
 
 @section('style')
@@ -31,7 +31,7 @@
           </div>
           <div class="modal-body">
                   <!-- Custom Tabs (Pulled to the right) -->
-                  <form action="#" method="POST" id="frm-student-create">
+                  <form action="#" method="POST" id="frm-newstudent-create">
                   {!! csrf_field() !!}
                     <div class="row">
                         <div class="form-group">
@@ -157,10 +157,10 @@
                             <td class="mailbox-date"><a href="#">Enroll</a></td>
                             <td class="mailbox-date"><a href="#">More</a></td>
                           </tr>
-                          @foreach($students as $student)
+                          @foreach($newstudents as $mewstudent)
                           <tr>
                             <td><input type="checkbox"></td>
-                            <td class="mailbox-star"><a href="#"><i class="fa fa-male"> {{$student->first_name}}</i></a></td>
+                            <td class="mailbox-star"><a href="#"><i class="fa fa-male"> {{$newstudent->first_name}}</i></a></td>
                             <td class="mailbox-name"><a href="#"><i class="fa fa-tasks"></i></a></td>
                             <td class="mailbox-subject">-</i></td>
                             <td class="mailbox-attachment"><a>-</a></td>
@@ -269,7 +269,7 @@
 
 @section('script')
 <script>
-$('#frm-student-create').on('submit',function(e){
+$('#frm-newstudent-create').on('submit',function(e){
   e.preventDefault();
   console.log('pressed');
   var data = $(this).serialize();

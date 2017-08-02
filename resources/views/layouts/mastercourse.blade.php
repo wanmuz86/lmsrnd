@@ -61,7 +61,7 @@ desired effect
 
   <!-- Main Header -->
   @include('layouts.headers.header')
-  @include('layouts.sidebars.sidebar')
+  @include('layouts.coursesidebars.coursesidebar')
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">

@@ -1,7 +1,7 @@
 @section('script')
 
 @endsection
-@extends('layouts.master')
+@extends('layouts.mastercourse')
 @section('content')
   <section class="content-header">
       <h1>

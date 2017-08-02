@@ -70,7 +70,11 @@
           </ul>
         </li>
         <li class="treeview">
+<<<<<<< HEAD
           <a href="{{route('calendar')}}">
+=======
+          <a href="calendar.html">
+>>>>>>> 37239b0362dc801b20c3479dd08316e80b68eeec
             <i class="fa fa-calendar"></i> <span>Course Calendar and Event</span>
           </a>
         </li>
