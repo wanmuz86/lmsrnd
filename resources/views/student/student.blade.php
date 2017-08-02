@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.mastercourse')
 
 
 @section('style')
@@ -52,7 +52,7 @@
                           <input type="text" class="form-control" name="email" id="email" placeholder="Email">
                           </div>
                         </div>
-              
+
                         <div class="form-group">
                           <label for="startdate" class="col-sm-3 control-label">Start Date: </label>
 
@@ -100,14 +100,14 @@
                           </div>
                         </div>
                     </div>
-                
+
                   </div>
           <div class="modal-footer">
            <button type="submit" class="btn btn-primary">Submit</button>
           </div>
           </form>
         </div>
-        
+
         <!-- /.modal-content -->
       </div>
       <!-- /.modal-dialog -->
@@ -264,7 +264,7 @@
       <!-- Main content -->
     </section>
 
-    
+
 @endsection
 
 @section('script')
@@ -275,11 +275,10 @@ $('#frm-student-create').on('submit',function(e){
   var data = $(this).serialize();
   console.log(data);
   $.post("{{route('createStudent')}}", data, function(response){
-    
+
     console.log(response);
   });
 });
 
 </script>
 @endsection
-

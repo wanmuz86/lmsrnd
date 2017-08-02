@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.mastercourse')
 
 
 @section('style')
@@ -120,4 +120,3 @@
 @section('script')
 
 @endsection
-

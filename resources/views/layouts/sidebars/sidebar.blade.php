@@ -28,138 +28,73 @@
       </form>
       <!-- /.search form -->
 
-      <!-- Sidebar Menu -->
-      <ul class="sidebar-menu">
-        <li class="header">HEADER</li>
-        <!-- Optionally, you can add icons to the links -->
-
-        <li class=" treeview">
-          <a href="#">
-            <i class="fa fa-gear"></i>
-            <span>Admin</span>
+      <!-- sidebar menu: : style can be found in s
+      idebar.less -->
+      <ul class="sidebar-menu" data-widget="tree">
+        <li class="header">MAIN NAVIGATION</li>
+        <li class="treeview menu-open">
+          <a href="dashboard.html">
+            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+          </a>
+        </li>
+        <li class="treeview">
+          <a href="coursebundlecategory.html">
+            <i class="fa fa-files-o"></i>
+            <span>Course Bundle/Category</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o text-aqua"></i>Configure/a></li>
-            <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> Add child class</a></li>
-            <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> View as student</a></li>
-            <li><a href="#"><i class="fa fa-circle-o text-aqua"></i>Copy</a></li>
-            <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> Import</a></li>
-            <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> Export</a></li>
-            <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> Archive</a></li>
-            <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> Delete</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Course Category Management</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Bundle</a></li>
           </ul>
         </li>
         <li class="treeview">
-          <a href="{{route('lessons')}}">
-            <i class="fa fa-book"></i> <span>Lessons</span>
-            <span class="pull-right-container">
+          <a href="courses.html">
+            <i class="fa fa-share"></i> <span>Courses</span>
+          </a>
 
+        </li>
+        <li class="treeview">
+          <a href="people.html">
+            <i class="fa fa-pie-chart"></i>
+            <span>People</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
             </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="#"><i class="fa fa-circle-o"></i> User Management</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Group Management </a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="calendar.html">
+            <i class="fa fa-calendar"></i> <span>Course Calendar and Event</span>
           </a>
         </li>
         <li class="treeview">
-          <a href="{{route('news')}}">
-            <i class="fa  fa-bell"></i> <span>News</span>
-            <span class="pull-right-container">
-
-            </span>
+          <a href="generalbsdge">
+            <i class="fa fa-table"></i> <span>General Gamification </span>
           </a>
         </li>
-        <li class="active  treeview ">
-          <a href="{{route('assignments')}}">
-            <i class="fa fa-file-o"></i> <span>Assignments</span>
-            <span class="pull-right-container">
-
-            </span>
+        <li>
+          <a href="conversation.html">
+            <i class="fa fa-envelope"></i> <span>Inbox</span>
           </a>
         </li>
-        <li class="treeview">
-          <a href="{{route('calendar')}}">
-            <i class="fa fa-calendar"></i> <span>Calendar</span>
-            <span class="pull-right-container">
-
-            </span>
+        <li>
+          <a href="commons.html">
+            <i class="fa fa-envelope"></i> <span> Analytics and Reporting </span>
           </a>
         </li>
-        <li class="treeview">
-          <a href="{{route('grade')}}">
-            <i class="fa fa-calculator"></i> <span>Gradebook</span>
-            <span class="pull-right-container">
-
-            </span>
+        <li class="active treeview">
+          <a href="reports.html">
+            <i class="fa fa-folder"></i> <span>Architecture and Setup</span>
           </a>
         </li>
-        <li class="treeview">
-          <a href="{{route('mastery')}}">
-            <i class="fa  fa-bar-chart-o (alias)"></i> <span>Mastery</span>
-            <span class="pull-right-container">
-
-            </span>
-          </a>
-        </li>
-        <li class="treeview">
-          <a href="{{route('grade')}}">
-            <i class="fa  fa-server"></i> <span>Resources</span>
-            <span class="pull-right-container">
-
-            </span>
-          </a>
-        </li>
-        <li class="treeview">
-          <a href="{{route('students')}}">
-            <i class="fa  fa-user"></i> <span>Students</span>
-            <span class="pull-right-container">
-
-            </span>
-          </a>1
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Teachers</span>
-            <span class="pull-right-container">
-
-            </span>
-          </a>
-        </li>
-        <li class="treeview">
-          <a href="{{route('games')}}">
-            <i class="fa  fa-gamepad"></i> <span>Games</span>
-            <span class="pull-right-container">
-
-            </span>
-          </a>
-        </li>
-        <li class="treeview">
-          <a href="{{route('attendances')}}">
-            <i class="fa  fa-users"></i> <span>Attendance</span>
-            <span class="pull-right-container">
-
-            </span>
-          </a>
-        </li>
-        <li class="treeview">
-          <a href="{{route('forums')}}">
-            <i class="fa fa-dashboard"></i> <span>Forums</span>
-            <span class="pull-right-container">
-
-            </span>
-          </a>
-        </li>
-        <li class="treeview">
-          <a href="{{route('syllabus')}}">
-            <i class="fa  fa-info-circle"></i> <span>Syllabus</span>
-            <span class="pull-right-container">
-
-            </span>
-          </a>
-        </li>
-
-        </li>
-      </ul>
-      <!-- /.sidebar-menu -->
-      </section>
-      <!-- /.sidebar -->
-      </aside>
+        </ul>
+    </section>
+    <!-- /.sidebar -->
+  </aside>
