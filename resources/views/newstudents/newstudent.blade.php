@@ -157,7 +157,7 @@
                             <td class="mailbox-date"><a href="#">Enroll</a></td>
                             <td class="mailbox-date"><a href="#">More</a></td>
                           </tr>
-                          @foreach($newstudents as $mewstudent)
+                          @foreach($newstudents as $newstudent)
                           <tr>
                             <td><input type="checkbox"></td>
                             <td class="mailbox-star"><a href="#"><i class="fa fa-male"> {{$newstudent->first_name}}</i></a></td>
@@ -166,7 +166,7 @@
                             <td class="mailbox-attachment"><a>-</a></td>
                             <td class="mailbox-date">-</td>
                             <td class="mailbox-date">-</td>
-                            <td class="mailbox-date">{{$student->startdate}}</td>
+                            <td class="mailbox-date">{{$newstudent->startdate}}</td>
                             <td class="mailbox-date"><i class="fa fa-gear"></td>
                           </tr>
                           @endforeach

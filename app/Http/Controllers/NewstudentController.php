@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
+use App\Newstudent;
 
-use App\Student;
 class NewstudentController extends BaseController
 {
    public function __construct(){
@@ -17,9 +17,9 @@ class NewstudentController extends BaseController
         }
     }
 
-    public function getStudents(){
+    public function getNewstudents(){
         $newstudents = Newstudent::all();
 
-    	return view('newstudent.newstudent', compact('newstudents'));
+    	return view('newstudents.newstudent', compact('newstudents'));
     }
 }
