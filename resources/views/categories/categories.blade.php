@@ -47,7 +47,7 @@
           </div>
           </form>
         </div>
-        
+
         <!-- /.modal-content -->
       </div>
       <!-- /.modal-dialog -->
@@ -114,9 +114,7 @@
 
                        @endif
                           </tbody>
-                       }
-                       }
-                       }
+                    
                         </table>
                         <!-- /.table -->
                       </div>
@@ -209,7 +207,7 @@
       <!-- Main content -->
     </section>
 
-    
+
 @endsection
 
 @section('script')
@@ -220,11 +218,10 @@ $('#frm-category-create').on('submit',function(e){
   var data = $(this).serialize();
   console.log(data);
   $.post("{{route('createCategory')}}", data, function(response){
-    
+
     console.log(response);
   });
 });
 
 </script>
 @endsection
-

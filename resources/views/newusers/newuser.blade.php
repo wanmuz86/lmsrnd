@@ -11,7 +11,7 @@
 <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-      Student
+      User
       </h1>
       <ol class="breadcrumb">
         <button type="button" class="btn btn-info btn-sm " data-toggle="modal" data-target="#modal-info">
@@ -27,11 +27,11 @@
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Add Student</h4>
+            <h4 class="modal-title">Add User</h4>
           </div>
           <div class="modal-body">
                   <!-- Custom Tabs (Pulled to the right) -->
-                  <form action="#" method="POST" id="frm-newstudent-create">
+                  <form action="#" method="POST" id="frm-newuser-create">
                   {!! csrf_field() !!}
                     <div class="row">
                         <div class="form-group">
@@ -148,7 +148,7 @@
                           <tbody>
                           <tr class="info">
                             <td><input type="checkbox"></td>
-                            <td class="mailbox-star"><a href="#">Student</a></td>
+                            <td class="mailbox-star"><a href="#">User</a></td>
                             <td class="mailbox-name"><a href="#">Progress</a></td>
                             <td class="mailbox-subject"><a>Score</a></td>
                             <td class="mailbox-attachment"><a href="#">Grades</a></td>
@@ -157,16 +157,16 @@
                             <td class="mailbox-date"><a href="#">Enroll</a></td>
                             <td class="mailbox-date"><a href="#">More</a></td>
                           </tr>
-                          @foreach($newstudents as $newstudent)
+                          @foreach($newusers as $newuser)
                           <tr>
                             <td><input type="checkbox"></td>
-                            <td class="mailbox-star"><a href="#"><i class="fa fa-male"> {{$newstudent->first_name}}</i></a></td>
+                            <td class="mailbox-star"><a href="#"><i class="fa fa-male"> {{$newuser->first_name}}</i></a></td>
                             <td class="mailbox-name"><a href="#"><i class="fa fa-tasks"></i></a></td>
                             <td class="mailbox-subject">-</i></td>
                             <td class="mailbox-attachment"><a>-</a></td>
                             <td class="mailbox-date">-</td>
                             <td class="mailbox-date">-</td>
-                            <td class="mailbox-date">{{$newstudent->startdate}}</td>
+                            <td class="mailbox-date">{{$newuser->startdate}}</td>
                             <td class="mailbox-date"><i class="fa fa-gear"></td>
                           </tr>
                           @endforeach
@@ -269,12 +269,12 @@
 
 @section('script')
 <script>
-$('#frm-newstudent-create').on('submit',function(e){
+$('#frm-newuser-create').on('submit',function(e){
   e.preventDefault();
   console.log('pressed');
   var data = $(this).serialize();
   console.log(data);
-  $.post("{{route('createStudent')}}", data, function(response){
+  $.post("{{route('createNewUser')}}", data, function(response){
 
     console.log(response);
   });

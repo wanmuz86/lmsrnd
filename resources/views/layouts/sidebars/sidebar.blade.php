@@ -51,7 +51,7 @@
           </ul>
         </li>
         <li class="treeview">
-          <a href="courses.html">
+          <a href="">
             <i class="fa fa-share"></i> <span>Courses</span>
           </a>
 
@@ -65,16 +65,14 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i> User Management</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Group Management </a></li>
+            <li><a href=""><i class="fa fa-circle-o"></i> User Management</a></li>
+            <li><a href=""><i class="fa fa-circle-o"></i> Group Management </a></li>
           </ul>
         </li>
         <li class="treeview">
-<<<<<<< HEAD
-          <a href="calendar.html">
-=======
+
           <a href="{{route('calendar')}}">
->>>>>>> 03fa563fd940da27238993a4188b574ceb0daed3
+
             <i class="fa fa-calendar"></i> <span>Course Calendar and Event</span>
           </a>
         </li>

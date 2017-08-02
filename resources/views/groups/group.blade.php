@@ -11,7 +11,7 @@
 <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-      Categories
+    Group
       </h1>
       <ol class="breadcrumb">
         <button type="button" class="btn btn-info btn-sm " data-toggle="modal" data-target="#modal-info">
@@ -27,17 +27,17 @@
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Add Category</h4>
+            <h4 class="modal-title">Add Group</h4>
           </div>
           <div class="modal-body">
                   <!-- Custom Tabs (Pulled to the right) -->
-                  <form action="#" method="POST" id="frm-newcategory-create">
+                  <form action="#" method="POST" id="frm-group-create">
                   {!! csrf_field() !!}
                     <div class="row">
                         <div class="form-group">
-                          <label for="category_name" class="col-sm-3 control-label">Category Name: </label>
+                          <label for="Group_name" class="col-sm-3 control-label">Group Name: </label>
                           <div class="col-sm-12">
-                          <input type="text" class="form-control" name="category_name" id="category_name" placeholder="First Name">
+                          <input type="text" class="form-control" name="group_name" id="group_name" placeholder="Group Name">
                           </div>
                         </div>
                     </div>
@@ -88,7 +88,7 @@
                           <tbody>
                           <tr class="info">
                             <td><input type="checkbox"></td>
-                            <td class="mailbox-star"><a href="#">Category </a></td>
+                            <td class="mailbox-star"><a href="#">Group </a></td>
                             <td class="mailbox-name"><a href="#">Progress</a></td>
                             <td class="mailbox-subject"><a>Score</a></td>
                             <td class="mailbox-attachment"><a href="#">Grades</a></td>
@@ -97,11 +97,11 @@
                             <td class="mailbox-date"><a href="#">Enroll</a></td>
                             <td class="mailbox-date"><a href="#">More</a></td>
                           </tr>
-                          @if (count($newcategories) > 0)
-                          @foreach($newcategories as $newcategory)
+                          @if (count($groups) > 0)
+                          @foreach($groups as $group)
                           <tr class="info">
                             <td><input type="checkbox"></td>
-                            <td class="mailbox-star"><a href="#">{{$newcategory->category_name}}</a></td>
+                            <td class="mailbox-star"><a href="#">{{$group->group_name}}</a></td>
                             <td class="mailbox-name"><a href="#"></a></td>
                             <td class="mailbox-subject"><a></a></td>
                             <td class="mailbox-attachment"><a href="#"></a></td>
@@ -114,9 +114,7 @@
 
                        @endif
                           </tbody>
-                       }
-                       }
-                       }
+                       
                         </table>
                         <!-- /.table -->
                       </div>
@@ -214,12 +212,12 @@
 
 @section('script')
 <script>
-$('#frm-newcategory-create').on('submit',function(e){
+$('#frm-group-create').on('submit',function(e){
   e.preventDefault();
   console.log('pressed');
   var data = $(this).serialize();
   console.log(data);
-  $.post("{{route('createCategory')}}", data, function(response){
+  $.post("{{route('createGroup')}}", data, function(response){
 
     console.log(response);
   });

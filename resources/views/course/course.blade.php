@@ -94,7 +94,7 @@
           </div>
           </form>
         </div>
-        
+
         <!-- /.modal-content -->
       </div>
       <!-- /.modal-dialog -->
@@ -144,7 +144,7 @@
                             <td class="mailbox-date"><a href="#">Enroll</a></td>
                             <td class="mailbox-date"><a href="#">More</a></td>
                           </tr>
-                         
+
                           @foreach($courses as $course)
                           <tr class="info">
                             <td><input type="checkbox"></td>
@@ -159,11 +159,9 @@
                           </tr>
                        @endforeach
 
-                      
+
                           </tbody>
-                       }
-                       }
-                       }
+                    
                         </table>
                         <!-- /.table -->
                       </div>
@@ -256,7 +254,7 @@
       <!-- Main content -->
     </section>
 
-    
+
 @endsection
 
 @section('script')
@@ -267,11 +265,10 @@ $('#frm-course-create').on('submit',function(e){
   var data = $(this).serialize();
   console.log(data);
   $.post("{{route('createCourse')}}", data, function(response){
-    
+
     console.log(response);
   });
 });
 
 </script>
 @endsection
-
