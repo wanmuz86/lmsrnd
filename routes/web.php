@@ -87,4 +87,4 @@ Route::get('/students', ['as'=>'students','uses'=> 'StudentController@getStudent
 
 Route::post('/manage/course/newstudent',['as'=>'createNewstudent','uses'=>'NewstudentController@createNewstudent']);
 
-Route::get('/newstudents', ['as'=>'newstudents','uses'=> 'NewtudentController@getNewstudents']);
+Route::get('/newstudents', ['as'=>'getNewstudents','uses'=> 'NewstudentController@getNewstudents']);
