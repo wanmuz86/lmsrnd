@@ -62,14 +62,23 @@ Route::get('/syllabus', ['as'=>'syllabus', 'uses'=>function(){
 	return view('syllabus/syllabus');
 }]);
 
+Route::post( '/manage/course/country',['as'=>'createCountry','uses'=>'CountryController@createCountry']);
+Route::get('/countries', ['as'=>'countries', 'uses'=>'CountryController@getCountries']);
 
+
+Route::post( '/manage/course/company',['as'=>'createCompany','uses'=>'CompanyController@createCompany']);
+Route::get('/companies', ['as'=>'companies', 'uses'=>'CompanyController@getCompanies']);
+
+
+Route::post( '/manage/course/batch',['as'=>'createBatch','uses'=>'BatchController@createBatch']);
+Route::get('/batches', ['as'=>'batches', 'uses'=>'BatchController@getBatches']);
 
 Route::post( '/manage/course/category',['as'=>'createCategory','uses'=>'CategoryController@createCategory']);
-Route::get('/categories', ['as'=>'Categories', 'uses'=>'CategoryController@getCategories']);
+Route::get('/categories', ['as'=>'categories', 'uses'=>'CategoryController@getCategories']);
 
 
 Route::post( '/manage/course/group',['as'=>'createGroup','uses'=>'GroupController@createGroup']);
-Route::get('/groups', ['as'=>'Groups', 'uses'=>'GroupController@getGroups']);
+Route::get('/groups', ['as'=>'groups', 'uses'=>'GroupController@getGroups']);
 
 
 Route::post( '/manage/course/course',['as'=>'createCourse','uses'=>'CourseController@createCourse']);

@@ -5,8 +5,10 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 
 use App\NewUser;
-use App\Category;
-
+use App\Group;
+use App\Company;
+use App\Country;
+use App\Batch;
 class NewUserController extends BaseController
 {
    public function __construct(){
@@ -22,7 +24,10 @@ class NewUserController extends BaseController
 
     public function getNewUsers(){
         $newusers = NewUser::all();
-        $userCat = Category::all();
-      return view('newusers.newuser', compact('newusers','userCat'));
+        $userCat = Group::all();
+        $userCom = Company::all();
+        $userCou = Country::all();
+        $userBat = Batch::all();
+      return view('newusers.newuser', compact('newusers','userCat', 'userCom', 'userCou', 'userBat'));
     }
 }

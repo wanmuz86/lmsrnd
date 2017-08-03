@@ -11,6 +11,6 @@ class NewUser extends Model
     protected $primaryKey='newuser_id';
     public $timestamps='false';
      protected $fillable = [
-        'first_name', 'last_name', 'email',  'category_id', 'startdate', 'batch_id', 'company_id', 'country_id',
+        'first_name', 'last_name', 'email',  'group_id', 'startdate', 'batch_id', 'company_id', 'country_id',
     ];
 }

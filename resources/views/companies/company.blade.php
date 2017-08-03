@@ -11,7 +11,7 @@
 <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-      User
+      Company
       </h1>
       <ol class="breadcrumb">
         <button type="button" class="btn btn-info btn-sm " data-toggle="modal" data-target="#modal-info">
@@ -27,84 +27,20 @@
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Add User</h4>
+            <h4 class="modal-title">Add Batch</h4>
           </div>
           <div class="modal-body">
                   <!-- Custom Tabs (Pulled to the right) -->
-                  <form action="#" method="POST" id="frm-newuser-create">
+                  <form action="#" method="POST" id="frm-company-create">
                   {!! csrf_field() !!}
                     <div class="row">
                         <div class="form-group">
-                          <label for="first_name" class="col-sm-3 control-label">First Name: </label>
-                          <div class="col-sm-9">
-                          <input type="text" class="form-control" name="first_name" id="first_name" placeholder="First Name">
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label for="last_name" class="col-sm-3 control-label">Last Name: </label>
-                          <div class="col-sm-9">
-                          <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Last Name">
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label for="email" class="col-sm-3 control-label">Email: </label>
-                          <div class="col-sm-9">
-                          <input type="text" class="form-control" name="email" id="email" placeholder="Email">
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label for="batch_id" class="col-sm-3 control-label">Group: </label>
-
-                          <div class="col-sm-9">
-                          <select class="form-control" name="group_name" id="group_name" data-placeholder="Select " style="width: 100%;">
-                          @foreach($userCat as $cat)
-                             <option value="{{$cat->id}}">{{$cat->group_name}}</option>
-                            @endforeach
-                          </select>
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label for="startdate" class="col-sm-3 control-label">Start Date: </label>
-
-                          <div class="col-sm-9">
-                          <input type="date" class="form-control" name="startdate" id="startdate" placeholder="Start Date">
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label for="batch_id" class="col-sm-3 control-label">Batch: </label>
-
-                          <div class="col-sm-9">
-                          <select class="form-control" name="batch_id" id="batch_id" data-placeholder="Select " style="width: 100%;">
-                          @foreach($userBat as $bat)
-                             <option value="{{$bat->id}}">{{$bat->batch_name}}</option>
-                          @endforeach
-                          </select>  
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label for="inputEmail3" class="col-sm-3 control-label">Company: </label>
-
-                          <div class="col-sm-9">
-                          <select class="form-control" name="company_id" id="company_id"  data-placeholder="Select " style="width: 100%;">
-                          @foreach($userCom as $com)
-                             <option value="{{$com->id}}">{{$com->company_name}}</option>
-                          @endforeach
-                          </select>
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label for="country_id"  class="col-sm-3 control-label">Country: </label>
-
-                          <div class="col-sm-9">
-                          <select class="form-control" name="country_id" id="country_id" data-placeholder="Select " style="width: 100%;">
-                          @foreach($userCou as $cou)
-                             <option value="{{$cou->id}}">{{$cou->country_name}}</option>
-                            @endforeach
-                          </select>
+                          <label for="category_name" class="col-sm-3 control-label">Company Name: </label>
+                          <div class="col-sm-12">
+                          <input type="text" class="form-control" name="company_name" id="company_name" placeholder="First Name">
                           </div>
                         </div>
                     </div>
-
                   </div>
           <div class="modal-footer">
            <button type="submit" class="btn btn-primary">Submit</button>
@@ -152,26 +88,27 @@
                           <tbody>
                           <tr class="info">
                             <td><input type="checkbox"></td>
-                            <td class="mailbox-star"><a>Full Name</a></td>
-                            <td class="mailbox-name"><a >Email</a></td>
-                            <td class="mailbox-subject"><a>Group</a></td>
-                            <td class="mailbox-attachment"><a>Batch</a></td>
-                            <td class="mailbox-date"><a>Company</a></td>
-                            <td class="mailbox-date"><a>Country</a></td>
+                            <td class="mailbox-star"><a href="#">Company</a></td>
+                            <td class="mailbox-name"><a href="#">Email</a></td>
+                            <td class="mailbox-subject"><a>Address</a></td>
+                            <td class="mailbox-attachment"><a href="#">Fon No.</a></td>
+                            <td class="mailbox-date"><a href="#">logo</a></td>
                           </tr>
-                          @foreach($newusers as $newuser)
-                          <tr>
+                          @if (count($companies) > 0)
+                          @foreach($companies as $company)
+                          <tr class="info">
                             <td><input type="checkbox"></td>
-                            <td class="mailbox-star"><a ><i class="fa fa-male"> {{$newuser->first_name}}{{$newuser->last_name}}</i></a></td>
-                            <td class="mailbox-name"><a></i>{{$newuser->email}}</i></a></td>
-                            <td class="mailbox-subject"><a >{{$newuser->group_name}}</a></td>
-                            <td class="mailbox-attachment"><a>{{$newuser->batch_id}}</a></td>
-                            <td class="mailbox-date">{{$newuser->company_id}}</td>
-                            <td class="mailbox-date">{{$newuser->country_id}}</td>
+                            <td class="mailbox-star"><a href="#">{{$company->company_name}}</a></td>
+                            <td class="mailbox-name"><a href="#"></a></td>
+                            <td class="mailbox-subject"><a></a></td>
+                            <td class="mailbox-attachment"><a href="#"></a></td>
+                            <td class="mailbox-date"><a href="#"></a></td>
                           </tr>
-                          @endforeach
+                       @endforeach
 
+                       @endif
                           </tbody>
+
                         </table>
                         <!-- /.table -->
                       </div>
@@ -269,12 +206,12 @@
 
 @section('script')
 <script>
-$('#frm-newuser-create').on('submit',function(e){
+$('#frm-company-create').on('submit',function(e){
   e.preventDefault();
   console.log('pressed');
   var data = $(this).serialize();
   console.log(data);
-  $.post("{{route('createNewUser')}}", data, function(response){
+  $.post("{{route('createCompany')}}", data, function(response){
 
     console.log(response);
   });
