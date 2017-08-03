@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
-use App\NewUser;
 
+use App\NewUser;
+use App\Category;
 
 class NewUserController extends BaseController
 {
@@ -21,7 +22,7 @@ class NewUserController extends BaseController
 
     public function getNewUsers(){
         $newusers = NewUser::all();
-
-      return view('newusers.newuser', compact('newusers'));
+        $userCat = Category::all();
+      return view('newusers.newuser', compact('newusers','userCat'));
     }
 }

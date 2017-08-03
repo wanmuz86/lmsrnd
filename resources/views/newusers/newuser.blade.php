@@ -52,7 +52,17 @@
                           <input type="text" class="form-control" name="email" id="email" placeholder="Email">
                           </div>
                         </div>
+                        <div class="form-group">
+                          <label for="batch_id" class="col-sm-3 control-label">Category: </label>
 
+                          <div class="col-sm-9">
+                          <select class="form-control" name="category_id" id="category_id" data-placeholder="Select " style="width: 100%;">
+                          @foreach($userCat as $cat)
+                             <option value="{{$cat->id}}">{{$cat->category_name}}</option>
+                            @endforeach
+                          </select>
+                          </div>
+                        </div>
                         <div class="form-group">
                           <label for="startdate" class="col-sm-3 control-label">Start Date: </label>
 

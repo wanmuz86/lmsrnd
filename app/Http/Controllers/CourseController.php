@@ -5,6 +5,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 
 use App\Course;
+use App\Category;
 class CourseController extends BaseController
 {
    public function __construct(){
@@ -19,7 +20,7 @@ class CourseController extends BaseController
 
     public function getCourses(){
         $courses = Course::all();
-      
-    	return view('course.course', compact('courses'));
+        $courseCat = Category::all();
+    	return view('course.course', compact('courses', 'courseCat'));
     }
 }

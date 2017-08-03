@@ -34,10 +34,15 @@
                   <form action="#" method="POST" id="frm-course-create">
                   {!! csrf_field() !!}
                     <div class="row">
-                    <div class="form-group">
-                          <label for="category_name" class="col-sm-3 control-label">Category ID</label>
-                          <div class="col-sm-12">
-                          <input type="text" class="form-control" name="category_id" id="category_id" >
+                        <div class="form-group">
+                          <label for="batch_id" class="col-sm-3 control-label">Category: </label>
+
+                          <div class="col-sm-9">
+                          <select class="form-control" name="category_id" id="category_id" data-placeholder="Select " style="width: 100%;">
+                          @foreach($courseCat as $cat)
+                             <option value="{{$cat->id}}">{{$cat->category_name}}</option>
+                            @endforeach
+                          </select>
                           </div>
                         </div>
                         <div class="form-group">
@@ -161,7 +166,7 @@
 
 
                           </tbody>
-                    
+
                         </table>
                         <!-- /.table -->
                       </div>

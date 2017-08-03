@@ -114,7 +114,11 @@
 
                        @endif
                           </tbody>
+<<<<<<< HEAD:resources/views/groups/group.blade.php
                        
+=======
+                      
+>>>>>>> f86a395bc29d9fcd14301fb5e0846bf8bc4c1ab9:resources/views/newcategoris/newcategoris.blade.php
                         </table>
                         <!-- /.table -->
                       </div>
