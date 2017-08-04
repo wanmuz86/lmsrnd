@@ -15,6 +15,8 @@ class CreateCourseNewUserTable extends Migration
     {
         Schema::create('course_new_user', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('couse_id')->unsigned();
+            $table->integer('newuser_id')->unsigned();
             $table->timestamps();
         });
     }
