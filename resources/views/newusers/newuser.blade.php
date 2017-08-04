@@ -56,9 +56,9 @@
                           <label for="batch_id" class="col-sm-3 control-label">Group: </label>
 
                           <div class="col-sm-9">
-                          <select class="form-control" name="group_name" id="group_name" data-placeholder="Select " style="width: 100%;">
-                          @foreach($userCat as $cat)
-                             <option value="{{$cat->id}}">{{$cat->group_name}}</option>
+                          <select class="form-control" name="group_id" id="group_id" data-placeholder="Select " style="width: 100%;">
+                          @foreach($userGro as $gro)
+                             <option value="{{$gro->id}}">{{$gro->group_name}}</option>
                             @endforeach
                           </select>
                           </div>
@@ -78,7 +78,7 @@
                           @foreach($userBat as $bat)
                              <option value="{{$bat->id}}">{{$bat->batch_name}}</option>
                           @endforeach
-                          </select>  
+                          </select>
                           </div>
                         </div>
                         <div class="form-group">
@@ -159,15 +159,15 @@
                             <td class="mailbox-date"><a>Company</a></td>
                             <td class="mailbox-date"><a>Country</a></td>
                           </tr>
-                          @foreach($newusers as $newuser)
+                          @foreach($newUsers as $newUser)
                           <tr>
                             <td><input type="checkbox"></td>
-                            <td class="mailbox-star"><a ><i class="fa fa-male"> {{$newuser->first_name}}{{$newuser->last_name}}</i></a></td>
-                            <td class="mailbox-name"><a></i>{{$newuser->email}}</i></a></td>
-                            <td class="mailbox-subject"><a >{{$newuser->group_name}}</a></td>
-                            <td class="mailbox-attachment"><a>{{$newuser->batch_id}}</a></td>
-                            <td class="mailbox-date">{{$newuser->company_id}}</td>
-                            <td class="mailbox-date">{{$newuser->country_id}}</td>
+                            <td class="mailbox-star"><a href=""><i class="fa fa-male"> {{$newUser->first_name}}{{$newUser->last_name}}</i></a></td>
+                            <td class="mailbox-name"><a></i>{{$newUser->email}}</i></a></td>
+                            <td class="mailbox-subject"><a >{{$newUser->group->group_name}}</a></td>
+                            <td class="mailbox-attachment"><a>{{$newUser->batch->batch_name}}</a></td>
+                            <td class="mailbox-date"><a href="#">{{$newUser->company->company_name}}</a></td>
+                            <td class="mailbox-date"><a href="#">{{$newUser->country->country_name}}</a></td>
                           </tr>
                           @endforeach
 

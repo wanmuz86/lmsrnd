@@ -61,6 +61,8 @@ Route::get('/attendances', ['as'=>'attendances', 'uses'=>function(){
 Route::get('/syllabus', ['as'=>'syllabus', 'uses'=>function(){
 	return view('syllabus/syllabus');
 }]);
+Route::post( '/manage/course/profile',['as'=>'profile','uses'=>'NewUserController@createProfile']);
+Route::get('/profile', ['as'=>'profiles', 'uses'=>'NewUserController@getNewUserProfile']);
 
 Route::post( '/manage/course/country',['as'=>'createCountry','uses'=>'CountryController@createCountry']);
 Route::get('/countries', ['as'=>'countries', 'uses'=>'CountryController@getCountries']);

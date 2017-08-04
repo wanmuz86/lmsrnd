@@ -23,11 +23,16 @@ class NewUserController extends BaseController
 
 
     public function getNewUsers(){
-        $newusers = NewUser::all();
-        $userCat = Group::all();
+        $newUsers = NewUser::all();
+        $userGro = Group::all();
         $userCom = Company::all();
         $userCou = Country::all();
         $userBat = Batch::all();
-      return view('newusers.newuser', compact('newusers','userCat', 'userCom', 'userCou', 'userBat'));
+      return view('newusers.newuser', compact('newUsers','userGro', 'userCom', 'userCou', 'userBat'));
     }
+    public function getNewUserProfile(){
+      $profile = NewUser::where('id',1)->get();
+        return view('profiles.profile', compact('profile'));
+    }
+
 }

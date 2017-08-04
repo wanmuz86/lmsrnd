@@ -142,7 +142,7 @@
                             <td><input type="checkbox"></td>
                             <td class="mailbox-star"><a href="#">Course Name</a></td>
                             <td class="mailbox-name"><a href="#">Course Desc</a></td>
-                            <td class="mailbox-subject"><a>Score</a></td>
+                            <td class="mailbox-subject"><a>Category</a></td>
                             <td class="mailbox-attachment"><a href="#">Grades</a></td>
                             <td class="mailbox-date"><a href="#">Due</a></td>
                             <td class="mailbox-date"><a href="#">Mastery</a></td>
@@ -155,7 +155,7 @@
                             <td><input type="checkbox"></td>
                             <td class="mailbox-star"><a href="#">{{$course->course_name}}</a></td>
                             <td class="mailbox-name"><a href="#">{{$course->course_desc}}</a></td>
-                            <td class="mailbox-subject"><a></a></td>
+                            <td class="mailbox-subject"><a>{{$course->category->category_name}}</a></td>
                             <td class="mailbox-attachment"><a href="#"></a></td>
                             <td class="mailbox-date"><a href="#"></a></td>
                             <td class="mailbox-date"><a href="#"></a></td>

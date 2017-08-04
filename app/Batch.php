@@ -13,4 +13,10 @@ class Batch extends Model
    protected $fillable = [
       'batch_name',
   ];
+
+  public function newUsers()
+ {
+     return $this->hasMany('App\NewUser');
+ }
+
 }

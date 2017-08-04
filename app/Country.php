@@ -12,4 +12,10 @@ class Country extends Model
   protected $fillable = [
       'country_name',
   ];
+
+  public function newUsers()
+ {
+     return $this->hasMany('App\NewUser');
+ }
+
 }

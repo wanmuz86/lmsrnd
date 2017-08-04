@@ -12,4 +12,10 @@ class Group extends Model
    protected $fillable = [
       'group_name',
   ];
+
+  public function newUsers()
+ {
+     return $this->hasMany('App\NewUser');
+ }
+
 }

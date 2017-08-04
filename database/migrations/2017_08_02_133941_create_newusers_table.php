@@ -19,6 +19,7 @@ class CreateNewusersTable extends Migration
            $table->string('last_name');
            $table->string('email');
            $table->date('startdate');
+           $table->integer('group_id')->unsigned();
            $table->integer('batch_id')->unsigned();
            $table->integer('company_id')->unsigned();
            $table->integer('country_id')->unsigned();

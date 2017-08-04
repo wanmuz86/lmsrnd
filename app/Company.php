@@ -13,4 +13,9 @@ class Company extends Model
       'company_name',
     ];
 
+    public function newUsers()
+   {
+       return $this->hasMany('App\NewUser');
+   }
+
 }
