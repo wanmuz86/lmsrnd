@@ -35,7 +35,7 @@
       <li class=" treeview">
         <a href="#">
           <i class="fa fa-gear"></i>
-          <span>Course Management</span>
+          <span>Course Dashboard</span>
         </a>
       </li>
       <li class="treeview">

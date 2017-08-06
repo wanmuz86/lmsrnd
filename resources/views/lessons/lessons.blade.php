@@ -13,7 +13,7 @@
         <h1>
         Lessons
         </h1>
-        <p>Lessons and sections can be completed in any order.</p>
+        <p>Lessons and sections can be completed in any order. {{$course_id}}</p>
       </div>
 
       <ol class="breadcrumb">

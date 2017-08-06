@@ -23,4 +23,10 @@ class CourseController extends BaseController
         $courseCat = Category::all();
     	return view('course.course', compact('courses', 'courseCat'));
     }
+
+    public function getCourseDetail($id,Request $request){
+        $course_id = $id;
+        return view('lessons.lessons', compact('courses', 'courseCat','course_id'));
+
+    }
 }
