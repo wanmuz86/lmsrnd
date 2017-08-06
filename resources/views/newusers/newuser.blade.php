@@ -141,12 +141,78 @@
                           <button type="button" class="btn btn-default btn-sm"><i class="fa fa-key"> Password</i></button>
                           <button type="button" class="btn btn-default btn-sm"><i class="fa fa-star"> Award</i></button>
                           <button type="button" class="btn btn-default btn-sm"><i class="fa fa-minus-square"> Unenroll</i></button>
-                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-gear"></i> Setting</button>
+                        <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#edit"><i class="fa fa-gear"></i> Edit</button>
                         </div>
                         <!-- /.btn-group -->
 
                         <!-- /.pull-right -->
                       </div>
+                      <div class="modal modal-info fade" id="edit">
+                        <div class="modal-dialog modal-lg">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span></button>
+                              <h4 class="modal-title">Add Page</h4>
+                            </div>
+                            <div class="modal-body">
+                                    <!-- Custom Tabs (Pulled to the right) -->
+                                    <form action="#" method="POST" id="frm-newuser-create">
+                                    {!! csrf_field() !!}
+                                      <div class="row">
+                                          <div class="form-group">
+                                            <label for="first_name" class="col-sm-3 control-label">Page Title: </label>
+                                            <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="first_name" id="first_name" placeholder="First Name">
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                              <label lass="col-sm-12 control-label">Page Body</label>
+                                          <div class="box-body pad">
+                                            <form>
+                                                <textarea id="editor1" name="editor1" rows="10" cols="80">
+                                                </textarea>
+                                            </form>
+                                          </div>
+
+                                            <!-- /.box -->
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="email" class="col-sm-3 control-label">Published: </label>
+                                            <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="email" id="email" placeholder="Email">
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="batch_id" class="col-sm-3 control-label">Meta Tags: </label>
+
+                                            <div class="col-sm-9">
+                                            <select class="form-control" name="group_id" id="group_id" data-placeholder="Select " style="width: 100%;">
+
+                                            </select>
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="startdate" class="col-sm-3 control-label">Meta Description: </label>
+
+                                            <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="startdate" id="startdate" placeholder="Start Date">
+                                            </div>
+                                          </div>
+                                      </div>
+                                    </div>
+                            <div class="modal-footer">
+                              <button type="close" class="btn btn-danger">Close</button>
+                             <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                            </form>
+                          </div>
+
+                          <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                      </div>
+                      <!-- /.modal -->
                       <div class="table-responsive mailbox-messages">
                         <table class="table table-hover table-striped">
                           <tbody>
@@ -268,6 +334,7 @@
 @endsection
 
 @section('script')
+
 <script>
 $('#frm-newuser-create').on('submit',function(e){
   e.preventDefault();

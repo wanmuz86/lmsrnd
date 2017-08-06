@@ -61,6 +61,11 @@ Route::get('/attendances', ['as'=>'attendances', 'uses'=>function(){
 Route::get('/syllabus', ['as'=>'syllabus', 'uses'=>function(){
 	return view('syllabus/syllabus');
 }]);
+
+Route::post( '/manage/course/cambe',['as'=>'cambe','uses'=>'CambeController@createCambe']);
+Route::get('/cambe', ['as'=>'cambes', 'uses'=>'CambeController@getCambes']);
+
+
 Route::post( '/manage/course/profile',['as'=>'profile','uses'=>'NewUserController@createProfile']);
 Route::get('/profile', ['as'=>'profiles', 'uses'=>'NewUserController@getNewUserProfile']);
 

@@ -166,10 +166,11 @@ desired effect
 {!!Html::script('js/bootstrap.min.js')!!}
 <!-- AdminLTE App -->
 {!!Html::script('js/app.min.js')!!}
+{!!Html::script('js/ckeditor.js')!!}
 
   @yield('script')
   <script>
-    
+
     $(document).ready(function(){
       $.ajaxSetup({
         headers: {
