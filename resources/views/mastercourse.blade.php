@@ -171,6 +171,7 @@ desired effect
 {!!Html::script('js/bootstrap.min.js')!!}
 <!-- AdminLTE App -->
 {!!Html::script('js/app.min.js')!!}
+{!!Html::script('js/ckeditor.js')!!}
 
  @yield('script')
 <!-- Optionally, you can add Slimscroll and FastClick plugins.

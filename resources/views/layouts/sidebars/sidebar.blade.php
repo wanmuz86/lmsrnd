@@ -65,12 +65,17 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i> User Management</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Group Management </a></li>
+            <li><a href="{{route('newusers')}}"><i class="fa fa-circle-o"></i> User Management</a></li>
+            <li><a href="{{route('groups')}}"><i class="fa fa-circle-o"></i> Group Management </a></li>
+            <li><a href="{{route('batches')}}"><i class="fa fa-circle-o"></i> Batch Management </a></li>
+            <li><a href="{{route('companies')}}"><i class="fa fa-circle-o"></i> Company Management </a></li>
+            <li><a href="{{route('countries')}}"><i class="fa fa-circle-o"></i> Country Management </a></li>
           </ul>
         </li>
         <li class="treeview">
+
           <a href="{{route('calendar')}}">
+
             <i class="fa fa-calendar"></i> <span>Course Calendar and Event</span>
           </a>
         </li>

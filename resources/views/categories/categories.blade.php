@@ -47,7 +47,7 @@
           </div>
           </form>
         </div>
-        
+
         <!-- /.modal-content -->
       </div>
       <!-- /.modal-dialog -->
@@ -114,6 +114,10 @@
 
                        @endif
                           </tbody>
+<<<<<<< HEAD
+=======
+                    
+>>>>>>> 9f8e59434357c73667d7a42411f34809d283ab2d
                         </table>
                         <!-- /.table -->
                       </div>
@@ -206,7 +210,7 @@
       <!-- Main content -->
     </section>
 
-    
+
 @endsection
 
 @section('script')
@@ -217,11 +221,10 @@ $('#frm-category-create').on('submit',function(e){
   var data = $(this).serialize();
   console.log(data);
   $.post("{{route('createCategory')}}", data, function(response){
-    
+
     console.log(response);
   });
 });
 
 </script>
 @endsection
-

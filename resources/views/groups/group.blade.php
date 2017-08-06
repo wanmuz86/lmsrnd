@@ -11,7 +11,7 @@
 <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-      Course
+    Group
       </h1>
       <ol class="breadcrumb">
         <button type="button" class="btn btn-info btn-sm " data-toggle="modal" data-target="#modal-info">
@@ -27,69 +27,17 @@
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Add Course</h4>
+            <h4 class="modal-title">Add Group</h4>
           </div>
           <div class="modal-body">
                   <!-- Custom Tabs (Pulled to the right) -->
-                  <form action="#" method="POST" id="frm-course-create">
+                  <form action="#" method="POST" id="frm-group-create">
                   {!! csrf_field() !!}
                     <div class="row">
                         <div class="form-group">
-                          <label for="batch_id" class="col-sm-3 control-label">Category: </label>
-
-                          <div class="col-sm-9">
-                          <select class="form-control" name="category_id" id="category_id" data-placeholder="Select " style="width: 100%;">
-                          @foreach($courseCat as $cat)
-                             <option value="{{$cat->id}}">{{$cat->category_name}}</option>
-                            @endforeach
-                          </select>
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label for="category_name" class="col-sm-3 control-label">Course Name</label>
+                          <label for="Group_name" class="col-sm-3 control-label">Group Name: </label>
                           <div class="col-sm-12">
-                          <input type="text" class="form-control" name="course_name" id="course_name" >
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label for="category_name" class="col-sm-3 control-label">Course Desc: </label>
-                          <div class="col-sm-12">
-                          <textarea type="text" class="form-control" name="course_desc" id="course_desc" placeholder="First Name"></textarea>
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <div class="col-sm-12">
-                         <input type="text" name="is_active" id="is_active">
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label for="category_name" class="col-sm-3 control-label">Activation Date </label>
-                          <div class="col-sm-12">
-                          <input type="date" class="form-control" name="activation_date" id="activation_date" >
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label for="category_name" class="col-sm-3 control-label">End Date </label>
-                          <div class="col-sm-12">
-                          <input type="date" class="form-control" name="end_date" id="end_date" >
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label for="category_name" class="col-sm-3 control-label"> Trainer</label>
-                          <div class="col-sm-12">
-                          <input type="text" class="form-control" name="trainer_id" id="trainer_id" >
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label for="category_name" class="col-sm-3 control-label">Course Logo</label>
-                          <div class="col-sm-12">
-                          <input type="text" class="form-control" name="course_logo" id="course_logo" >
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label for="category_name" class="col-sm-3 control-label">Price </label>
-                          <div class="col-sm-12">
-                          <input type="text" class="form-control" name="price" id="price" >
+                          <input type="text" class="form-control" name="group_name" id="group_name" placeholder="Group Name">
                           </div>
                         </div>
                     </div>
@@ -140,22 +88,22 @@
                           <tbody>
                           <tr class="info">
                             <td><input type="checkbox"></td>
-                            <td class="mailbox-star"><a href="#">Course Name</a></td>
-                            <td class="mailbox-name"><a href="#">Course Desc</a></td>
-                            <td class="mailbox-subject"><a>Category</a></td>
+                            <td class="mailbox-star"><a href="#">Group </a></td>
+                            <td class="mailbox-name"><a href="#">Progress</a></td>
+                            <td class="mailbox-subject"><a>Score</a></td>
                             <td class="mailbox-attachment"><a href="#">Grades</a></td>
                             <td class="mailbox-date"><a href="#">Due</a></td>
                             <td class="mailbox-date"><a href="#">Mastery</a></td>
                             <td class="mailbox-date"><a href="#">Enroll</a></td>
                             <td class="mailbox-date"><a href="#">More</a></td>
                           </tr>
-
-                          @foreach($courses as $course)
+                          @if (count($groups) > 0)
+                          @foreach($groups as $group)
                           <tr class="info">
                             <td><input type="checkbox"></td>
-                            <td class="mailbox-star"><a href="#">{{$course->course_name}}</a></td>
-                            <td class="mailbox-name"><a href="#">{{$course->course_desc}}</a></td>
-                            <td class="mailbox-subject"><a>{{$course->category->category_name}}</a></td>
+                            <td class="mailbox-star"><a href="#">{{$group->group_name}}</a></td>
+                            <td class="mailbox-name"><a href="#"></a></td>
+                            <td class="mailbox-subject"><a></a></td>
                             <td class="mailbox-attachment"><a href="#"></a></td>
                             <td class="mailbox-date"><a href="#"></a></td>
                             <td class="mailbox-date"><a href="#"></a></td>
@@ -164,7 +112,7 @@
                           </tr>
                        @endforeach
 
-
+                       @endif
                           </tbody>
 
                         </table>
@@ -264,12 +212,12 @@
 
 @section('script')
 <script>
-$('#frm-course-create').on('submit',function(e){
+$('#frm-group-create').on('submit',function(e){
   e.preventDefault();
   console.log('pressed');
   var data = $(this).serialize();
   console.log(data);
-  $.post("{{route('createCourse')}}", data, function(response){
+  $.post("{{route('createGroup')}}", data, function(response){
 
     console.log(response);
   });

@@ -11,7 +11,7 @@
 <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-      Student
+      User
       </h1>
       <ol class="breadcrumb">
         <button type="button" class="btn btn-info btn-sm " data-toggle="modal" data-target="#modal-info">
@@ -27,11 +27,11 @@
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Add Student</h4>
+            <h4 class="modal-title">Add User</h4>
           </div>
           <div class="modal-body">
                   <!-- Custom Tabs (Pulled to the right) -->
-                  <form action="#" method="POST" id="frm-newstudent-create">
+                  <form action="#" method="POST" id="frm-newuser-create">
                   {!! csrf_field() !!}
                     <div class="row">
                         <div class="form-group">
@@ -52,7 +52,17 @@
                           <input type="text" class="form-control" name="email" id="email" placeholder="Email">
                           </div>
                         </div>
+                        <div class="form-group">
+                          <label for="batch_id" class="col-sm-3 control-label">Group: </label>
 
+                          <div class="col-sm-9">
+                          <select class="form-control" name="group_id" id="group_id" data-placeholder="Select " style="width: 100%;">
+                          @foreach($userGro as $gro)
+                             <option value="{{$gro->id}}">{{$gro->group_name}}</option>
+                            @endforeach
+                          </select>
+                          </div>
+                        </div>
                         <div class="form-group">
                           <label for="startdate" class="col-sm-3 control-label">Start Date: </label>
 
@@ -65,11 +75,9 @@
 
                           <div class="col-sm-9">
                           <select class="form-control" name="batch_id" id="batch_id" data-placeholder="Select " style="width: 100%;">
-                             <option value="1"></option>
-                             <option value="1"></option>
-                             <option value="1"></option>
-                             <option value="1"></option>
-                             <option value="1"></option>
+                          @foreach($userBat as $bat)
+                             <option value="{{$bat->id}}">{{$bat->batch_name}}</option>
+                          @endforeach
                           </select>
                           </div>
                         </div>
@@ -78,11 +86,9 @@
 
                           <div class="col-sm-9">
                           <select class="form-control" name="company_id" id="company_id"  data-placeholder="Select " style="width: 100%;">
-                             <option value="1"></option>
-                             <option value="1"></option>
-                             <option value="1"></option>
-                             <option value="1"></option>
-                             <option value="1"></option>
+                          @foreach($userCom as $com)
+                             <option value="{{$com->id}}">{{$com->company_name}}</option>
+                          @endforeach
                           </select>
                           </div>
                         </div>
@@ -91,11 +97,9 @@
 
                           <div class="col-sm-9">
                           <select class="form-control" name="country_id" id="country_id" data-placeholder="Select " style="width: 100%;">
-                             <option value="1"></option>
-                             <option value="1"></option>
-                             <option value="1"></option>
-                             <option value="1"></option>
-                             <option value="1"></option>
+                          @foreach($userCou as $cou)
+                             <option value="{{$cou->id}}">{{$cou->country_name}}</option>
+                            @endforeach
                           </select>
                           </div>
                         </div>
@@ -137,37 +141,99 @@
                           <button type="button" class="btn btn-default btn-sm"><i class="fa fa-key"> Password</i></button>
                           <button type="button" class="btn btn-default btn-sm"><i class="fa fa-star"> Award</i></button>
                           <button type="button" class="btn btn-default btn-sm"><i class="fa fa-minus-square"> Unenroll</i></button>
-                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-gear"></i> Setting</button>
+                        <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#edit"><i class="fa fa-gear"></i> Edit</button>
                         </div>
                         <!-- /.btn-group -->
 
                         <!-- /.pull-right -->
                       </div>
+                      <div class="modal modal-info fade" id="edit">
+                        <div class="modal-dialog modal-lg">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span></button>
+                              <h4 class="modal-title">Add Page</h4>
+                            </div>
+                            <div class="modal-body">
+                                    <!-- Custom Tabs (Pulled to the right) -->
+                                    <form action="#" method="POST" id="frm-newuser-create">
+                                    {!! csrf_field() !!}
+                                      <div class="row">
+                                          <div class="form-group">
+                                            <label for="first_name" class="col-sm-3 control-label">Page Title: </label>
+                                            <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="first_name" id="first_name" placeholder="First Name">
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                              <label lass="col-sm-12 control-label">Page Body</label>
+                                          <div class="box-body pad">
+                                            <form>
+                                                <textarea id="editor1" name="editor1" rows="10" cols="80">
+                                                </textarea>
+                                            </form>
+                                          </div>
+
+                                            <!-- /.box -->
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="email" class="col-sm-3 control-label">Published: </label>
+                                            <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="email" id="email" placeholder="Email">
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="batch_id" class="col-sm-3 control-label">Meta Tags: </label>
+
+                                            <div class="col-sm-9">
+                                            <select class="form-control" name="group_id" id="group_id" data-placeholder="Select " style="width: 100%;">
+
+                                            </select>
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="startdate" class="col-sm-3 control-label">Meta Description: </label>
+
+                                            <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="startdate" id="startdate" placeholder="Start Date">
+                                            </div>
+                                          </div>
+                                      </div>
+                                    </div>
+                            <div class="modal-footer">
+                              <button type="close" class="btn btn-danger">Close</button>
+                             <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                            </form>
+                          </div>
+
+                          <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                      </div>
+                      <!-- /.modal -->
                       <div class="table-responsive mailbox-messages">
                         <table class="table table-hover table-striped">
                           <tbody>
                           <tr class="info">
                             <td><input type="checkbox"></td>
-                            <td class="mailbox-star"><a href="#">Student</a></td>
-                            <td class="mailbox-name"><a href="#">Progress</a></td>
-                            <td class="mailbox-subject"><a>Score</a></td>
-                            <td class="mailbox-attachment"><a href="#">Grades</a></td>
-                            <td class="mailbox-date"><a href="#">Due</a></td>
-                            <td class="mailbox-date"><a href="#">Mastery</a></td>
-                            <td class="mailbox-date"><a href="#">Enroll</a></td>
-                            <td class="mailbox-date"><a href="#">More</a></td>
+                            <td class="mailbox-star"><a>Full Name</a></td>
+                            <td class="mailbox-name"><a >Email</a></td>
+                            <td class="mailbox-subject"><a>Group</a></td>
+                            <td class="mailbox-attachment"><a>Batch</a></td>
+                            <td class="mailbox-date"><a>Company</a></td>
+                            <td class="mailbox-date"><a>Country</a></td>
                           </tr>
-                          @foreach($newstudents as $newstudent)
+                          @foreach($newUsers as $newUser)
                           <tr>
                             <td><input type="checkbox"></td>
-                            <td class="mailbox-star"><a href="#"><i class="fa fa-male"> {{$newstudent->first_name}}</i></a></td>
-                            <td class="mailbox-name"><a href="#"><i class="fa fa-tasks"></i></a></td>
-                            <td class="mailbox-subject">-</i></td>
-                            <td class="mailbox-attachment"><a>-</a></td>
-                            <td class="mailbox-date">-</td>
-                            <td class="mailbox-date">-</td>
-                            <td class="mailbox-date">{{$newstudent->startdate}}</td>
-                            <td class="mailbox-date"><i class="fa fa-gear"></td>
+                            <td class="mailbox-star"><a href=""><i class="fa fa-male"> {{$newUser->first_name}}{{$newUser->last_name}}</i></a></td>
+                            <td class="mailbox-name"><a></i>{{$newUser->email}}</i></a></td>
+                            <td class="mailbox-subject"><a >{{$newUser->group->group_name}}</a></td>
+                            <td class="mailbox-attachment"><a>{{$newUser->batch->batch_name}}</a></td>
+                            <td class="mailbox-date"><a href="#">{{$newUser->company->company_name}}</a></td>
+                            <td class="mailbox-date"><a href="#">{{$newUser->country->country_name}}</a></td>
                           </tr>
                           @endforeach
 
@@ -268,13 +334,14 @@
 @endsection
 
 @section('script')
+
 <script>
-$('#frm-newstudent-create').on('submit',function(e){
+$('#frm-newuser-create').on('submit',function(e){
   e.preventDefault();
   console.log('pressed');
   var data = $(this).serialize();
   console.log(data);
-  $.post("{{route('createStudent')}}", data, function(response){
+  $.post("{{route('createNewUser')}}", data, function(response){
 
     console.log(response);
   });

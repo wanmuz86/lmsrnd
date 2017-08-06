@@ -27,17 +27,17 @@
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Add Category</h4>
+            <h4 class="modal-title">Add Cambe</h4>
           </div>
           <div class="modal-body">
                   <!-- Custom Tabs (Pulled to the right) -->
-                  <form action="#" method="POST" id="frm-newcategory-create">
+                  <form action="#" method="POST" id="frm-cambe-create">
                   {!! csrf_field() !!}
                     <div class="row">
                         <div class="form-group">
-                          <label for="category_name" class="col-sm-3 control-label">Category Name: </label>
+                          <label for="category_name" class="col-sm-3 control-label">Cambe Name: </label>
                           <div class="col-sm-12">
-                          <input type="text" class="form-control" name="category_name" id="category_name" placeholder="First Name">
+                          <input type="text" class="form-control" name="cambe_name" id="cambe_name" placeholder="First Name">
                           </div>
                         </div>
                     </div>
@@ -88,7 +88,7 @@
                           <tbody>
                           <tr class="info">
                             <td><input type="checkbox"></td>
-                            <td class="mailbox-star"><a href="#">Category </a></td>
+                            <td class="mailbox-star"><a href="#">Cambe </a></td>
                             <td class="mailbox-name"><a href="#">Progress</a></td>
                             <td class="mailbox-subject"><a>Score</a></td>
                             <td class="mailbox-attachment"><a href="#">Grades</a></td>
@@ -97,11 +97,11 @@
                             <td class="mailbox-date"><a href="#">Enroll</a></td>
                             <td class="mailbox-date"><a href="#">More</a></td>
                           </tr>
-                          @if (count($newcategories) > 0)
-                          @foreach($newcategories as $newcategory)
+                          @if (count($cambes) > 0)
+                          @foreach($cambes as $cambe)
                           <tr class="info">
                             <td><input type="checkbox"></td>
-                            <td class="mailbox-star"><a href="#">{{$newcategory->category_name}}</a></td>
+                            <td class="mailbox-star"><a href="#">{{$cambe->cambe_name}}</a></td>
                             <td class="mailbox-name"><a href="#"></a></td>
                             <td class="mailbox-subject"><a></a></td>
                             <td class="mailbox-attachment"><a href="#"></a></td>
@@ -114,7 +114,7 @@
 
                        @endif
                           </tbody>
-                      
+
                         </table>
                         <!-- /.table -->
                       </div>
@@ -212,12 +212,12 @@
 
 @section('script')
 <script>
-$('#frm-newcategory-create').on('submit',function(e){
+$('#frm-cambe-create').on('submit',function(e){
   e.preventDefault();
   console.log('pressed');
   var data = $(this).serialize();
   console.log(data);
-  $.post("{{route('createCategory')}}", data, function(response){
+  $.post("{{route('createCambe')}}", data, function(response){
 
     console.log(response);
   });

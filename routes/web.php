@@ -62,31 +62,45 @@ Route::get('/syllabus', ['as'=>'syllabus', 'uses'=>function(){
 	return view('syllabus/syllabus');
 }]);
 
+Route::post( '/manage/course/cambe',['as'=>'cambe','uses'=>'CambeController@createCambe']);
+Route::get('/cambe', ['as'=>'cambes', 'uses'=>'CambeController@getCambes']);
 
+
+Route::post( '/manage/course/profile',['as'=>'profile','uses'=>'NewUserController@createProfile']);
+Route::get('/profile', ['as'=>'profiles', 'uses'=>'NewUserController@getNewUserProfile']);
+
+Route::post( '/manage/course/country',['as'=>'createCountry','uses'=>'CountryController@createCountry']);
+Route::get('/countries', ['as'=>'countries', 'uses'=>'CountryController@getCountries']);
+
+
+Route::post( '/manage/course/company',['as'=>'createCompany','uses'=>'CompanyController@createCompany']);
+Route::get('/companies', ['as'=>'companies', 'uses'=>'CompanyController@getCompanies']);
+
+
+Route::post( '/manage/course/batch',['as'=>'createBatch','uses'=>'BatchController@createBatch']);
+Route::get('/batches', ['as'=>'batches', 'uses'=>'BatchController@getBatches']);
 
 Route::post( '/manage/course/category',['as'=>'createCategory','uses'=>'CategoryController@createCategory']);
-
 Route::get('/categories', ['as'=>'categories', 'uses'=>'CategoryController@getCategories']);
 
-Route::post( '/manage/course/newcategory',['as'=>'createNewcategory','uses'=>'NewcategoryController@createNewcategory']);
 
-Route::get('/newcategories', ['as'=>'Newcategories', 'uses'=>'newcategoryController@getNewcategories']);
-
+Route::post( '/manage/course/group',['as'=>'createGroup','uses'=>'GroupController@createGroup']);
+Route::get('/groups', ['as'=>'groups', 'uses'=>'GroupController@getGroups']);
 
 
 Route::post( '/manage/course/course',['as'=>'createCourse','uses'=>'CourseController@createCourse']);
-
 Route::get('/courses', ['as'=>'courses', 'uses'=>'CourseController@getCourses']);
 
 
-
 Route::post('/manage/course/student',['as'=>'createStudent','uses'=>'StudentController@createStudent']);
-
 Route::get('/students', ['as'=>'students','uses'=> 'StudentController@getStudents']);
 
 
-Route::post('/manage/course/newstudent',['as'=>'createNewstudent','uses'=>'NewstudentController@createNewstudent']);
-
+<<<<<<< HEAD
 Route::get('/newstudents', ['as'=>'getNewstudents','uses'=> 'NewstudentController@getNewstudents']);
 
 Route::get('coursedetail/{id}', ['as'=>'getCourseDetail','uses'=> 'CourseController@getCourseDetail']);
+=======
+Route::post('/manage/course/newuser',['as'=>'createNewUser','uses'=>'NewUserController@createNewUser']);
+Route::get('/newusers', ['as'=>'newusers','uses'=> 'NewUserController@getNewUsers']);
+>>>>>>> 9f8e59434357c73667d7a42411f34809d283ab2d
