@@ -96,11 +96,11 @@ Route::post('/manage/course/student',['as'=>'createStudent','uses'=>'StudentCont
 Route::get('/students', ['as'=>'students','uses'=> 'StudentController@getStudents']);
 
 
-<<<<<<< HEAD
+
 Route::get('/newstudents', ['as'=>'getNewstudents','uses'=> 'NewstudentController@getNewstudents']);
 
 Route::get('coursedetail/{id}', ['as'=>'getCourseDetail','uses'=> 'CourseController@getCourseDetail']);
-=======
+
 Route::post('/manage/course/newuser',['as'=>'createNewUser','uses'=>'NewUserController@createNewUser']);
 Route::get('/newusers', ['as'=>'newusers','uses'=> 'NewUserController@getNewUsers']);
->>>>>>> 9f8e59434357c73667d7a42411f34809d283ab2d
+
