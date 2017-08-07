@@ -27,9 +27,7 @@ Route::get('/calendar', ['as'=>'calendar', 'uses'=>function(){
 	return view('calendar/calendar');
 }]);
 
-Route::get('/lessons',['as'=>'lessons', 'uses'=>function(){
-	return view('lessons/lessons');
-}]);
+Route::get('/course/{cat_id}/lessons/',['as'=>'lessons', 'uses'=>'LessonController@']);
 
 
 Route::get('/news',['as'=>'news', 'uses'=>function(){
