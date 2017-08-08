@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.mastercourse')
 
 
 @section('style')
@@ -11,11 +11,11 @@
 <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-      Course
+      Modul Management <small>  Model ID={{$course->id}}  Name={{$course->course_name}}</small>
       </h1>
       <ol class="breadcrumb">
         <button type="button" class="btn btn-info btn-sm " data-toggle="modal" data-target="#modal-info">
-          Add
+        add
         </button>
         <li></li>
       </ol>
@@ -27,72 +27,87 @@
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Add Course</h4>
+            <h4 class="modal-title">Add User</h4>
           </div>
           <div class="modal-body">
                   <!-- Custom Tabs (Pulled to the right) -->
-                  <form action="#" method="POST" id="frm-course-create">
+                  <form action="#" method="POST" id="frm-newuser-create">
                   {!! csrf_field() !!}
                     <div class="row">
                         <div class="form-group">
-                          <label for="batch_id" class="col-sm-3 control-label">Category: </label>
+                          <label for="first_name" class="col-sm-3 control-label">First Name: </label>
+                          <div class="col-sm-9">
+                          <input type="text" class="form-control" name="first_name" id="first_name" placeholder="First Name">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="last_name" class="col-sm-3 control-label">Last Name: </label>
+                          <div class="col-sm-9">
+                          <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Last Name">
+
+
+
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="email" class="col-sm-3 control-label">Email: </label>
+                          <div class="col-sm-9">
+                          <input type="text" class="form-control" name="email" id="email" placeholder="Email">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="batch_id" class="col-sm-3 control-label">Group: </label>
 
                           <div class="col-sm-9">
-                          <select class="form-control" name="category_id" id="category_id" data-placeholder="Select " style="width: 100%;">
-                          @foreach($courseCat as $cat)
-                             <option value="{{$cat->id}}">{{$cat->category_name}}</option>
-                            @endforeach
+                          <select class="form-control" name="group_id" id="group_id" data-placeholder="Select " style="width: 100%;">
+
+                             <option value=""></option>
+
                           </select>
                           </div>
                         </div>
                         <div class="form-group">
-                          <label for="category_name" class="col-sm-3 control-label">Course Name</label>
-                          <div class="col-sm-12">
-                          <input type="text" class="form-control" name="course_name" id="course_name" >
+                          <label for="startdate" class="col-sm-3 control-label">Start Date: </label>
+
+                          <div class="col-sm-9">
+                          <input type="date" class="form-control" name="startdate" id="startdate" placeholder="Start Date">
                           </div>
                         </div>
                         <div class="form-group">
-                          <label for="category_name" class="col-sm-3 control-label">Course Desc: </label>
-                          <div class="col-sm-12">
-                          <textarea type="text" class="form-control" name="course_desc" id="course_desc" placeholder="First Name"></textarea>
+                          <label for="batch_id" class="col-sm-3 control-label">Batch: </label>
+
+                          <div class="col-sm-9">
+                          <select class="form-control" name="batch_id" id="batch_id" data-placeholder="Select " style="width: 100%;">
+
+                             <option value=""></option>
+
+                          </select>
                           </div>
                         </div>
                         <div class="form-group">
-                          <div class="col-sm-12">
-                         <input type="text" name="is_active" id="is_active">
+                          <label for="inputEmail3" class="col-sm-3 control-label">Company: </label>
+
+                          <div class="col-sm-9">
+                          <select class="form-control" name="company_id" id="company_id"  data-placeholder="Select " style="width: 100%;">
+
+                             <option value=""></option>
+
+                          </select>
                           </div>
                         </div>
                         <div class="form-group">
-                          <label for="category_name" class="col-sm-3 control-label">Activation Date </label>
-                          <div class="col-sm-12">
-                          <input type="date" class="form-control" name="activation_date" id="activation_date" >
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label for="category_name" class="col-sm-3 control-label">End Date </label>
-                          <div class="col-sm-12">
-                          <input type="date" class="form-control" name="end_date" id="end_date" >
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label for="category_name" class="col-sm-3 control-label"> Trainer</label>
-                          <div class="col-sm-12">
-                          <input type="text" class="form-control" name="trainer_id" id="trainer_id" >
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label for="category_name" class="col-sm-3 control-label">Course Logo</label>
-                          <div class="col-sm-12">
-                          <input type="text" class="form-control" name="course_logo" id="course_logo" >
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label for="category_name" class="col-sm-3 control-label">Price </label>
-                          <div class="col-sm-12">
-                          <input type="text" class="form-control" name="price" id="price" >
+                          <label for="country_id"  class="col-sm-3 control-label">Country: </label>
+
+                          <div class="col-sm-9">
+                          <select class="form-control" name="country_id" id="country_id" data-placeholder="Select " style="width: 100%;">
+
+                             <option value=""></option>
+
+                          </select>
                           </div>
                         </div>
                     </div>
+
                   </div>
           <div class="modal-footer">
            <button type="submit" class="btn btn-primary">Submit</button>
@@ -129,45 +144,103 @@
                           <button type="button" class="btn btn-default btn-sm"><i class="fa fa-key"> Password</i></button>
                           <button type="button" class="btn btn-default btn-sm"><i class="fa fa-star"> Award</i></button>
                           <button type="button" class="btn btn-default btn-sm"><i class="fa fa-minus-square"> Unenroll</i></button>
-                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-gear"></i> Setting</button>
+                        <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#edit"><i class="fa fa-gear"></i> Edit</button>
                         </div>
                         <!-- /.btn-group -->
 
                         <!-- /.pull-right -->
                       </div>
+                      <div class="modal modal-info fade" id="edit">
+                        <div class="modal-dialog modal-lg">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span></button>
+                              <h4 class="modal-title">Add Page</h4>
+                            </div>
+                            <div class="modal-body">
+                                    <!-- Custom Tabs (Pulled to the right) -->
+                                    <form action="#" method="POST" id="frm-newuser-create">
+                                    {!! csrf_field() !!}
+                                      <div class="row">
+                                          <div class="form-group">
+                                            <label for="first_name" class="col-sm-3 control-label">Page Title: </label>
+                                            <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="first_name" id="first_name" placeholder="First Name">
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                              <label lass="col-sm-12 control-label">Page Body</label>
+                                          <div class="box-body pad">
+                                            <form>
+                                                <textarea id="editor1" name="editor1" rows="10" cols="80">
+                                                </textarea>
+                                            </form>
+                                          </div>
+
+                                            <!-- /.box -->
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="email" class="col-sm-3 control-label">Published: </label>
+                                            <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="email" id="email" placeholder="Email">
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="batch_id" class="col-sm-3 control-label">Meta Tags: </label>
+
+                                            <div class="col-sm-9">
+                                            <select class="form-control" name="group_id" id="group_id" data-placeholder="Select " style="width: 100%;">
+
+                                            </select>
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="startdate" class="col-sm-3 control-label">Meta Description: </label>
+
+                                            <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="startdate" id="startdate" placeholder="Start Date">
+                                            </div>
+                                          </div>
+                                      </div>
+                                    </div>
+                            <div class="modal-footer">
+                              <button type="close" class="btn btn-danger">Close</button>
+                             <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                            </form>
+                          </div>
+
+                          <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                      </div>
+                      <!-- /.modal -->
                       <div class="table-responsive mailbox-messages">
                         <table class="table table-hover table-striped">
                           <tbody>
                           <tr class="info">
                             <td><input type="checkbox"></td>
-                            <td class="mailbox-star"><a href="#">Course Name</a></td>
-                            <td class="mailbox-name"><a href="#">Course Desc</a></td>
-                            <td class="mailbox-subject"><a>Category</a></td>
-                            <td class="mailbox-attachment"><a href="#">Grades</a></td>
-                            <td class="mailbox-date"><a href="#">Due</a></td>
-                            <td class="mailbox-date"><a href="#">Mastery</a></td>
-                            <td class="mailbox-date"><a href="#">Enroll</a></td>
-                            <td class="mailbox-date"><a href="#">More</a></td>
+                            <td class="mailbox-star"><a>Moudule Name</a></td>
+                            <td class="mailbox-name"><a >Email</a></td>
+                            <td class="mailbox-subject"><a>Group</a></td>
+                            <td class="mailbox-attachment"><a>Batch</a></td>
+                            <td class="mailbox-date"><a>Company</a></td>
+                            <td class="mailbox-date"><a>Country</a></td>
                           </tr>
 
-                          @foreach($courses as $course)
-                          <tr class="info">
+                          <tr>
                             <td><input type="checkbox"></td>
-
-                            <td class="mailbox-star"><a href="{{route('getCourseDetail', ['id'=> $course->id])}}">{{$course->course_name}}</a></td>
-                            <td class="mailbox-name"><a href="#">{{$course->course_desc}}</a></td>
-                            <td class="mailbox-subject"><a>{{$course->category->category_name}}</a></td>
-                            <td class="mailbox-attachment"><a href="#"></a></td>
+                            <td class="mailbox-star"><a href=""><i class="fa fa-male"></i></a></td>
+                            <td class="mailbox-name"><a></i></i></a></td>
+                            <td class="mailbox-subject"><a ></a></td>
+                            <td class="mailbox-attachment"><a></a></td>
                             <td class="mailbox-date"><a href="#"></a></td>
-                            <td class="mailbox-date"><a href="#"></a></td>
-                            <td class="mailbox-date"><a href="#"></a> </td>
                             <td class="mailbox-date"><a href="#"></a></td>
                           </tr>
-                       @endforeach
 
 
                           </tbody>
-
                         </table>
                         <!-- /.table -->
                       </div>
@@ -264,17 +337,6 @@
 @endsection
 
 @section('script')
-<script>
-$('#frm-course-create').on('submit',function(e){
-  e.preventDefault();
-  console.log('pressed');
-  var data = $(this).serialize();
-  console.log(data);
-  $.post("{{route('createCourse')}}", data, function(response){
 
-    console.log(response);
-  });
-});
 
-</script>
 @endsection

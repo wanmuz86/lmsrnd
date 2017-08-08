@@ -27,7 +27,10 @@ Route::get('/calendar', ['as'=>'calendar', 'uses'=>function(){
 	return view('calendar/calendar');
 }]);
 
-Route::get('/course/{cat_id}/lessons/',['as'=>'lessons', 'uses'=>'LessonController@']);
+Route::get('/lessons',['as'=>'lessons', 'uses'=>function(){
+	return view('lessons/lessons');
+}]);
+
 
 
 Route::get('/news',['as'=>'news', 'uses'=>function(){
@@ -88,6 +91,9 @@ Route::get('/groups', ['as'=>'groups', 'uses'=>'GroupController@getGroups']);
 
 Route::post( '/manage/course/course',['as'=>'createCourse','uses'=>'CourseController@createCourse']);
 Route::get('/courses', ['as'=>'courses', 'uses'=>'CourseController@getCourses']);
+Route::get('coursedetail/{id}/lesson', ['as'=>'getCourseDetail','uses'=> 'CourseController@getCourseDetail']);
+Route::get('coursedetail/{id}/modules',['as'=>'getModules', 'uses'=>'CourseController@getModule']);
+Route::get('coursedetail/{id}/games',['as'=>'getGamess', 'uses'=>'CourseController@getGame']);
 
 
 Route::post('/manage/course/student',['as'=>'createStudent','uses'=>'StudentController@createStudent']);
@@ -97,8 +103,6 @@ Route::get('/students', ['as'=>'students','uses'=> 'StudentController@getStudent
 
 Route::get('/newstudents', ['as'=>'getNewstudents','uses'=> 'NewstudentController@getNewstudents']);
 
-Route::get('coursedetail/{id}', ['as'=>'getCourseDetail','uses'=> 'CourseController@getCourseDetail']);
 
 Route::post('/manage/course/newuser',['as'=>'createNewUser','uses'=>'NewUserController@createNewUser']);
 Route::get('/newusers', ['as'=>'newusers','uses'=> 'NewUserController@getNewUsers']);
-

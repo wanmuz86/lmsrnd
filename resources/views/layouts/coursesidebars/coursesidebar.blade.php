@@ -39,7 +39,7 @@
         </a>
       </li>
       <li class="treeview">
-        <a href="#">
+        <a href="{{route('getModules', ['id'=> $course->id])}}">
           <i class="fa fa-book"></i> <span>Module Management</span>
           <span class="pull-right-container">
 
