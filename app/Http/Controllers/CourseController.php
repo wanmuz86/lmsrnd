@@ -9,7 +9,7 @@ use App\Category;
 class CourseController extends BaseController
 {
    public function __construct(){
-    	
+
     }
    public function createCourse(Request $request){
 
@@ -25,8 +25,14 @@ class CourseController extends BaseController
     }
 
     public function getCourseDetail($id,Request $request){
-        $course_id = $id;
-        return view('lessons.lessons', compact('courses', 'courseCat','course_id'));
 
+        $course = Course::where('id',$id)->first();
+        return view('lessons.lessons', compact('course'));
+
+    }
+    public function getModule($id,Request $request){
+
+        $course = Course::where('id',$id)->first();
+      return view('modules.modules', compact('course'));
     }
 }
