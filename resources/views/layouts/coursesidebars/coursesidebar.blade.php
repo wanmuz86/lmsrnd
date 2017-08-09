@@ -107,6 +107,19 @@
           <i class="fa fa-dashboard"></i> <span>Course Settings and Config</span>
         </a>
       </li>
+      <li class="treeview">
+         <a href="{{route('getQuiz', ['id'=> $course->id])}}">
+          <i class="fa fa-dashboard"></i> <span>Quiz</span>
+        </a>
+      </li>
+      <li class="treeview">
+        <a href="{{route('attendances')}}">
+          <i class="fa  fa-users"></i> <span>Attendance</span>
+          <span class="pull-right-container">
+
+          </span>
+        </a>
+      </li>
 
     </ul>
     <!-- /.sidebar-menu -->

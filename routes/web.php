@@ -99,6 +99,7 @@ Route::get('coursedetail/{id}/modules',['as'=>'getModules', 'uses'=>'CourseContr
 Route::get('coursedetail/{id}/games',['as'=>'getGames', 'uses'=>'CourseController@getGame']);
 
 
+
 Route::post('/manage/course/student',['as'=>'createStudent','uses'=>'StudentController@createStudent']);
 Route::get('/students', ['as'=>'students','uses'=> 'StudentController@getStudents']);
 
@@ -109,3 +110,7 @@ Route::get('/newstudents', ['as'=>'getNewstudents','uses'=> 'NewstudentControlle
 
 Route::post('/manage/course/newuser',['as'=>'createNewUser','uses'=>'NewUserController@createNewUser']);
 Route::get('/newusers', ['as'=>'newusers','uses'=> 'NewUserController@getNewUsers']);
+
+
+Route::post('/manage/{id}/createQuiz',['as'=>'createQuiz','uses'=>'QuizController@createQuiz']);
+Route::get('course/{id}/quiz',['as'=>'getQuiz', 'uses'=>'QuizController@getQuiz']);
