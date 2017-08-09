@@ -35,6 +35,9 @@ class CourseController extends BaseController
         $course = Course::where('id',$id)->first();
       return view('modules.modules', compact('course'));
     }
-    
+    public function getGame($id,Request $request){
 
+        $course = Course::where('id',$id)->first();
+      return view('games.games', compact('course'));
+    }
 }
