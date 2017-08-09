@@ -108,6 +108,11 @@
         </a>
       </li>
       <li class="treeview">
+         <a href="{{route('getQuiz', ['id'=> $course->id])}}">
+          <i class="fa fa-dashboard"></i> <span>Quiz</span>
+        </a>
+      </li>
+      <li class="treeview">
         <a href="{{route('games')}}">
           <i class="fa  fa-gamepad"></i> <span>Games</span>
         </a>

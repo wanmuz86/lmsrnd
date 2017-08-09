@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.mastercourse')
 
 
 @section('style')
@@ -11,11 +11,11 @@
 <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-      Categories
+      Quiz Management <small>  Model ID={{$course->id}}  Name={{$course->course_name}}</small>
       </h1>
       <ol class="breadcrumb">
         <button type="button" class="btn btn-info btn-sm " data-toggle="modal" data-target="#modal-info">
-          Add
+        Add
         </button>
         <li></li>
       </ol>
@@ -27,21 +27,30 @@
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Add Category</h4>
+            <h4 class="modal-title">Add New Quiz</h4>
           </div>
-          <div class="modal-body">
+          
                   <!-- Custom Tabs (Pulled to the right) -->
-                  <form action="#" method="POST" id="frm-category-create">
+                  <form action="#" method="POST" id="frm-newquiz-create">
+                  <div class="modal-body">
                   {!! csrf_field() !!}
                     <div class="row">
                         <div class="form-group">
-                          <label for="category_name" class="col-sm-3 control-label">Category Name: </label>
-                          <div class="col-sm-12">
-                          <input type="text" class="form-control" name="category_name" id="category_name" placeholder="First Name">
+                          <label for="quiz_name" class="col-sm-3 control-label">Quiz Name </label>
+                          <div class="col-sm-9">
+                          <input type="text" class="form-control" name="quiz_name" id="quiz_name" placeholder="Quiz Name">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="quiz_instruction" class="col-sm-3 control-label">Quiz Instruction </label>
+                          <div class="col-sm-9">
+                          <textarea class="form-control" name="quiz_instruction" id="quiz_instruction" placeholder="Quiz Instruction"></textarea>
+                          <input type="hidden" name="course_id" value="{{$course->id}}">
                           </div>
                         </div>
                     </div>
-                  </div>
+                    </div>
+                
           <div class="modal-footer">
            <button type="submit" class="btn btn-primary">Submit</button>
           </div>
@@ -77,42 +86,99 @@
                           <button type="button" class="btn btn-default btn-sm"><i class="fa fa-key"> Password</i></button>
                           <button type="button" class="btn btn-default btn-sm"><i class="fa fa-star"> Award</i></button>
                           <button type="button" class="btn btn-default btn-sm"><i class="fa fa-minus-square"> Unenroll</i></button>
-                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-gear"></i> Setting</button>
+                        <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#edit"><i class="fa fa-gear"></i> Edit</button>
                         </div>
                         <!-- /.btn-group -->
 
                         <!-- /.pull-right -->
                       </div>
+                      <div class="modal modal-info fade" id="edit">
+                        <div class="modal-dialog modal-lg">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span></button>
+                              <h4 class="modal-title">Add Page</h4>
+                            </div>
+                            <div class="modal-body">
+                                    <!-- Custom Tabs (Pulled to the right) -->
+                                    <form action="#" method="POST" id="frm-newuser-create">
+                                    {!! csrf_field() !!}
+                                      <div class="row">
+                                          <div class="form-group">
+                                            <label for="first_name" class="col-sm-3 control-label">Page Title: </label>
+                                            <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="first_name" id="first_name" placeholder="First Name">
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                              <label lass="col-sm-12 control-label">Page Body</label>
+                                          <div class="box-body pad">
+                                            <form>
+                                                <textarea id="editor1" name="editor1" rows="10" cols="80">
+                                                </textarea>
+                                            </form>
+                                          </div>
+
+                                            <!-- /.box -->
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="email" class="col-sm-3 control-label">Published: </label>
+                                            <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="email" id="email" placeholder="Email">
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="batch_id" class="col-sm-3 control-label">Meta Tags: </label>
+
+                                            <div class="col-sm-9">
+                                            <select class="form-control" name="group_id" id="group_id" data-placeholder="Select " style="width: 100%;">
+
+                                            </select>
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="startdate" class="col-sm-3 control-label">Meta Description: </label>
+
+                                            <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="startdate" id="startdate" placeholder="Start Date">
+                                            </div>
+                                          </div>
+                                      </div>
+                                    </div>
+                            <div class="modal-footer">
+                              <button type="close" class="btn btn-danger">Close</button>
+                             <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                            </form>
+                          </div>
+
+                          <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                      </div>
+                      <!-- /.modal -->
                       <div class="table-responsive mailbox-messages">
                         <table class="table table-hover table-striped">
                           <tbody>
                           <tr class="info">
                             <td><input type="checkbox"></td>
-                            <td class="mailbox-star"><a href="#">Category </a></td>
-                            <td class="mailbox-name"><a href="#">Progress</a></td>
-                            <td class="mailbox-subject"><a>Score</a></td>
-                            <td class="mailbox-attachment"><a href="#">Grades</a></td>
-                            <td class="mailbox-date"><a href="#">Due</a></td>
-                            <td class="mailbox-date"><a href="#">Mastery</a></td>
-                            <td class="mailbox-date"><a href="#">Enroll</a></td>
-                            <td class="mailbox-date"><a href="#">More</a></td>
+                            <td class="mailbox-star"><a>Quiz Name</a></td>
+                            <td class="mailbox-subject"><a>No of questions</a></td>
+                            <td class="mailbox-subject"><a>Average marks</a></td>
+        
                           </tr>
-                          @if (count($categories) > 0)
-                          @foreach($categories as $category)
-                          <tr class="info">
+                          
+                          @foreach($quizes as $quiz)
+                          <tr>
                             <td><input type="checkbox"></td>
-                            <td class="mailbox-star"><a href="#">{{$category->category_name}}</a></td>
-                            <td class="mailbox-name"><a href="#"></a></td>
-                            <td class="mailbox-subject"><a></a></td>
-                            <td class="mailbox-attachment"><a href="#"></a></td>
-                            <td class="mailbox-date"><a href="#"></a></td>
-                            <td class="mailbox-date"><a href="#"></a></td>
-                            <td class="mailbox-date"><a href="#"></a> </td>
-                            <td class="mailbox-date"><a href="#"></a></td>
-                          </tr>
-                       @endforeach
+                            <td class="mailbox-star"><a href="">{{$quiz->quiz_name}}</i></a></td>
 
-                       @endif
+                            <td class="mailbox-subject"><a >10</a></td>
+                             <td class="mailbox-subject"><a >68%</a></td>
+                          </tr>
+                          @endforeach
+
                           </tbody>
                         </table>
                         <!-- /.table -->
@@ -182,7 +248,7 @@
                             <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...
                             </td>
                           </tr>
-
+                          
                           </tbody>
                         </table>
                         <!-- /.table -->
@@ -210,13 +276,14 @@
 @endsection
 
 @section('script')
+
+
 <script>
-$('#frm-category-create').on('submit',function(e){
+$('#frm-newquiz-create').on('submit',function(e){
   e.preventDefault();
   console.log('pressed');
   var data = $(this).serialize();
-  console.log(data);
-  $.post("{{route('createCategory')}}", data, function(response){
+  $.post("{{route('createQuiz',['id'=> $course->id])}}", data, function(response){
 
     console.log(response);
   });

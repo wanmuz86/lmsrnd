@@ -30,11 +30,7 @@ Route::get('/calendar', ['as'=>'calendar', 'uses'=>function(){
 Route::get('/lessons',['as'=>'lessons', 'uses'=>function(){
 	return view('lessons/lessons');
 }]);
-<<<<<<< HEAD
-=======
 
-
->>>>>>> 401c4c09542967fe80552052027be6760f388e0d
 
 Route::get('/news',['as'=>'news', 'uses'=>function(){
 	return view('news/news');
@@ -99,6 +95,7 @@ Route::get('coursedetail/{id}/modules',['as'=>'getModules', 'uses'=>'CourseContr
 Route::get('coursedetail/{id}/games',['as'=>'getGamess', 'uses'=>'CourseController@getGame']);
 
 
+
 Route::post('/manage/course/student',['as'=>'createStudent','uses'=>'StudentController@createStudent']);
 Route::get('/students', ['as'=>'students','uses'=> 'StudentController@getStudents']);
 
@@ -109,3 +106,7 @@ Route::get('/newstudents', ['as'=>'getNewstudents','uses'=> 'NewstudentControlle
 
 Route::post('/manage/course/newuser',['as'=>'createNewUser','uses'=>'NewUserController@createNewUser']);
 Route::get('/newusers', ['as'=>'newusers','uses'=> 'NewUserController@getNewUsers']);
+
+
+Route::post('/manage/{id}/createQuiz',['as'=>'createQuiz','uses'=>'QuizController@createQuiz']);
+Route::get('course/{id}/quiz',['as'=>'getQuiz', 'uses'=>'QuizController@getQuiz']);
