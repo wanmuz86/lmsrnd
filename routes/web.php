@@ -31,7 +31,9 @@ Route::get('/lessons',['as'=>'lessons', 'uses'=>function(){
 	return view('lessons/lessons');
 }]);
 
-
+Route::get('/modules',['as'=>'modules', 'uses'=>function(){
+	return view('modules/modules');
+}]);
 
 Route::get('/news',['as'=>'news', 'uses'=>function(){
 	return view('news/news');
@@ -91,9 +93,10 @@ Route::get('/groups', ['as'=>'groups', 'uses'=>'GroupController@getGroups']);
 
 Route::post( '/manage/course/course',['as'=>'createCourse','uses'=>'CourseController@createCourse']);
 Route::get('/courses', ['as'=>'courses', 'uses'=>'CourseController@getCourses']);
+
 Route::get('coursedetail/{id}/lesson', ['as'=>'getCourseDetail','uses'=> 'CourseController@getCourseDetail']);
 Route::get('coursedetail/{id}/modules',['as'=>'getModules', 'uses'=>'CourseController@getModule']);
-Route::get('coursedetail/{id}/games',['as'=>'getGamess', 'uses'=>'CourseController@getGame']);
+Route::get('coursedetail/{id}/games',['as'=>'getGames', 'uses'=>'CourseController@getGame']);
 
 
 Route::post('/manage/course/student',['as'=>'createStudent','uses'=>'StudentController@createStudent']);

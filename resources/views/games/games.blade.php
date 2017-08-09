@@ -9,7 +9,7 @@
  <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-      Games
+      Games <small> ID={{$course->id}}  Name={{$course->course_name}}</small>
       </h1>
       <ol class="breadcrumb">
         <button type="button" class="btn btn-info btn-sm " data-toggle="modal" data-target="#modal-info">
