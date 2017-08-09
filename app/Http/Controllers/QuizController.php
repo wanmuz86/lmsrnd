@@ -23,4 +23,8 @@ class QuizController extends Controller
         $course = Course::where('id',$id)->first();
     	return view('quiz.quiz', compact('course','quizes'));
     }
+     public function getQuizDetail($course_id,$quiz_id,Request $request){
+        $course = Course::where('id',$course_id)->first();
+    	return view('quiz.question', compact('course'));
+    }
 }

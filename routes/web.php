@@ -110,3 +110,4 @@ Route::get('/newusers', ['as'=>'newusers','uses'=> 'NewUserController@getNewUser
 
 Route::post('/manage/{id}/createQuiz',['as'=>'createQuiz','uses'=>'QuizController@createQuiz']);
 Route::get('course/{id}/quiz',['as'=>'getQuiz', 'uses'=>'QuizController@getQuiz']);
+Route::get('course/{course_id}/quiz/{quiz_id}',['as'=>'getQuizDetail', 'uses'=>'QuizController@getQuizDetail']);
