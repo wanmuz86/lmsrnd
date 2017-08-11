@@ -24,17 +24,6 @@ class CourseController extends BaseController
     	return view('course.course', compact('courses', 'courseCat'));
     }
 
-    public function getCourseDetail($id,Request $request){
-
-        $course = Course::where('id',$id)->first();
-        return view('lessons.lessons', compact('course'));
-
-    }
-    public function getModule($id,Request $request){
-
-        $course = Course::where('id',$id)->first();
-      return view('modules.modules', compact('course'));
-    }
     public function getGame($id,Request $request){
 
         $course = Course::where('id',$id)->first();

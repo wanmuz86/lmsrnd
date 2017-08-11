@@ -52,42 +52,52 @@
                 <div class="modal-body">
                   <!-- Custom Tabs (Pulled to the right) -->
 
-                  <form role="form">
+                  <form role="form" action="#" method="POST" id="frm-lesson-create">
+                    {!! csrf_field() !!}
                     <div class="row">
 
                         <div class="form-group">
                           <label for="inputEmail3" class="col-sm-3 control-label">Title: </label>
 
-                          <div class="col-sm-9">
-                          <input type="text" class="form-control" id="startdate" placeholder="Title">
-                          </div>
+                          <label class="col-sm-9">
+                          <input type="text" class="form-control" name="lesson_title" id="lesson_title" placeholder="Title">
+                          </label>
                         </div>
                         <div class="form-group">
                           <label for="inputEmail3" class="col-sm-3 control-label">Description: </label>
 
-                          <div class="col-sm-9">
-                          <textarea name="name" rows="4" cols="90"></textarea>
-                        </div>
+                          <label class="col-sm-9">
+                          <textarea id="lesson_desc" name="lessone_desc" rows="4" cols="59"></textarea>
+                        </label>
                       </div>
                         <div class="form-group">
                           <label for="inputEmail3" class="col-sm-3 control-label">Date: </label>
 
-                          <div class="col-sm-9">
-                          <input type="date" class="form-control" id="startdate" placeholder="Start Date">
-                          </div>
+                          <label class="col-sm-9">
+                          <input type="date" class="form-control" name="startdate" id="startdate" placeholder="Start Date">
+                          </label>
                         </div>
                         <div class="form-group">
-                          <label for="inputEmail3" class="col-sm-3 control-label">Position: </label>
+                          <label for="inputEmail3" class="col-sm-3 control-label">Module: </label>
 
-                          <div class="col-sm-9">
+                          <label class="col-sm-9">
           								<select class="form-control " data-placeholder="Select " style="width: 100%;">
-          									 <option></option>
-          									 <option></option>
-          									 <option></option>
-          									 <option></option>
-          									 <option></option>
+
+                               <option value="{{$module->module_title}}">{{$module->module_title}}</option>
+
           								</select>
-          					</div>
+          					      </label>
+                        </div>
+                        <div class="form-group">
+                          <label for="inputEmail3" class="col-sm-3 control-label">Course: </label>
+
+                          <label class="col-sm-9">
+          								<select class="form-control " data-placeholder="Select " style="width: 100%;">
+
+                               <option value="{{$course->course_name}}">{{$course->course_name}}</option>
+
+          								</select>
+          					      </label>
                         </div>
 
                     </div>
@@ -119,4 +129,17 @@
 
 @section('script')
 
+<script>
+$('#frm-lesson-create').on('submit',function(e){
+  e.preventDefault();
+  console.log('pressed');
+  var data = $(this).serialize();
+  console.log(data);
+  $.post("{{route('createLesson')}}", data, function(response){
+
+    console.log(response);
+  });
+});
+
+</script>
 @endsection

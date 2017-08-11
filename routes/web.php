@@ -94,8 +94,10 @@ Route::get('/groups', ['as'=>'groups', 'uses'=>'GroupController@getGroups']);
 Route::post( '/manage/course/course',['as'=>'createCourse','uses'=>'CourseController@createCourse']);
 Route::get('/courses', ['as'=>'courses', 'uses'=>'CourseController@getCourses']);
 
-Route::get('coursedetail/{id}/lesson', ['as'=>'getCourseDetail','uses'=> 'CourseController@getCourseDetail']);
-Route::get('coursedetail/{id}/modules',['as'=>'getModules', 'uses'=>'CourseController@getModule']);
+Route::post( '/manage/lessons/lessons',['as'=>'createLesson','uses'=>'LessonController@createLesson']);
+Route::get('coursedetail/{id}/lesson', ['as'=>'getCourseDetail','uses'=> 'LessonController@getCourseDetail']);
+
+Route::get('coursedetail/{id}/modules',['as'=>'getModules', 'uses'=>'ModuleController@getModule']);
 Route::get('coursedetail/{id}/games',['as'=>'getGames', 'uses'=>'CourseController@getGame']);
 
 
