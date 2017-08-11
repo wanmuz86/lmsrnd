@@ -20,7 +20,6 @@
         <li></li>
       </ol>
     </section>
-
     <div class="modal modal-info fade" id="modal-info">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -253,10 +252,8 @@
             <!-- /.tab-pane -->
             <div class="tab-pane" id="tab_2">
               <div class="box">
-
                     <div class="box-header">
-                      <h3 class="box-title">Inbox</h3>
-
+                      <h3 class="box-title">Questions</h3>
                       <div class="box-tools pull-right">
                         <div class="has-feedback">
                           <input type="text" class="form-control input-sm" placeholder="Search Mail">
@@ -272,7 +269,7 @@
                         <button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="fa fa-square-o"></i>
                         </button>
                         <div class="btn-group">
-                          <button type="button" class="btn btn-default btn-sm"><i class="fa fa-trash-o"></i></button>
+                          <a class="button" href="{{route('addMultipleChoice',['course_id'=> $course->id, 'quiz_id'=>$quiz->id])}}" class="btn btn-default btn-sm"><i class="fa fa-trash-o"></i></a>
                           <button type="button" class="btn btn-default btn-sm"><i class="fa fa-reply"></i></button>
                           <button type="button" class="btn btn-default btn-sm"><i class="fa fa-share"></i></button>
                         </div>
@@ -286,30 +283,19 @@
                           <tbody>
                           <tr class="info">
                             <td><input type="checkbox"></td>
-                            <td class="mailbox-star"><a href="#">Assignment</a></td>
-                            <td class="mailbox-name"><a href="#">Due</a></td>
-                            <td class="mailbox-attachment"><a href="#">Max Score</a></td>
-                            <td class="mailbox-date"><a href="#">To Grade/ Submitted</a></td>
+                            <td class="mailbox-star"><a href="#">Question</a></td>
+                            <td class="mailbox-name"><a href="#">Type</a></td>
+                            <td class="mailbox-attachment"><a href="#">Action</a></td>
                           </tr>
+                            @foreach($questions as $question)
                           <tr>
                             <td><input type="checkbox"></td>
-                            <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
-                            <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...
-                            </td>
+                            <td class="mailbox-name"><a href="read-mail.html">{{$question->question_text}}</a></td>
+                            <td class="mailbox-subject">Multiple Options</td>
+                            <td class="mailbox-attachment"><a href="#"></a></td>
 
                           </tr>
-                          <tr>
-                            <td><input type="checkbox"></td>
-                            <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
-                            <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...
-                            </td>
-                          </tr>
-                          <tr>
-                            <td><input type="checkbox"></td>
-                            <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
-                            <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...
-                            </td>
-                          </tr>
+                         @endforeach
 
                           </tbody>
                         </table>
