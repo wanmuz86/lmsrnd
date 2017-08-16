@@ -94,12 +94,8 @@ Route::get('/groups', ['as'=>'groups', 'uses'=>'GroupController@getGroups']);
 Route::post( '/manage/course/course',['as'=>'createCourse','uses'=>'CourseController@createCourse']);
 Route::get('/courses', ['as'=>'courses', 'uses'=>'CourseController@getCourses']);
 
-Route::post( '/manage/lessons/lessons',['as'=>'createLesson','uses'=>'LessonController@createLesson']);
-Route::get('coursedetail/{id}/lesson', ['as'=>'getCourseDetail','uses'=> 'LessonController@getCourseDetail']);
 
-Route::get('coursedetail/{id}/modules',['as'=>'getModules', 'uses'=>'ModuleController@getModule']);
 Route::get('coursedetail/{id}/games',['as'=>'getGames', 'uses'=>'CourseController@getGame']);
-
 
 
 Route::post('/manage/course/student',['as'=>'createStudent','uses'=>'StudentController@createStudent']);
@@ -119,3 +115,11 @@ Route::get('course/{id}/quiz',['as'=>'getQuiz', 'uses'=>'QuizController@getQuiz'
 Route::get('course/{course_id}/quiz/{quiz_id}',['as'=>'getQuizDetail', 'uses'=>'QuizController@getQuizDetail']);
 Route::get('course/{course_id}/quiz/{quiz_id}/addMultipleChoice',['as'=>'addMultipleChoice', 'uses'=>'QuizController@addMultipleChoice']);
 Route::post('course/{course_id}/quiz/{quiz_id}/createQuestionMultiple',['as'=>'createQuestionMultiple', 'uses'=>'QuizController@createQuestionMultiple']);
+
+
+Route::get('course/{id}/module',['as'=>'getModules', 'uses'=>'ModuleController@getModules']);
+Route::post('/manage/{id}/createModule',['as'=>'createModule','uses'=>'ModuleController@createModule']);
+
+
+Route::post( '/manage/{id}/createLesson',['as'=>'createLesson','uses'=>'LessonController@createLesson']);
+Route::get('coursedetail/{id}/lesson', ['as'=>'getCourseDetail','uses'=> 'LessonController@getCourseDetail']);

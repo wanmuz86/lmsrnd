@@ -27,85 +27,26 @@
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Add User</h4>
+            <h4 class="modal-title">Add Module</h4>
           </div>
           <div class="modal-body">
                   <!-- Custom Tabs (Pulled to the right) -->
-                  <form action="#" method="POST" id="frm-newuser-create">
+                  <form action="#" method="POST" id="frm-module-create">
                   {!! csrf_field() !!}
                     <div class="row">
                         <div class="form-group">
-                          <label for="first_name" class="col-sm-3 control-label">First Name: </label>
+                          <label for="first_name" class="col-sm-3 control-label">Modual Titel: </label>
                           <div class="col-sm-9">
-                          <input type="text" class="form-control" name="first_name" id="first_name" placeholder="First Name">
+                          <input type="text" class="form-control" name="module_title" id="module_title" placeholder="First Name">
                           </div>
                         </div>
                         <div class="form-group">
-                          <label for="last_name" class="col-sm-3 control-label">Last Name: </label>
+                          <label for="last_name" class="col-sm-3 control-label">Module Description: </label>
                           <div class="col-sm-9">
-                          <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Last Name">
-
-
-
+                          <textarea name="module_desc" id="module_desc" class="form-control" rows="4" cols="80"></textarea>
                           </div>
                         </div>
-                        <div class="form-group">
-                          <label for="email" class="col-sm-3 control-label">Email: </label>
-                          <div class="col-sm-9">
-                          <input type="text" class="form-control" name="email" id="email" placeholder="Email">
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label for="batch_id" class="col-sm-3 control-label">Group: </label>
-
-                          <div class="col-sm-9">
-                          <select class="form-control" name="group_id" id="group_id" data-placeholder="Select " style="width: 100%;">
-
-                             <option value=""></option>
-
-                          </select>
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label for="startdate" class="col-sm-3 control-label">Start Date: </label>
-
-                          <div class="col-sm-9">
-                          <input type="date" class="form-control" name="startdate" id="startdate" placeholder="Start Date">
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label for="batch_id" class="col-sm-3 control-label">Batch: </label>
-
-                          <div class="col-sm-9">
-                          <select class="form-control" name="batch_id" id="batch_id" data-placeholder="Select " style="width: 100%;">
-
-                             <option value=""></option>
-
-                          </select>
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label for="inputEmail3" class="col-sm-3 control-label">Company: </label>
-
-                          <div class="col-sm-9">
-                          <select class="form-control" name="company_id" id="company_id"  data-placeholder="Select " style="width: 100%;">
-
-                             <option value=""></option>
-
-                          </select>
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label for="country_id"  class="col-sm-3 control-label">Country: </label>
-
-                          <div class="col-sm-9">
-                          <select class="form-control" name="country_id" id="country_id" data-placeholder="Select " style="width: 100%;">
-
-                             <option value=""></option>
-
-                          </select>
-                          </div>
-                        </div>
+                      <input type="hidden" name="course_id" value="{{$course->id}}">
                     </div>
 
                   </div>
@@ -138,7 +79,7 @@
                         <!-- Check all button -->
                         <div class="btn-group">
 
-                        <button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="fa fa-envelope"> Message</i>
+                        <button type="button" id="buttonmodule" class="btn btn-default btn-sm checkbox-toggle"><i class="fa fa-envelope"> Message</i>
                         </button>
                         <button type="button" class="btn btn-default btn-sm"><i class="fa fa-check"> Grades</i></button>
                           <button type="button" class="btn btn-default btn-sm"><i class="fa fa-key"> Password</i></button>
@@ -219,27 +160,21 @@
                       <div class="table-responsive mailbox-messages">
                         <table class="table table-hover table-striped">
                           <tbody>
-                          <tr class="info">
+                          <tr class="info ">
                             <td><input type="checkbox"></td>
-                            <td class="mailbox-star"><a>Moudule Name</a></td>
-                            <td class="mailbox-name"><a >Email</a></td>
-                            <td class="mailbox-subject"><a>Group</a></td>
-                            <td class="mailbox-attachment"><a>Batch</a></td>
-                            <td class="mailbox-date"><a>Company</a></td>
-                            <td class="mailbox-date"><a>Country</a></td>
-                          </tr>
+                            <td class="mailbox-star"><a>Module Name</a></td>
+                            <td class="mailbox-name"><a >Module Description</a></td>
 
+                          </tr>
+                          @foreach($modules as $module)
                           <tr>
                             <td><input type="checkbox"></td>
-                            <td class="mailbox-star"><a href=""><i class="fa fa-male"></i></a></td>
-                            <td class="mailbox-name"><a></i></i></a></td>
-                            <td class="mailbox-subject"><a ></a></td>
-                            <td class="mailbox-attachment"><a></a></td>
-                            <td class="mailbox-date"><a href="#"></a></td>
-                            <td class="mailbox-date"><a href="#"></a></td>
+                            <td class="mailbox-star"><a href=""><i class="fa fa-book"></i> {{$module->module_title}}</a></td>
+                            <td class="mailbox-name"><a><i> {{$module->module_desc}}</i></a></td>
+
                           </tr>
 
-
+                          @endforeach
                           </tbody>
                         </table>
                         <!-- /.table -->
@@ -338,5 +273,23 @@
 
 @section('script')
 
+<script>
+$('#frm-module-create').on('submit',function(e){
+  e.preventDefault();
+  console.log('pressed');
+  var data = $(this).serialize();
+  $.post("{{route('createModule',['id'=> $course->id])}}", data, function(response){
 
+    console.log(response);
+  });
+});
+
+
+$('#buttonmodule').on('click',function(e){
+
+  console.log("testing");
+
+  });
+
+</script>
 @endsection

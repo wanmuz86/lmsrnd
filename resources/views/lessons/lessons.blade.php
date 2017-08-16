@@ -57,17 +57,17 @@
                     <div class="row">
 
                         <div class="form-group">
-                          <label for="inputEmail3" class="col-sm-3 control-label">Title: </label>
+                          <label for="inputEmail3" class="col-sm-3 control-label">Lesson name: </label>
 
                           <label class="col-sm-9">
-                          <input type="text" class="form-control" name="lesson_title" id="lesson_title" placeholder="Title">
+                          <input type="text" class="form-control" name="lesson_name" id="lesson_name" placeholder="Title">
                           </label>
                         </div>
                         <div class="form-group">
                           <label for="inputEmail3" class="col-sm-3 control-label">Description: </label>
 
                           <label class="col-sm-9">
-                          <textarea id="lesson_desc" name="lessone_desc" rows="4" cols="59"></textarea>
+                          <textarea id="Lesson_desc" name="Lesson_desc" rows="4" cols="59"></textarea>
                         </label>
                       </div>
                         <div class="form-group">
@@ -77,36 +77,13 @@
                           <input type="date" class="form-control" name="startdate" id="startdate" placeholder="Start Date">
                           </label>
                         </div>
-                        <div class="form-group">
-                          <label for="inputEmail3" class="col-sm-3 control-label">Module: </label>
-
-                          <label class="col-sm-9">
-          								<select class="form-control " data-placeholder="Select " style="width: 100%;">
-
-                               <option value="{{$module->module_title}}">{{$module->module_title}}</option>
-
-          								</select>
-          					      </label>
-                        </div>
-                        <div class="form-group">
-                          <label for="inputEmail3" class="col-sm-3 control-label">Course: </label>
-
-                          <label class="col-sm-9">
-          								<select class="form-control " data-placeholder="Select " style="width: 100%;">
-
-                               <option value="{{$course->course_name}}">{{$course->course_name}}</option>
-
-          								</select>
-          					      </label>
-                        </div>
-
+                        <input type="hidden" name="course_id" value="{{$course->id}}">
                     </div>
-
-                  </form>
-                  </div>
               </div>
               <div class="modal-footer">
                   <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+              </form>
               </div>
             </div>
             <!-- /.modal-content -->
@@ -115,7 +92,7 @@
         <div class="box-body col-sm-3">
           {{ Html::image('img/photo2.png', 'Photo',  array('class' => 'img-responsive pad')) }}
           <p>I took this photo this morning. What do you guys think?</p>
-          <button type="button" class="btn btn-default btn-xs"><i class="fa fa-share"></i> Share</button>
+          <button type="button" id="buttonmodule" class="btn btn-default btn-xs"><i class="fa fa-share"></i> Share</button>
           <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-up"></i> Like</button>
           <span class="pull-right text-muted">127 likes - 3 comments</span>
         </div>
@@ -134,12 +111,15 @@ $('#frm-lesson-create').on('submit',function(e){
   e.preventDefault();
   console.log('pressed');
   var data = $(this).serialize();
-  console.log(data);
-  $.post("{{route('createLesson')}}", data, function(response){
+  $.post("{{route('createLesson',['id'=> $course->id])}}", data, function(response){
 
     console.log(response);
   });
 });
 
+$('#buttonmodule').on('click',function(e){
+
+  console.log("testing");
+});
 </script>
 @endsection

@@ -18,7 +18,7 @@ class CreateLessonsTable extends Migration
             $table->string('lesson_name');
             $table->string('lesson_desc');
             $table->string('course_id');
-            $table->string('module_id');
+            $table->string('startdate');
             $table->timestamps();
         });
     }

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Lesson;
-use App\Module;
 use App\Course;
 
 
@@ -22,10 +21,9 @@ class LessonController extends Controller
   }
 
   public function getCourseDetail($id,Request $request){
-      $lesson = Lesson::all();
-      $module = Module::all();
+      $lessons = Lesson::all();
       $course = Course::where('id',$id)->first();
-      return view('lessons.lessons', compact('course','lesson','module'));
+      return view('lessons.lessons', compact('course','lessons'));
 
   }
 }

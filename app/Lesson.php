@@ -11,14 +11,7 @@ class Lesson extends Model
   protected $primaryKey='id';
   public $timestamps='true';
   protected $fillable = [
-      'lesson_name', 'Lesson_desc', 'course_id','module_id',
+      'lesson_name', 'Lesson_desc', 'course_id','startdate',
   ];
-  public function course()
-   {
-     return $this->belongsTo('App\Course');
-   }
-  public function module()
-   {
-    return $this->belongsTo('App\Module');
-   }
+
 }
