@@ -46,14 +46,6 @@
           </span>
         </a>
       </li>
-      <li class="treeview">
-        <a href="{{route('getCourseDetail', ['id'=> $course->id])}}">
-          <i class="fa  fa-bell"></i> <span>Lesson Management</span>
-          <span class="pull-right-container">
-
-          </span>
-        </a>
-      </li>
       <li class="active  treeview ">
         <a href="#">
           <i class="fa fa-file-o"></i> <span>Course Discussion/Forum</span>

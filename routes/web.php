@@ -122,4 +122,4 @@ Route::post('/manage/{id}/createModule',['as'=>'createModule','uses'=>'ModuleCon
 
 
 Route::post( '/manage/{id}/createLesson',['as'=>'createLesson','uses'=>'LessonController@createLesson']);
-Route::get('coursedetail/{id}/lesson', ['as'=>'getCourseDetail','uses'=> 'LessonController@getCourseDetail']);
+Route::get('course/{course_id}/module/{module_id}/getLesson', ['as'=>'getLesson','uses'=> 'LessonController@getLesson']);

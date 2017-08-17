@@ -154,7 +154,7 @@
                           <tr class="info">
                             <td><input type="checkbox"></td>
 
-                            <td class="mailbox-star"><a href="{{route('getCourseDetail', ['id'=> $course->id])}}">{{$course->course_name}}</a></td>
+                            <td class="mailbox-star"><a href="{{route('getModules', ['id'=> $course->id])}}">{{$course->course_name}}</a></td>
                             <td class="mailbox-name"><a href="#">{{$course->course_desc}}</a></td>
                             <td class="mailbox-subject"><a>{{$course->category->category_name}}</a></td>
                             <td class="mailbox-attachment"><a href="#"></a></td>

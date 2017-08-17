@@ -11,7 +11,7 @@ class Lesson extends Model
   protected $primaryKey='id';
   public $timestamps='true';
   protected $fillable = [
-      'lesson_name', 'Lesson_desc', 'course_id','startdate',
+      'lesson_name', 'Lesson_desc', 'course_id','startdate','module_id'
   ];
 
 }

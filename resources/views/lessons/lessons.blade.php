@@ -78,6 +78,7 @@
                           </label>
                         </div>
                         <input type="hidden" name="course_id" value="{{$course->id}}">
+                        <input type="hidden" name="module_id" value="{{$module->id}}">
                     </div>
               </div>
               <div class="modal-footer">

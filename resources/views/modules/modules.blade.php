@@ -169,7 +169,7 @@
                           @foreach($modules as $module)
                           <tr>
                             <td><input type="checkbox"></td>
-                            <td class="mailbox-star"><a href=""><i class="fa fa-book"></i> {{$module->module_title}}</a></td>
+                            <td class="mailbox-star"><a href="{{route('getLesson',['course_id'=> $course->id, 'madule_id'=>$module->id])}}"><i class="fa fa-book"></i> {{$module->module_title}}</a></td>
                             <td class="mailbox-name"><a><i> {{$module->module_desc}}</i></a></td>
 
                           </tr>
