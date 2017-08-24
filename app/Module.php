@@ -13,4 +13,10 @@ class Module extends Model
     protected $fillable = [
         'module_title', 'module_desc', 'course_id',
     ];
+
+     public function course()
+   {
+       return $this->belongsTo('App\Course');
+   }
+
 }

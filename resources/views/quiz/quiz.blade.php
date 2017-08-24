@@ -271,7 +271,10 @@ $('#frm-newquiz-create').on('submit',function(e){
   var data = $(this).serialize();
   $.post("{{route('createQuiz',['id'=> $course->id])}}", data, function(response){
 
+    $.post("{{route('createLesson',['id'=> $course->id])}}", data, function(response){
+
     console.log(response);
+  });
   });
 });
 

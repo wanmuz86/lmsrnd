@@ -11,7 +11,7 @@
 <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-      Modul Management <small>   ID={{$course->id}}  Name={{$course->course_name}}</small>
+      Module Management <small>   ID={{$course->id}}  Name={{$course->course_name}}</small>
       </h1>
       <ol class="breadcrumb">
         <button type="button" class="btn btn-info btn-sm " data-toggle="modal" data-target="#modal-info">
@@ -35,7 +35,7 @@
                   {!! csrf_field() !!}
                     <div class="row">
                         <div class="form-group">
-                          <label for="first_name" class="col-sm-3 control-label">Modual Titel: </label>
+                          <label for="first_name" class="col-sm-3 control-label">Module Title: </label>
                           <div class="col-sm-9">
                           <input type="text" class="form-control" name="module_title" id="module_title" placeholder="First Name">
                           </div>
@@ -169,7 +169,7 @@
                           @foreach($modules as $module)
                           <tr>
                             <td><input type="checkbox"></td>
-                            <td class="mailbox-star"><a href="{{route('getLesson',['course_id'=> $course->id, 'madule_id'=>$module->id])}}"><i class="fa fa-book"></i> {{$module->module_title}}</a></td>
+                            <td class="mailbox-star"><a href="{{route('getLesson',['course_id'=> $course->id, 'module_id'=>$module->id])}}"><i class="fa fa-book"></i> {{$module->module_title}}</a></td>
                             <td class="mailbox-name"><a><i> {{$module->module_desc}}</i></a></td>
 
                           </tr>
