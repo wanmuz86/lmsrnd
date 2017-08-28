@@ -31,6 +31,26 @@ Route::get('/lessons',['as'=>'lessons', 'uses'=>function(){
 	return view('lessons/lessons');
 }]);
 
+Route::get('/generalGamification',['as'=>'generalGamification', 'uses'=>function(){
+	return view('generalGamifications/generalGamification');
+}]);
+
+Route::get('/analyticsReporting',['as'=>'analyticsReporting', 'uses'=>function(){
+	return view('analyticsReportings/analyticsReporting');
+}]);
+
+Route::get('/architectureSetup',['as'=>'architectureSetup', 'uses'=>function(){
+	return view('architectureSetups/architectureSetup');
+}]);
+
+Route::get('/inbox',['as'=>'inbox', 'uses'=>function(){
+	return view('inboxs/inbox');
+}]);
+
+Route::get('/bundle',['as'=>'bundle', 'uses'=>function(){
+	return view('bundles/bundle');
+}]);
+
 Route::get('/dashboard',['as'=>'dashboard', 'uses'=>function(){
 	return view('dashboards/dashboard');
 }]);

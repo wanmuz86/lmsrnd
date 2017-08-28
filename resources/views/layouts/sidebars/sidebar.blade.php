@@ -47,7 +47,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="{{route('categories')}}"><i class="fa fa-circle-o"></i> Course Category Management</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Bundle</a></li>
+            <li><a href="{{route('bundle')}}"><i class="fa fa-circle-o"></i> Bundle</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -57,7 +57,7 @@
 
         </li>
         <li class="treeview">
-          <a href="people.html">
+          <a href="#">
             <i class="fa fa-pie-chart"></i>
             <span>People</span>
             <span class="pull-right-container">
@@ -80,22 +80,22 @@
           </a>
         </li>
         <li class="treeview">
-          <a href="generalbsdge">
+          <a href="{{route('generalGamification')}}">
             <i class="fa fa-table"></i> <span>General Gamification </span>
           </a>
         </li>
         <li>
-          <a href="conversation.html">
+          <a href="{{route('inbox')}}">
             <i class="fa fa-envelope"></i> <span>Inbox</span>
           </a>
         </li>
         <li>
-          <a href="commons.html">
+          <a href="{{route('analyticsReporting')}}">
             <i class="fa fa-envelope"></i> <span> Analytics and Reporting </span>
           </a>
         </li>
         <li class="active treeview">
-          <a href="reports.html">
+          <a href="{{route('architectureSetup')}}">
             <i class="fa fa-folder"></i> <span>Architecture and Setup</span>
           </a>
         </li>
