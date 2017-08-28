@@ -31,7 +31,9 @@ Route::get('/lessons',['as'=>'lessons', 'uses'=>function(){
 	return view('lessons/lessons');
 }]);
 
-
+Route::get('/login',['as'=>'login', 'uses'=>function(){
+	return view('login/login');
+}]);
 
 Route::get('/modules',['as'=>'modules', 'uses'=>function(){
 	return view('modules/modules');
