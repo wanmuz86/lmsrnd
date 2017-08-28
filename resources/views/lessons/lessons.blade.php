@@ -16,19 +16,17 @@
           <p>Lessons and sections can be completed in any order. ID={{$course->id}}  Name={{$course->course_name}}</p>
         </div>
 
-        <ol class="breadcrumb">
-          <div class="form-group">
-            <div class="btn-group">
-              <a class="btn btn-default btn-sm " href="{{route('add_lesson', ['module_id'=> $module->id, 'course_id'=>$course->id])}}"><i class="fa  fa-plus"> Add</i></a>
-            </div>
-          </div>
-
-        </ol>
 
       </section>
 
       <section class="content">
-        
+      <div class="form-body">
+        <ol class="breadcrumb ">
+          <div class="form-group ">
+            <div class="btn-group pull-right">
+              <a class="btn btn-default btn-sm " href="{{route('add_lesson', ['module_id'=> $module->id, 'course_id'=>$course->id])}}"><i class="fa  fa-plus"> Add</i></a>
+            </div>
+          </div>
           <div class="table-responsive mailbox-messages">
           <table class="table table-hover table-striped">
           <tbody>
@@ -52,6 +50,10 @@
                           <!-- /.table -->
                         </div>
                         <!-- /.mail-box-messages -->
+        </ol>
+
+      </div>
+
           <!-- Main content -->
         </section>
         <!-- /.content -->
