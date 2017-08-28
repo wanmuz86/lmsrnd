@@ -20,19 +20,7 @@
           <div class="form-group">
             <div class="btn-group">
               <a class="btn btn-default btn-sm " href="{{route('add_lesson', ['module_id'=> $module->id, 'course_id'=>$course->id])}}"><i class="fa  fa-plus"> Add</i></a>
-              <button type="button" class="btn btn-default btn-sm"><i class="fa  fa-bar-chart"> 
-        
-
             </div>
-              <button type="button" class="btn btn-default btn-sm "><i class="fa  fa-list-ul"></i></button>
-          </div>
-          <div class="form-group">
-            <div class="btn-group">
-              <button type="button" class="btn btn-default btn-sm "><i><input type="checkbox"> Select all</i></button>
-              <button type="button" class="btn btn-default btn-sm"><i class="fa fa-thumb-tack"> Current</i></button>
-              <button type="button" class="btn btn-default btn-sm "><i class="fa  fa-trash"> Delete</i></button>
-            </div>
-
           </div>
 
         </ol>
