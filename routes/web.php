@@ -101,7 +101,7 @@ Route::get('coursedetail/{id}/games',['as'=>'getGames', 'uses'=>'CourseControlle
 
 
 Route::post('/manage/course/student',['as'=>'createStudent','uses'=>'StudentController@createStudent']);
-Route::get('/students', ['as'=>'students','uses'=> 'StudentController@getStudents']);
+Route::get('/course/{id}/students', ['as'=>'students','uses'=> 'StudentController@getStudents']);
 
 
 

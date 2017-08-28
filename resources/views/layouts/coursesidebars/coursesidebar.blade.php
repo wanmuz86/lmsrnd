@@ -87,7 +87,7 @@
         </a>
       </li>
       <li class="treeview">
-        <a href="{{route('students')}}">
+        <a href="{{route('students', ['id'=> $course->id])}}">
           <i class="fa  fa-user"></i> <span>User and Batch Enrollment</span>
           <span class="pull-right-container">
 
