@@ -23,7 +23,7 @@ class LessonController extends Controller
 
   public function getLesson($course_id,$module_id,Request $request){
      $course = Course::where('id',$course_id)->first();
-     $module = module::where('id',$module_id)->first();
+     $module = Module::where('id',$module_id)->first();
      $lessons = Lesson::all();
    return view('lessons.lessons', compact('course','module', 'lessons'));
  }
