@@ -31,6 +31,8 @@ Route::get('/lessons',['as'=>'lessons', 'uses'=>function(){
 	return view('lessons/lessons');
 }]);
 
+
+
 Route::get('/modules',['as'=>'modules', 'uses'=>function(){
 	return view('modules/modules');
 }]);
@@ -121,5 +123,6 @@ Route::get('course/{id}/module',['as'=>'getModules', 'uses'=>'ModuleController@g
 Route::post('/manage/{id}/createModule',['as'=>'createModule','uses'=>'ModuleController@createModule']);
 
 
-Route::post( '/manage/{id}/createLesson',['as'=>'createLesson','uses'=>'LessonController@createLesson']);
+Route::post( 'course/manage/{id}/createLesson',['as'=>'createLesson','uses'=>'LessonController@createLesson']);
 Route::get('course/{course_id}/module/{module_id}/getLesson', ['as'=>'getLesson','uses'=> 'LessonController@getLesson']);
+Route::get('course/{course_id}/module/{module_id}/add_lesson',['as'=>'add_lesson', 'uses'=>'LessonController@getAddLesson']);

@@ -15,9 +15,10 @@ class LessonController extends Controller
   }
    public function createLesson($id, Request $request){
 
-      if ($request->ajax()){
+       if ($request->ajax()){
+      
           return response(Lesson::create($request->all()));
-      }
+       }
   }
 
 
@@ -28,4 +29,9 @@ class LessonController extends Controller
    return view('lessons.lessons', compact('course','module', 'lessons'));
  }
 
+ public function getAddLesson($course_id,$module_id,Request $request){
+     $module = Module::where('id',$module_id)->first();
+     $course = Course::where('id',$course_id)->first();
+   return view('lessons.add_lesson', compact('course','module'));
+}
 }
