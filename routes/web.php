@@ -31,8 +31,12 @@ Route::get('/lessons',['as'=>'lessons', 'uses'=>function(){
 	return view('lessons/lessons');
 }]);
 
+Route::get('/dashboard',['as'=>'dashboard', 'uses'=>function(){
+	return view('dashboards/dashboard');
+}]);
+
 Route::get('/login',['as'=>'login', 'uses'=>function(){
-	return view('login/login');
+	return view('logins/login');
 }]);
 
 Route::get('/modules',['as'=>'modules', 'uses'=>function(){

@@ -33,7 +33,7 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <li class="treeview menu-open">
-          <a href="dashboard.html">
+          <a href="{{route('dashboard')}}">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
