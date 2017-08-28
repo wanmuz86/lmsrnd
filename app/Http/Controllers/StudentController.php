@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
-use App\Student;
-
+use App\NewUser;
+use App\Course;
 class StudentController extends BaseController
 {
    public function __construct(){
@@ -17,9 +17,9 @@ class StudentController extends BaseController
         }
     }
 
-    public function getStudents(){
-        $students = Student::all();
-
-    	return view('student.student', compact('students'));
+    public function getStudents(Request $request, $id){
+        $students = NewUser::all();
+        $course = Course::where('id',$id)->first();
+    	return view('student.student', compact('students','course'));
     }
 }
