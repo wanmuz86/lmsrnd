@@ -83,7 +83,7 @@
                         <div class="form-group">
                           <label for="category_name" class="col-sm-3 control-label">Course Logo</label>
                           <div class="col-sm-12">
-                          <input type="text" class="form-control" name="course_logo" id="course_logo" >
+                          <input name="course_logo" class="form-control" type="file" id="course_logo" enctype ="multipart/form-data">
                           </div>
                         </div>
                         <div class="form-group">
