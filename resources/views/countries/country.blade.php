@@ -13,12 +13,7 @@
       <h1>
       Country
       </h1>
-      <ol class="breadcrumb">
-        <button type="button" class="btn btn-info btn-sm " data-toggle="modal" data-target="#modal-info">
-          Add
-        </button>
-        <li></li>
-      </ol>
+
     </section>
 
     <div class="modal modal-info fade" id="modal-info">
@@ -37,7 +32,7 @@
                         <div class="form-group">
                           <label for="category_name" class="col-sm-3 control-label">Country: </label>
                           <div class="col-sm-12">
-                          <input type="text" class="form-control" name="country_name" id="country_name" placeholder="First Name">
+                          <input type="text" class="form-control" name="country_name" id="country_name" placeholder="Country Name">
                           </div>
                         </div>
                     </div>
@@ -60,6 +55,11 @@
         <div class="nav-tabs-custom">
           <ul class="nav nav-tabs ">
             <li class="active"><a href="#tab_1" data-toggle="tab">Active</a></li>
+            <li class="pull-right">
+              <button type="button" class=" btn btn-info btn-sm " data-toggle="modal" data-target="#modal-info">
+                Add
+              </button>
+            </li>
           </ul>
           <div class="tab-content">
             <div class="tab-pane active" id="tab_1">
@@ -67,22 +67,6 @@
 
                     <!-- /.box-header -->
                     <div class="box-body no-padding">
-                      <div class="mailbox-controls">
-                        <!-- Check all button -->
-                        <div class="btn-group">
-
-                        <button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="fa fa-envelope"> Message</i>
-                        </button>
-                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-check"> Grades</i></button>
-                          <button type="button" class="btn btn-default btn-sm"><i class="fa fa-key"> Password</i></button>
-                          <button type="button" class="btn btn-default btn-sm"><i class="fa fa-star"> Award</i></button>
-                          <button type="button" class="btn btn-default btn-sm"><i class="fa fa-minus-square"> Unenroll</i></button>
-                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-gear"></i> Setting</button>
-                        </div>
-                        <!-- /.btn-group -->
-
-                        <!-- /.pull-right -->
-                      </div>
                       <div class="table-responsive mailbox-messages">
                         <table class="table table-hover table-striped">
                           <tbody>
@@ -96,7 +80,7 @@
                           <tr class="info">
                             <td><input type="checkbox"></td>
                             <td class="mailbox-star"><a href="#">{{$country->country_name}}</a></td>
-                          
+
                           </tr>
                        @endforeach
 

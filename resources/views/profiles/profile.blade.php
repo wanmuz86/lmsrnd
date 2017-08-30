@@ -9,7 +9,7 @@
 @section('content')
 
 <!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
+
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
@@ -21,7 +21,7 @@
       <li class="active">User profile</li>
     </ol>
   </section>
-  @foreach($profile as $profile)
+
   <!-- Main content -->
   <section class="content">
 
@@ -34,7 +34,7 @@
 
             <img class="profile-user-img img-responsive img-circle" src="img/user4-128x128.jpg" alt="User profile picture">
 
-            <h3 class="profile-username text-center">{{$profile->first_name}}{{$profile->last_name}}</h3>
+            <h3 class="profile-username text-center"></h3>
 
             <p class="text-muted text-center">Software Engineer</p>
 
@@ -64,29 +64,30 @@
           <!-- /.box-header -->
           <div class="box-body">
             <strong><i class="fa fa-book margin-r-5"></i> Course</strong>
-            <p class="text-muted">{{$profile->courses}}</p>
+            <p class="text-muted"></p>
             <hr>
 
             <strong><i class="fa fa-book margin-r-5"></i> Group</strong>
-            <p class="text-muted">{{$profile->group->group_name}}</p>
+            <p class="text-muted"></p>
             <hr>
 
             <strong><i class="fa fa-pencil margin-r-5"></i> Company</strong>
-            <p class="text-muted">{{$profile->company->company_name}}</p>
+            <p class="text-muted"></p>
             <hr>
 
             <strong><i class="fa fa-map-marker margin-r-5"></i> Country</strong>
-            <p> <span class="label label-primary">{{$profile->country->country_name}}</span></p>
+            <p> <span class="label label-primary"></span></p>
             <hr>
 
             <strong><i class="fa fa-file-text-o margin-r-5"></i> Batch</strong>
-            <p>{{$profile->batch->batch_name}}</p>
+            <p></p>
           </div>
           <!-- /.box-body -->
         </div>
         <!-- /.box -->
       </div>
       <!-- /.col -->
+
       <div class="col-md-9">
         <div class="nav-tabs-custom">
           <ul class="nav nav-tabs">
@@ -371,9 +372,8 @@
     <!-- /.row -->
 
   </section>
-  @endforeach
+
   <!-- /.content -->
-</div>
-<!-- /.content-wrapper -->
+
 
 @endsection

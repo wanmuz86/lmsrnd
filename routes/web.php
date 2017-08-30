@@ -15,7 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
 Route::get('/hello', function(){
 	return view('master');
 });
@@ -37,10 +36,6 @@ Route::get('/generalGamification',['as'=>'generalGamification', 'uses'=>function
 
 Route::get('/analyticsReporting',['as'=>'analyticsReporting', 'uses'=>function(){
 	return view('analyticsReportings/analyticsReporting');
-}]);
-
-Route::get('/architectureSetup',['as'=>'architectureSetup', 'uses'=>function(){
-	return view('architectureSetups/architectureSetup');
 }]);
 
 Route::get('/inbox',['as'=>'inbox', 'uses'=>function(){

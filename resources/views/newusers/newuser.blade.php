@@ -13,12 +13,6 @@
       <h1>
       User
       </h1>
-      <ol class="breadcrumb">
-        <button type="button" class="btn btn-info btn-sm " data-toggle="modal" data-target="#modal-info">
-          Add
-        </button>
-        <li></li>
-      </ol>
     </section>
 
     <div class="modal modal-info fade" id="modal-info">
@@ -124,6 +118,11 @@
         <div class="nav-tabs-custom">
           <ul class="nav nav-tabs ">
             <li class="active"><a href="#tab_1" data-toggle="tab">Active</a></li>
+            <li class="pull-right">
+              <button type="button" class=" btn btn-info btn-sm " data-toggle="modal" data-target="#modal-info">
+                Add
+              </button>
+            </li>
           </ul>
           <div class="tab-content">
             <div class="tab-pane active" id="tab_1">
@@ -131,22 +130,6 @@
 
                     <!-- /.box-header -->
                     <div class="box-body no-padding">
-                      <div class="mailbox-controls">
-                        <!-- Check all button -->
-                        <div class="btn-group">
-
-                        <button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="fa fa-envelope"> Message</i>
-                        </button>
-                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-check"> Grades</i></button>
-                          <button type="button" class="btn btn-default btn-sm"><i class="fa fa-key"> Password</i></button>
-                          <button type="button" class="btn btn-default btn-sm"><i class="fa fa-star"> Award</i></button>
-                          <button type="button" class="btn btn-default btn-sm"><i class="fa fa-minus-square"> Unenroll</i></button>
-                        <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#edit"><i class="fa fa-gear"></i> Edit</button>
-                        </div>
-                        <!-- /.btn-group -->
-
-                        <!-- /.pull-right -->
-                      </div>
                       <div class="modal modal-info fade" id="edit">
                         <div class="modal-dialog modal-lg">
                           <div class="modal-content">

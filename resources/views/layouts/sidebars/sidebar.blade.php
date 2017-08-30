@@ -30,73 +30,68 @@
 
       <!-- sidebar menu: : style can be found in s
       idebar.less -->
-      <ul class="sidebar-menu" data-widget="tree">
+      <ul class="sidebar-menu " data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li class="treeview menu-open">
+        <li class="treeview menu-open ">
           <a href="{{route('dashboard')}}">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+            <i class="fa fa-dashboard"></i> <span class="text-info">Dashboard</span>
           </a>
         </li>
         <li class="treeview">
           <a href="coursebundlecategory.html">
             <i class="fa fa-files-o"></i>
-            <span>Course Bundle/Category</span>
+            <span class="text-info">Course Bundle/Category</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{route('categories')}}"><i class="fa fa-circle-o"></i> Course Category Management</a></li>
-            <li><a href="{{route('bundle')}}"><i class="fa fa-circle-o"></i> Bundle</a></li>
+            <li><a class="text-info" href="{{route('categories')}}"><i class="fa fa-circle-o"></i> Course Category Management</a></li>
+            <li><a class="text-info" href="{{route('bundle')}}"><i class="fa fa-circle-o"></i> Bundle</a></li>
           </ul>
         </li>
         <li class="treeview">
           <a href="{{route('courses')}}">
-            <i class="fa fa-share"></i> <span>Courses</span>
+            <i class="fa fa-share"></i> <span class="text-info">Courses</span>
           </a>
 
         </li>
         <li class="treeview">
           <a href="#">
             <i class="fa fa-pie-chart"></i>
-            <span>People</span>
+            <span class="text-info">People</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{route('newusers')}}"><i class="fa fa-circle-o"></i> User Management</a></li>
-            <li><a href="{{route('groups')}}"><i class="fa fa-circle-o"></i> Group Management </a></li>
-            <li><a href="{{route('batches')}}"><i class="fa fa-circle-o"></i> Batch Management </a></li>
-            <li><a href="{{route('companies')}}"><i class="fa fa-circle-o"></i> Company Management </a></li>
-            <li><a href="{{route('countries')}}"><i class="fa fa-circle-o"></i> Country Management </a></li>
+            <li><a class="text-info" href="{{route('newusers')}}"><i class="fa fa-circle-o"></i> User Management</a></li>
+            <li><a class="text-info" href="{{route('groups')}}"><i class="fa fa-circle-o"></i> Group Management </a></li>
+            <li><a class="text-info" href="{{route('batches')}}"><i class="fa fa-circle-o"></i> Batch Management </a></li>
+            <li><a class="text-info" href="{{route('companies')}}"><i class="fa fa-circle-o"></i> Company Management </a></li>
+            <li><a class="text-info" href="{{route('countries')}}"><i class="fa fa-circle-o"></i> Country Management </a></li>
           </ul>
         </li>
         <li class="treeview">
 
           <a href="{{route('calendar')}}">
 
-            <i class="fa fa-calendar"></i> <span>Course Calendar and Event</span>
+            <i class="fa fa-calendar"></i> <span class="text-info">Course Calendar and Event</span>
           </a>
         </li>
         <li class="treeview">
           <a href="{{route('generalGamification')}}">
-            <i class="fa fa-table"></i> <span>General Gamification </span>
+            <i class="fa fa-table"></i> <span class="text-info">General Gamification </span>
           </a>
         </li>
         <li>
           <a href="{{route('inbox')}}">
-            <i class="fa fa-envelope"></i> <span>Inbox</span>
+            <i class="fa fa-envelope"></i> <span class="text-info">Inbox</span>
           </a>
         </li>
         <li>
           <a href="{{route('analyticsReporting')}}">
-            <i class="fa fa-envelope"></i> <span> Analytics and Reporting </span>
-          </a>
-        </li>
-        <li class="active treeview">
-          <a href="{{route('architectureSetup')}}">
-            <i class="fa fa-folder"></i> <span>Architecture and Setup</span>
+            <i class="fa fa-envelope"></i> <span class="text-info"> Analytics and Reporting </span>
           </a>
         </li>
         </ul>

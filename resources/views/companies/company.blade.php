@@ -13,12 +13,7 @@
       <h1>
       Company
       </h1>
-      <ol class="breadcrumb">
-        <button type="button" class="btn btn-info btn-sm " data-toggle="modal" data-target="#modal-info">
-          Add
-        </button>
-        <li></li>
-      </ol>
+
     </section>
 
     <div class="modal modal-info fade" id="modal-info">
@@ -27,7 +22,7 @@
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Add Batch</h4>
+            <h4 class="modal-title">Add company</h4>
           </div>
           <div class="modal-body">
                   <!-- Custom Tabs (Pulled to the right) -->
@@ -37,7 +32,31 @@
                         <div class="form-group">
                           <label for="category_name" class="col-sm-3 control-label">Company Name: </label>
                           <div class="col-sm-12">
-                          <input type="text" class="form-control" name="company_name" id="company_name" placeholder="First Name">
+                          <input type="text" class="form-control" name="company_name" id="company_name" placeholder="Company Name">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="company_email" class="col-sm-3 control-label">Email: </label>
+                          <div class="col-sm-12">
+                          <input type="text" class="form-control" name="company_email"  placeholder="Testing@gmail.com">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="company_address" class="col-sm-3 control-label">Address: </label>
+                          <div class="col-sm-12">
+                          <input type="text" class="form-control" name="company_address"  placeholder="Address">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="company_no" class="col-sm-3 control-label">Fon No. : </label>
+                          <div class="col-sm-12">
+                          <input type="text" class="form-control" name="company_no"  placeholder="Fon No.">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="company_logo" class="col-sm-3 control-label">Address: </label>
+                          <div class="col-sm-12">
+                          <input type="text" class="form-control" name="Company_logo"  placeholder="Company Logo">
                           </div>
                         </div>
                     </div>
@@ -60,7 +79,15 @@
         <div class="nav-tabs-custom">
           <ul class="nav nav-tabs ">
             <li class="active"><a href="#tab_1" data-toggle="tab">Active</a></li>
+            <li class="pull-right">
+              <button type="button" class=" btn btn-info btn-sm " data-toggle="modal" data-target="#modal-info">
+                Add
+              </button>
+            </li>
+
           </ul>
+
+
           <div class="tab-content">
             <div class="tab-pane active" id="tab_1">
               <div class="box">
@@ -68,20 +95,7 @@
                     <!-- /.box-header -->
                     <div class="box-body no-padding">
                       <div class="mailbox-controls">
-                        <!-- Check all button -->
-                        <div class="btn-group">
 
-                        <button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="fa fa-envelope"> Message</i>
-                        </button>
-                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-check"> Grades</i></button>
-                          <button type="button" class="btn btn-default btn-sm"><i class="fa fa-key"> Password</i></button>
-                          <button type="button" class="btn btn-default btn-sm"><i class="fa fa-star"> Award</i></button>
-                          <button type="button" class="btn btn-default btn-sm"><i class="fa fa-minus-square"> Unenroll</i></button>
-                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-gear"></i> Setting</button>
-                        </div>
-                        <!-- /.btn-group -->
-
-                        <!-- /.pull-right -->
                       </div>
                       <div class="table-responsive mailbox-messages">
                         <table class="table table-hover table-striped">
@@ -118,81 +132,7 @@
                 </div>
             </div>
             <!-- /.tab-pane -->
-            <div class="tab-pane" id="tab_2">
-              <div class="box">
 
-                    <div class="box-header">
-                      <h3 class="box-title">Inbox</h3>
-
-                      <div class="box-tools pull-right">
-                        <div class="has-feedback">
-                          <input type="text" class="form-control input-sm" placeholder="Search Mail">
-                          <span class="glyphicon glyphicon-search form-control-feedback"></span>
-                        </div>
-                      </div>
-                      <!-- /.box-tools -->
-                    </div>
-                    <!-- /.box-header -->
-                    <div class="box-body no-padding">
-                      <div class="mailbox-controls">
-                        <!-- Check all button -->
-                        <button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="fa fa-square-o"></i>
-                        </button>
-                        <div class="btn-group">
-                          <button type="button" class="btn btn-default btn-sm"><i class="fa fa-trash-o"></i></button>
-                          <button type="button" class="btn btn-default btn-sm"><i class="fa fa-reply"></i></button>
-                          <button type="button" class="btn btn-default btn-sm"><i class="fa fa-share"></i></button>
-                        </div>
-                        <!-- /.btn-group -->
-                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-refresh"></i></button>
-
-                        <!-- /.pull-right -->
-                      </div>
-                      <div class="table-responsive mailbox-messages">
-                        <table class="table table-hover table-striped">
-                          <tbody>
-                          <tr class="info">
-                            <td><input type="checkbox"></td>
-                            <td class="mailbox-star"><a href="#">Assignment</a></td>
-                            <td class="mailbox-name"><a href="#">Due</a></td>
-                            <td class="mailbox-attachment"><a href="#">Max Score</a></td>
-                            <td class="mailbox-date"><a href="#">To Grade/ Submitted</a></td>
-                          </tr>
-                          <tr>
-                            <td><input type="checkbox"></td>
-                            <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
-                            <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...
-                            </td>
-
-                          </tr>
-                          <tr>
-                            <td><input type="checkbox"></td>
-                            <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
-                            <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...
-                            </td>
-                          </tr>
-                          <tr>
-                            <td><input type="checkbox"></td>
-                            <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
-                            <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...
-                            </td>
-                          </tr>
-
-                          </tbody>
-                        </table>
-                        <!-- /.table -->
-                      </div>
-                      <!-- /.mail-box-messages -->
-                    </div>
-                    <!-- /.box-body -->
-                </div>
-
-            </div>
-            <div class="tab-pane" id="tab_3">
-                <h1 class="text-blue"> Assignment results</h1>
-                <h3>There are no submissions yet.</h3>
-            </div>
-            <!-- /.tab-pane -->
           </div>
           <!-- /.tab-content -->
         </div>

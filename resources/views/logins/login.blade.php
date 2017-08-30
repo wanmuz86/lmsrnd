@@ -58,13 +58,13 @@
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+        <a href="{{route('dashboard')}}"><button type="button" class="btn btn-primary btn-block btn-flat">Sign In</button></a>
         </div>
         <!-- /.col -->
       </div>
     </form>
 
-    <a href="#">I forgot my password</a><br>
+    <a >I forgot my password</a><br>
     <a href="register.html" class="text-center">Register a new membership</a>
 
   </div>

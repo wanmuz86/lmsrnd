@@ -31,7 +31,7 @@ class NewUserController extends BaseController
       return view('newusers.newuser', compact('newUsers','userGro', 'userCom', 'userCou', 'userBat'));
     }
     public function getNewUserProfile(){
-      $profile = NewUser::where('id',1)->get();
+      $profile = NewUser::where('id',1)->first();
         return view('profiles.profile', compact('profile'));
     }
 
