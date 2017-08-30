@@ -13,12 +13,7 @@
       <h1>
     Group
       </h1>
-      <ol class="breadcrumb">
-        <button type="button" class="btn btn-info btn-sm " data-toggle="modal" data-target="#modal-info">
-          Add
-        </button>
-        <li></li>
-      </ol>
+
     </section>
 
     <div class="modal modal-info fade" id="modal-info">
@@ -40,6 +35,7 @@
                           <input type="text" class="form-control" name="group_name" id="group_name" placeholder="Group Name">
                           </div>
                         </div>
+
                     </div>
                   </div>
           <div class="modal-footer">
@@ -60,6 +56,11 @@
         <div class="nav-tabs-custom">
           <ul class="nav nav-tabs ">
             <li class="active"><a href="#tab_1" data-toggle="tab">Active</a></li>
+            <li class="pull-right">
+              <button type="button" class=" btn btn-info btn-sm " data-toggle="modal" data-target="#modal-info">
+                Add
+              </button>
+            </li>
           </ul>
           <div class="tab-content">
             <div class="tab-pane active" id="tab_1">
@@ -67,48 +68,20 @@
 
                     <!-- /.box-header -->
                     <div class="box-body no-padding">
-                      <div class="mailbox-controls">
-                        <!-- Check all button -->
-                        <div class="btn-group">
-
-                        <button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="fa fa-envelope"> Message</i>
-                        </button>
-                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-check"> Grades</i></button>
-                          <button type="button" class="btn btn-default btn-sm"><i class="fa fa-key"> Password</i></button>
-                          <button type="button" class="btn btn-default btn-sm"><i class="fa fa-star"> Award</i></button>
-                          <button type="button" class="btn btn-default btn-sm"><i class="fa fa-minus-square"> Unenroll</i></button>
-                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-gear"></i> Setting</button>
-                        </div>
-                        <!-- /.btn-group -->
-
-                        <!-- /.pull-right -->
-                      </div>
                       <div class="table-responsive mailbox-messages">
                         <table class="table table-hover table-striped">
                           <tbody>
                           <tr class="info">
                             <td><input type="checkbox"></td>
                             <td class="mailbox-star"><a href="#">Group </a></td>
-                            <td class="mailbox-name"><a href="#">Progress</a></td>
-                            <td class="mailbox-subject"><a>Score</a></td>
-                            <td class="mailbox-attachment"><a href="#">Grades</a></td>
-                            <td class="mailbox-date"><a href="#">Due</a></td>
-                            <td class="mailbox-date"><a href="#">Mastery</a></td>
-                            <td class="mailbox-date"><a href="#">Enroll</a></td>
-                            <td class="mailbox-date"><a href="#">More</a></td>
+
                           </tr>
                           @if (count($groups) > 0)
                           @foreach($groups as $group)
                           <tr class="info">
                             <td><input type="checkbox"></td>
                             <td class="mailbox-star"><a href="#">{{$group->group_name}}</a></td>
-                            <td class="mailbox-name"><a href="#"></a></td>
-                            <td class="mailbox-subject"><a></a></td>
-                            <td class="mailbox-attachment"><a href="#"></a></td>
-                            <td class="mailbox-date"><a href="#"></a></td>
-                            <td class="mailbox-date"><a href="#"></a></td>
-                            <td class="mailbox-date"><a href="#"></a> </td>
-                            <td class="mailbox-date"><a href="#"></a></td>
+                          
                           </tr>
                        @endforeach
 

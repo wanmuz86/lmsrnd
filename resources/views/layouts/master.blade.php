@@ -172,6 +172,8 @@ desired effect
 <!-- AdminLTE App -->
 {!!Html::script('js/app.min.js')!!}
 
+{!!Html::script('js/Chart.js')!!}
+
  @yield('script')
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the

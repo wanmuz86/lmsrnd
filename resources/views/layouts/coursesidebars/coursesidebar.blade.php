@@ -35,12 +35,12 @@
       <li class=" treeview">
         <a href="#">
           <i class="fa fa-gear"></i>
-          <span>Course Dashboard</span>
+          <span class="text-info">Course Dashboard</span>
         </a>
       </li>
       <li class="treeview">
         <a href="{{route('getModules', ['id'=> $course->id])}}">
-          <i class="fa fa-book"></i> <span>Module Management</span>
+          <i class="fa fa-book"></i> <span class="text-info">Module Management</span>
           <span class="pull-right-container">
 
           </span>
@@ -48,7 +48,7 @@
       </li>
       <li class="active  treeview ">
         <a href="#">
-          <i class="fa fa-file-o"></i> <span>Course Discussion/Forum</span>
+          <i class="fa fa-file-o"></i> <span class="text-info">Course Discussion/Forum</span>
           <span class="pull-right-container">
 
           </span>
@@ -56,7 +56,7 @@
       </li>
       <li class="treeview">
         <a href="#">
-          <i class="fa fa-calendar"></i> <span>Course Assesment Management</span>
+          <i class="fa fa-calendar"></i> <span class="text-info">Course Assesment Management</span>
           <span class="pull-right-container">
 
           </span>
@@ -64,7 +64,7 @@
       </li>
       <li class="treeview">
         <a href="{{route('news')}}">
-          <i class="fa fa-calculator"></i> <span>Announcement</span>
+          <i class="fa fa-calculator"></i> <span class="text-info">Announcement</span>
           <span class="pull-right-container">
 
           </span>
@@ -72,7 +72,7 @@
       </li>
       <li class="treeview">
         <a href="#">
-          <i class="fa  fa-bar-chart-o (alias)"></i> <span>Certification</span>
+          <i class="fa  fa-bar-chart-o (alias)"></i> <span class="text-info">Certification</span>
           <span class="pull-right-container">
 
           </span>
@@ -80,7 +80,7 @@
       </li>
       <li class="treeview">
         <a href="{{route('getGames', ['id'=> $course->id])}}">
-          <i class="fa  fa-gamepad"></i> <span>Gamification/Badges</span>
+          <i class="fa  fa-gamepad"></i> <span class="text-info">Gamification/Badges</span>
           <span class="pull-right-container">
 
           </span>
@@ -88,7 +88,7 @@
       </li>
       <li class="treeview">
         <a href="{{route('students', ['id'=> $course->id])}}">
-          <i class="fa  fa-user"></i> <span>User and Batch Enrollment</span>
+          <i class="fa  fa-user"></i> <span class="text-info">User and Batch Enrollment</span>
           <span class="pull-right-container">
 
           </span>
@@ -96,17 +96,17 @@
       </li>
       <li class="treeview">
         <a href="">
-          <i class="fa fa-dashboard"></i> <span>Course Settings and Config</span>
+          <i class="fa fa-dashboard"></i> <span class="text-info">Course Settings and Config</span>
         </a>
       </li>
       <li class="treeview">
          <a href="{{route('getQuiz', ['id'=> $course->id])}}">
-          <i class="fa fa-dashboard"></i> <span>Quiz</span>
+          <i class="fa fa-dashboard"></i> <span class="text-info">Quiz</span>
         </a>
       </li>
       <li class="treeview">
         <a href="{{route('attendances')}}">
-          <i class="fa  fa-users"></i> <span>Attendance</span>
+          <i class="fa  fa-users"></i> <span class="text-info">Attendance</span>
           <span class="pull-right-container">
 
           </span>

@@ -119,22 +119,7 @@
 
                     <!-- /.box-header -->
                     <div class="box-body no-padding">
-                      <div class="mailbox-controls">
-                        <!-- Check all button -->
-                        <div class="btn-group">
-
-                        <button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="fa fa-envelope"> Message</i>
-                        </button>
-                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-check"> Grades</i></button>
-                          <button type="button" class="btn btn-default btn-sm"><i class="fa fa-key"> Password</i></button>
-                          <button type="button" class="btn btn-default btn-sm"><i class="fa fa-star"> Award</i></button>
-                          <button type="button" class="btn btn-default btn-sm"><i class="fa fa-minus-square"> Unenroll</i></button>
-                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-gear"></i> Setting</button>
-                        </div>
-                        <!-- /.btn-group -->
-
-                        <!-- /.pull-right -->
-                      </div>
+                      
                       <div class="table-responsive mailbox-messages">
                         <table class="table table-hover table-striped">
                           <tbody>
