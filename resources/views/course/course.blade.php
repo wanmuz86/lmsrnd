@@ -31,7 +31,7 @@
           </div>
           <div class="modal-body">
                   <!-- Custom Tabs (Pulled to the right) -->
-                  <form action="#" method="POST" id="frm-course-create">
+                  <form action="#" method="POST" id="frm-course-create" enctype ="multipart/form-data">
                   {!! csrf_field() !!}
                     <div class="row">
                         <div class="form-group">
@@ -83,7 +83,7 @@
                         <div class="form-group">
                           <label for="category_name" class="col-sm-3 control-label">Course Logo</label>
                           <div class="col-sm-12">
-                          <input name="course_logo" class="form-control" type="file" id="course_logo" enctype ="multipart/form-data">
+                          <input name="course_logo" class="form-control" type="file" id="course_logo" >
                           </div>
                         </div>
                         <div class="form-group">
@@ -253,12 +253,25 @@
 $('#frm-course-create').on('submit',function(e){
   e.preventDefault();
   console.log('pressed');
-  var data = $(this).serialize();
-  console.log(data);
-  $.post("{{route('createCourse')}}", data, function(response){
+  /*var data = $(this).serialize();
+  data.append('course_logo', $('input[type=file]')[0].files[0]); 
+  console.log(data);*/
+  $.ajax({
+    url: "{{route('createCourse')}}", 
+    type: "POST",             
+    data: new FormData(this), 
+    contentType: false,       
+    cache: false,             
+    processData:false,        
+    success: function(data)  
+    {
+      console.log(data);
+    }
+  });
+  /*$.post("{{route('createCourse')}}", data, function(response){
 
     console.log(response);
-  });
+  });*/
 });
 
 </script>
