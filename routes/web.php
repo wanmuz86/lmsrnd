@@ -115,6 +115,11 @@ Route::get('/groups', ['as'=>'groups', 'uses'=>'GroupController@getGroups']);
 
 
 Route::post( '/manage/course/course',['as'=>'createCourse','uses'=>'CourseController@createCourse']);
+
+Route::get( '/manage/course/edit_course/{id}',['as'=>'editCourse','uses'=>'CourseController@editCourse']);
+Route::post( '/manage/course/update_course/',['as'=>'updateCourse','uses'=>'CourseController@updateCourse']);
+
+
 Route::get('/courses', ['as'=>'courses', 'uses'=>'CourseController@getCourses']);
 
 

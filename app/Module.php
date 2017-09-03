@@ -18,5 +18,8 @@ class Module extends Model
    {
        return $this->belongsTo('App\Course');
    }
+   public function lessons(){
+    return $this->hasMany('App\Lesson');
+   }
 
 }

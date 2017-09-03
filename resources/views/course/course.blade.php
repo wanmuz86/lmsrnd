@@ -126,13 +126,9 @@
                           <tr class="info">
                             <td><input type="checkbox"></td>
                             <td class="mailbox-star"><a href="#">Course Name</a></td>
-                            <td class="mailbox-name"><a href="#">Course Desc</a></td>
                             <td class="mailbox-subject"><a>Category</a></td>
-                            <td class="mailbox-attachment"><a href="#">Grades</a></td>
-                            <td class="mailbox-date"><a href="#">Due</a></td>
-                            <td class="mailbox-date"><a href="#">Mastery</a></td>
-                            <td class="mailbox-date"><a href="#">Enroll</a></td>
-                            <td class="mailbox-date"><a href="#">More</a></td>
+                            <td class="mailbox-subject"><a>Last updated On</a></td>
+                            <td class="mailbox-subject"><a>Operations</a></td>
                           </tr>
 
                           @foreach($courses as $course)
@@ -140,13 +136,13 @@
                             <td><input type="checkbox"></td>
 
                             <td class="mailbox-star"><a href="{{route('getModules', ['id'=> $course->id])}}">{{$course->course_name}}</a></td>
-                            <td class="mailbox-name"><a href="#">{{$course->course_desc}}</a></td>
                             <td class="mailbox-subject"><a>{{$course->category->category_name}}</a></td>
-                            <td class="mailbox-attachment"><a href="#"></a></td>
-                            <td class="mailbox-date"><a href="#"></a></td>
-                            <td class="mailbox-date"><a href="#"></a></td>
-                            <td class="mailbox-date"><a href="#"></a> </td>
-                            <td class="mailbox-date"><a href="#"></a></td>
+                            <td class="mailbox-subject"><a>{{$course->updated_at}}</a></td>
+                            <td class="mailbox-subject"><div class="btn-group">
+
+                        
+                        <a class="button btn btn-default btn-sm" href="{{route('editCourse', ['id'=> $course->id])}}"><i class="fa fa-gear"></i> Edit</button>
+                        </div></td>
                           </tr>
                        @endforeach
 

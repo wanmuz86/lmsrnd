@@ -19,7 +19,7 @@ class ModuleController extends Controller
         }
     }
     public function getModules($id,Request $request){
-        $modules = Module::all();
+        $modules = Module::where('course_id',$id)->get();
         $course = Course::where('id',$id)->first();
       return view('modules.modules', compact('course','modules'));
     }

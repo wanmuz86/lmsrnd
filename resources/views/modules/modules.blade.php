@@ -11,11 +11,11 @@
 <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-      Module Management <small>   ID={{$course->id}}  Name={{$course->course_name}}</small>
+      Module Management <small>  Course: {{$course->course_name}}</small>
       </h1>
       <ol class="breadcrumb">
         <button type="button" class="btn btn-info btn-sm " data-toggle="modal" data-target="#modal-info">
-        add
+        Add
         </button>
         <li></li>
       </ol>
@@ -76,18 +76,7 @@
                     <!-- /.box-header -->
                     <div class="box-body no-padding">
                       <div class="mailbox-controls">
-                        <!-- Check all button -->
-                        <div class="btn-group">
-
-                        <button type="button" id="buttonmodule" class="btn btn-default btn-sm checkbox-toggle"><i class="fa fa-envelope"> Message</i>
-                        </button>
-                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-check"> Grades</i></button>
-                          <button type="button" class="btn btn-default btn-sm"><i class="fa fa-key"> Password</i></button>
-                          <button type="button" class="btn btn-default btn-sm"><i class="fa fa-star"> Award</i></button>
-                          <button type="button" class="btn btn-default btn-sm"><i class="fa fa-minus-square"> Unenroll</i></button>
-                        <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#edit"><i class="fa fa-gear"></i> Edit</button>
-                        </div>
-                        <!-- /.btn-group -->
+                        
 
                         <!-- /.pull-right -->
                       </div>
