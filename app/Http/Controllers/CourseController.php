@@ -10,10 +10,11 @@ use App\Category;
 class CourseController extends BaseController
 {
    public function __construct(){
+   // $this->middleware('web');
 
     }
    public function createCourse(Request $request){
-$path = $request->file('course_logo')->store('logos');
+  $path = $request->file('course_logo')->store('public/logos');
  if ($request->ajax()){
      $course = new Course;
      $course->course_name = $request->course_name;

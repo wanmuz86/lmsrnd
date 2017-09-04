@@ -13,9 +13,9 @@ class Group extends Model
       'group_name',
   ];
 
-  public function newUsers()
+  public function users()
  {
-     return $this->hasMany('App\NewUser');
+     return $this->hasMany('App\User');
  }
 
 }

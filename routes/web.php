@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Route::get('/hello', function(){
 	return view('master');
@@ -120,7 +118,6 @@ Route::get( '/manage/course/edit_course/{id}',['as'=>'editCourse','uses'=>'Cours
 Route::post( '/manage/course/update_course/',['as'=>'updateCourse','uses'=>'CourseController@updateCourse']);
 
 
-Route::get('/courses', ['as'=>'courses', 'uses'=>'CourseController@getCourses']);
 
 
 Route::get('coursedetail/{id}/games',['as'=>'getGames', 'uses'=>'CourseController@getGame']);
@@ -152,3 +149,15 @@ Route::post('/manage/{id}/createModule',['as'=>'createModule','uses'=>'ModuleCon
 Route::post( 'course/manage/{id}/createLesson',['as'=>'createLesson','uses'=>'LessonController@createLesson']);
 Route::get('course/{course_id}/module/{module_id}/getLesson', ['as'=>'getLesson','uses'=> 'LessonController@getLesson']);
 Route::get('course/{course_id}/module/{module_id}/add_lesson',['as'=>'add_lesson', 'uses'=>'LessonController@getAddLesson']);
+
+
+Route::get('/',['as'=>'/','uses'=>'LoginController@getLogin']);
+Route::post('/login', ['as'=>'login', 'uses'=>'LoginController@postLogin']);
+
+
+
+Route::group(['middleware'=>['authen']], function(){
+Route::get('/courses', ['as'=>'courses', 'uses'=>'CourseController@getCourses']);
+Route::get('/logout',['as'=>'logout','uses'=>'LoginController@getLogout']);
+
+});

@@ -81,8 +81,7 @@
                         <div class="form-group">
                           <label for="course_logo" class="col-sm-3 control-label">Course Logo </label>
                           <div class="col-sm-9">
-                           <input type="text" class="form-control" name="course_logo" id="course_logo" value="{{$image_url}}">
-                           <img src="{{$image_url}}">
+                         <img src="{{ env('APP_URL2') }}{{$image_url}}">
                           </div>
                           <img src="{{$image_url}}">
                         </div>
