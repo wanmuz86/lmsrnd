@@ -207,6 +207,8 @@
                             <td class="mailbox-attachment"><a>Batch</a></td>
                             <td class="mailbox-date"><a>Company</a></td>
                             <td class="mailbox-date"><a>Country</a></td>
+                            <td class="mailbox-subject"><a>Last updated On</a></td>
+                            <td class="mailbox-subject"><a>Operations</a></td>
                           </tr>
                           @foreach($newUsers as $newUser)
                           <tr>
@@ -217,6 +219,10 @@
                             <td class="mailbox-attachment"><a>{{$newUser->batch->batch_name}}</a></td>
                             <td class="mailbox-date"><a href="#">{{$newUser->company->company_name}}</a></td>
                             <td class="mailbox-date"><a href="#">{{$newUser->country->country_name}}</a></td>
+                            <td class="mailbox-subject"><a>{{$newUser->updated_at}}</a></td>
+                            <td class="mailbox-subject"><div class="btn-group">
+                            <a class="button btn btn-default btn-sm" href="{{route('editNewUser', ['id'=> $newUser->id])}}"><i class="fa fa-gear"></i> Edit</button>
+                            </div></td>
                           </tr>
                           @endforeach
 

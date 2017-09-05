@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Storage;
 
 use App\Course;
 use App\Category;
+use App\Badges;
 class CourseController extends BaseController
 {
    public function __construct(){
@@ -15,7 +16,7 @@ class CourseController extends BaseController
     }
    public function createCourse(Request $request){
   $path = $request->file('course_logo')->store('public/logos');
- if ($request->ajax()){
+  if ($request->ajax()){
      $course = new Course;
      $course->course_name = $request->course_name;
        $course->course_logo = $path;
@@ -27,10 +28,10 @@ class CourseController extends BaseController
        $course->price = $request->price;
        $course->trainer_id = $request->trainer_id;
      $course->save();
-  
+
     return response($course);
-}   
-}
+      }
+    }
 
     public function getCourses(){
         $courses = Course::all();
@@ -67,4 +68,11 @@ class CourseController extends BaseController
         $course = Course::where('id',$id)->first();
       return view('games.games', compact('course'));
     }
+
+    public function getBadges($id,Request $request){
+
+        $course = Course::where('id',$id)->first();
+      return view('badges.badges', compact('course'));
+    }
+
 }

@@ -73,6 +73,8 @@
                           <tr class="info">
                             <td><input type="checkbox"></td>
                             <td class="mailbox-star"><a href="#">Category </a></td>
+                            <td class="mailbox-subject"><a>Last updated On</a></td>
+                            <td class="mailbox-subject"><a>Operations</a></td>
 
                           </tr>
                           @if (count($categories) > 0)
@@ -80,7 +82,10 @@
                           <tr class="info">
                             <td><input type="checkbox"></td>
                             <td class="mailbox-star"><a href="#">{{$category->category_name}}</a></td>
-
+                            <td class="mailbox-subject"><a>{{$category->updated_at}}</a></td>
+                            <td class="mailbox-subject"><div class="btn-group">
+                            <a class="button btn btn-default btn-sm" href="{{route('editCategory', ['id'=> $category->id])}}"><i class="fa fa-gear"></i> Edit</button>
+                            </div></td>
                           </tr>
                        @endforeach
 
