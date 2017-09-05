@@ -23,35 +23,22 @@ class NewUser extends Model
       return $this->belongsTo('App\Company');
     }
 
-<<<<<<< HEAD
-    public function batch(){
-      return $this->belongsTo('App\Batch');
-    }
-
-    public function group(){
-      return $this->belongsTo('App\Group');
-    }
-
-    public function courses(){
-      return $this->belongsToMany('App\Course');
-    }
-=======
-  public function batch()
- {
-     return $this->belongsTo('App\Batch');
- }
- public function group()
-{
-    return $this->belongsTo('App\Group');
-}
-public function courses()
-{
-    return $this->belongsToMany('App\Course')->withPivot('created_at');
-}
-
-public function lessons()
+    public function batch()
    {
-       return $this->belongsToMany('App\Lesson')->withPivot('created_at');
+       return $this->belongsTo('App\Batch');
    }
->>>>>>> 492fd952ed3855fcc2965747b4a67eef6abf5e88
+   public function group()
+  {
+      return $this->belongsTo('App\Group');
+  }
+  public function courses()
+  {
+      return $this->belongsToMany('App\Course')->withPivot('created_at');
+  }
+
+  public function lessons()
+     {
+         return $this->belongsToMany('App\Lesson')->withPivot('created_at');
+     }
+
 }
