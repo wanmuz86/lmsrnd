@@ -125,11 +125,9 @@ Route::get( '/manage/course/edit_course/{id}',['as'=>'editCourse','uses'=>'Cours
 Route::post( '/manage/course/update_course/',['as'=>'updateCourse','uses'=>'CourseController@updateCourse']);
 
 
-<<<<<<< HEAD
 Route::get('course/{id}/dashboardcourses',['as'=>'getDashboard', 'uses'=>'CourseController@getDashboard']);
-=======
+
 Route::get('course/{id}/badges',['as'=>'getBadges', 'uses'=>'CourseController@getBadges']);
->>>>>>> db930ac6755b6cf397efb183bc8d65704f94d112
 
 Route::get('coursedetail/{id}/games',['as'=>'getGames', 'uses'=>'CourseController@getGame']);
 
