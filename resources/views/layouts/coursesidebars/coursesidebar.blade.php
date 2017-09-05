@@ -78,13 +78,19 @@
           </span>
         </a>
       </li>
-      <li class="treeview">
-        <a href="{{route('getGames', ['id'=> $course->id])}}">
-          <i class="fa  fa-gamepad"></i> <span class="text-info">Gamification/Badges</span>
-          <span class="pull-right-container">
 
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-gamepad"></i>
+          <span class="text-info">Gamification/Badges</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
           </span>
         </a>
+        <ul class="treeview-menu">
+          <li><a class="text-info" href="{{route('getGames', ['id'=> $course->id])}}"><i class="fa fa-circle-o"></i> Games</a></li>
+          <li><a class="text-info" href="{{route('getBadges', ['id'=> $course->id])}}"><i class="fa fa-circle-o"></i> Badges </a></li>
+        </ul>
       </li>
       <li class="treeview">
         <a href="{{route('students', ['id'=> $course->id])}}">

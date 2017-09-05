@@ -35,4 +35,21 @@ class NewUserController extends BaseController
         return view('profiles.profile', compact('user'));
     }
 
+    public function editNewUser($id,Request $request){
+        $newUsers = NewUser::where('id',$id)->first();
+        $userGro = Group::all();
+        $userCom = Company::all();
+        $userCou = Country::all();
+        $userBat = Batch::all();
+        return view('newUsers.edit_newuser', compact('newUsers','userGro', 'userCom', 'userCou', 'userBat'));
+    }
+
+    public function updateNewUser(Request $request){
+        $newUser = Category::where('id',$request->newuser_id)->first();
+        $newUser->newuser_name = $request->newuser_name;
+
+        $newUser->save();
+        return response($newUsers);
+    }
+
 }

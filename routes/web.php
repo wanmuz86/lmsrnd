@@ -107,8 +107,12 @@ Route::get('/companies', ['as'=>'companies', 'uses'=>'CompanyController@getCompa
 Route::post( '/manage/course/batch',['as'=>'createBatch','uses'=>'BatchController@createBatch']);
 Route::get('/batches', ['as'=>'batches', 'uses'=>'BatchController@getBatches']);
 
-Route::post( '/manage/course/category',['as'=>'createCategory','uses'=>'CategoryController@createCategory']);
+
+Route::post( '/manage/category/category',['as'=>'createCategory','uses'=>'CategoryController@createCategory']);
 Route::get('/categories', ['as'=>'categories', 'uses'=>'CategoryController@getCategories']);
+
+Route::get( '/manage/category/edit_category/{id}',['as'=>'editCategory','uses'=>'CategoryController@editCategory']);
+Route::post( '/manage/categor/update_category/',['as'=>'updateCategory','uses'=>'CategoryController@updateCategory']);
 
 
 Route::post( '/manage/course/group',['as'=>'createGroup','uses'=>'GroupController@createGroup']);
@@ -121,7 +125,11 @@ Route::get( '/manage/course/edit_course/{id}',['as'=>'editCourse','uses'=>'Cours
 Route::post( '/manage/course/update_course/',['as'=>'updateCourse','uses'=>'CourseController@updateCourse']);
 
 
+<<<<<<< HEAD
 Route::get('course/{id}/dashboardcourses',['as'=>'getDashboard', 'uses'=>'CourseController@getDashboard']);
+=======
+Route::get('course/{id}/badges',['as'=>'getBadges', 'uses'=>'CourseController@getBadges']);
+>>>>>>> db930ac6755b6cf397efb183bc8d65704f94d112
 
 Route::get('coursedetail/{id}/games',['as'=>'getGames', 'uses'=>'CourseController@getGame']);
 
@@ -134,8 +142,12 @@ Route::get('/course/{id}/students', ['as'=>'students','uses'=> 'StudentControlle
 Route::get('/newstudents', ['as'=>'getNewstudents','uses'=> 'NewstudentController@getNewstudents']);
 
 
-Route::post('/manage/course/newuser',['as'=>'createNewUser','uses'=>'NewUserController@createNewUser']);
+Route::post('/manage/newuser/newuser',['as'=>'createNewUser','uses'=>'NewUserController@createNewUser']);
 Route::get('/newusers', ['as'=>'newusers','uses'=> 'NewUserController@getNewUsers']);
+
+Route::get( '/manage/newusers/edit_newuser/{id}',['as'=>'editNewUser','uses'=>'NewUserController@editNewUser']);
+Route::post( '/manage/newusers/update_newuser/',['as'=>'updateNewUser','uses'=>'NewUserController@updateNewUser']);
+
 
 
 Route::post('/manage/{id}/createQuiz',['as'=>'createQuiz','uses'=>'QuizController@createQuiz']);
