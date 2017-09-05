@@ -34,6 +34,11 @@ class NewUser extends Model
 }
 public function courses()
 {
-    return $this->belongsToMany('App\Course');
+    return $this->belongsToMany('App\Course')->withPivot('created_at');
 }
+
+public function lessons()
+   {
+       return $this->belongsToMany('App\Lesson')->withPivot('created_at');
+   }
 }

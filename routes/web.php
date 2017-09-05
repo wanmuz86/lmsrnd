@@ -48,6 +48,11 @@ Route::get('/dashboard',['as'=>'dashboard', 'uses'=>function(){
 	return view('dashboards/dashboard');
 }]);
 
+Route::get('/dashboardcourses',['as'=>'dashboardcourses', 'uses'=>function(){
+	return view('dashboards/dashboardcourses');
+}]);
+
+
 Route::get('/login',['as'=>'login', 'uses'=>function(){
 	return view('logins/login');
 }]);
@@ -86,12 +91,10 @@ Route::get('/syllabus', ['as'=>'syllabus', 'uses'=>function(){
 	return view('syllabus/syllabus');
 }]);
 
-Route::post( '/manage/course/cambe',['as'=>'cambe','uses'=>'CambeController@createCambe']);
-Route::get('/cambe', ['as'=>'cambes', 'uses'=>'CambeController@getCambes']);
 
 
 Route::post( '/manage/course/profile',['as'=>'profile','uses'=>'NewUserController@createProfile']);
-Route::get('/profile', ['as'=>'profiles', 'uses'=>'NewUserController@getNewUserProfile']);
+Route::get('/profile/{id}', ['as'=>'profile', 'uses'=>'NewUserController@getNewUserProfile']);
 
 Route::post( '/manage/course/country',['as'=>'createCountry','uses'=>'CountryController@createCountry']);
 Route::get('/countries', ['as'=>'countries', 'uses'=>'CountryController@getCountries']);
@@ -118,7 +121,7 @@ Route::get( '/manage/course/edit_course/{id}',['as'=>'editCourse','uses'=>'Cours
 Route::post( '/manage/course/update_course/',['as'=>'updateCourse','uses'=>'CourseController@updateCourse']);
 
 
-
+Route::get('course/{id}/dashboardcourses',['as'=>'getDashboard', 'uses'=>'CourseController@getDashboard']);
 
 Route::get('coursedetail/{id}/games',['as'=>'getGames', 'uses'=>'CourseController@getGame']);
 

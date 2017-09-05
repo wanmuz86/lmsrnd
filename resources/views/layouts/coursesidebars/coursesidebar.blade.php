@@ -33,7 +33,7 @@
       <li class="header">COURSES NAVIGATION</li>
       <!-- Optionally, you can add icons to the links -->
       <li class=" treeview">
-        <a href="#">
+        <a href="{{route('getDashboard', ['id'=> $course->id])}}">
           <i class="fa fa-gear"></i>
           <span class="text-info">Course Dashboard</span>
         </a>

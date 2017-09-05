@@ -17,4 +17,9 @@ class Lesson extends Model
    {
        return $this->belongsTo('App\Module');
    }
+
+    public function users()
+   {
+       return $this->belongsToMany('App\NewUser');
+   }
 }

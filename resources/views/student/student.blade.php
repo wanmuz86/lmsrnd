@@ -129,16 +129,7 @@
                     <div class="box-body no-padding">
                       <div class="mailbox-controls">
                         <!-- Check all button -->
-                        <div class="btn-group">
-
-                        <button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="fa fa-envelope"> Message</i>
-                        </button>
-                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-check"> Grades</i></button>
-                          <button type="button" class="btn btn-default btn-sm"><i class="fa fa-key"> Password</i></button>
-                          <button type="button" class="btn btn-default btn-sm"><i class="fa fa-star"> Award</i></button>
-                          <button type="button" class="btn btn-default btn-sm"><i class="fa fa-minus-square"> Unenroll</i></button>
-                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-gear"></i> Setting</button>
-                        </div>
+                
                         <!-- /.btn-group -->
 
                         <!-- /.pull-right -->
@@ -149,25 +140,19 @@
                           <tr class="info">
                             <td><input type="checkbox"></td>
                             <td class="mailbox-star"><a href="#">Student</a></td>
-                            <td class="mailbox-name"><a href="#">Progress</a></td>
-                            <td class="mailbox-subject"><a>Score</a></td>
-                            <td class="mailbox-attachment"><a href="#">Grades</a></td>
-                            <td class="mailbox-date"><a href="#">Due</a></td>
-                            <td class="mailbox-date"><a href="#">Mastery</a></td>
-                            <td class="mailbox-date"><a href="#">Enroll</a></td>
-                            <td class="mailbox-date"><a href="#">More</a></td>
+                            <td class="mailbox-date"><a href="#">Enrolled Date</a></td>
+                            <td class="mailbox-date"><a href="#">Completion Date</a></td>
+                            <td class="mailbox-date"><a href="#">Operation</a></td>
                           </tr>
-                          @foreach($students as $student)
+                          @foreach($course->newUsers as $student)
                           <tr>
                             <td><input type="checkbox"></td>
-                            <td class="mailbox-star"><a href="#"><i class="fa fa-male"> {{$student->first_name}}</i></a></td>
-                            <td class="mailbox-name"><a href="#"><i class="fa fa-tasks"></i></a></td>
-                            <td class="mailbox-subject">-</i></td>
-                            <td class="mailbox-attachment"><a>-</a></td>
-                            <td class="mailbox-date">-</td>
-                            <td class="mailbox-date">-</td>
-                            <td class="mailbox-date">{{$student->startdate}}</td>
-                            <td class="mailbox-date"><i class="fa fa-gear"></td>
+                        
+                            <td class="mailbox-star"><a href="{{route('profile',['id'=> $student->newuser_id])}}"><i class="fa fa-male"> {{$student->first_name}}</i></a></td>
+                            <td class="mailbox-name">{{$student->startdate}}</i></a></td>
+                            <td class="mailbox-date"></td>
+                            <td class="mailbox-date"> <a class="button btn btn-default btn-sm" href="#"><i class="fa fa-gear"></i>Enrolled</button></td>
+
                           </tr>
                           @endforeach
 
