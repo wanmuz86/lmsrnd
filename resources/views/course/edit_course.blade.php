@@ -83,7 +83,6 @@
                           <div class="col-sm-9">
                          <img src="{{ env('APP_URL2') }}{{$image_url}}">
                           </div>
-                          <img src="{{$image_url}}">
                         </div>
                         <div class="form-group">
                           <label for="price" class="col-sm-3 control-label">Price </label>

@@ -31,12 +31,12 @@
         <!-- Profile Image -->
         <div class="box box-primary">
           <div class="box-body box-profile">
+{{ Html::image('img/user2-160x160.jpg', 'User Image',  array('class' => 'img-circle img-responsive profile-user-img')) }}
+           
 
-            <img class="profile-user-img img-responsive img-circle" src="img/user4-128x128.jpg" alt="User profile picture">
+            <h3 class="profile-username text-center">{{$user->first_name}}</h3>
 
-            <h3 class="profile-username text-center"></h3>
-
-            <p class="text-muted text-center">Software Engineer</p>
+            <p class="text-muted text-center">{{$user->company->company_name}}</p>
 
             <ul class="list-group list-group-unbordered">
               <li class="list-group-item">
@@ -59,7 +59,7 @@
         <!-- About Me Box -->
         <div class="box box-primary">
           <div class="box-header with-border">
-            <h3 class="box-title">About Me</h3>
+            <h3 class="box-title">About Student</h3>
           </div>
           <!-- /.box-header -->
           <div class="box-body">
@@ -72,11 +72,11 @@
             <hr>
 
             <strong><i class="fa fa-pencil margin-r-5"></i> Company</strong>
-            <p class="text-muted"></p>
+            <p class="text-muted">{{$user->company->company_name}}</p>
             <hr>
 
             <strong><i class="fa fa-map-marker margin-r-5"></i> Country</strong>
-            <p> <span class="label label-primary"></span></p>
+            <p> {{$user->country->country_name}}</p>
             <hr>
 
             <strong><i class="fa fa-file-text-o margin-r-5"></i> Batch</strong>
@@ -91,13 +91,14 @@
       <div class="col-md-9">
         <div class="nav-tabs-custom">
           <ul class="nav nav-tabs">
-            <li class="active"><a href="#activity" data-toggle="tab">Activity</a></li>
+            <li class="active"><a href="#enrolled" data-toggle="tab">Enrolled</a></li>
+            <li ><a href="#activity" data-toggle="tab">Activity</a></li>
             <li><a href="#timeline" data-toggle="tab">Info</a></li>
             <li><a href="#settings" data-toggle="tab">Settings</a></li>
-            <li><a href="#settings" data-toggle="tab">Settings</a></li>
+            
           </ul>
           <div class="tab-content">
-            <div class="active tab-pane" id="activity">
+            <div class="tab-pane" id="activity">
               <!-- Post -->
               <div class="post">
                 <div class="user-block">
@@ -362,6 +363,43 @@
               </form>
             </div>
             <!-- /.tab-pane -->
+            {{$user->lessons }}
+             <div class="active tab-pane" id="enrolled">
+              <form class="form-horizontal">
+                <div class="table-responsive mailbox-messages">
+                        <table class="table table-hover table-striped">
+                          <tbody>
+                          <tr class="info">
+                            <td><input type="checkbox"></td>
+                            <td class="mailbox-star"><a href="#">Course</a></td>
+                            <td class="mailbox-date"><a href="#">Enrolled Date</a></td>
+                            <td class="mailbox-date"><a href="#">Completion Date</a></td>
+                            <td class="mailbox-date"><a href="#">Operation</a></td>
+                          </tr>
+                          @foreach($user->courses as $course)
+                          <tr>
+                            <td><input type="checkbox"></td>
+                        
+                            <td class="mailbox-star"><a href=""><i class="fa fa-male">{{$course->course_name}}</i></a></td>
+
+                            <td class="mailbox-name"></i>{{$course->pivot->created_at}}</a></td>
+                            <td class="mailbox-date"></td>
+                            <td class="mailbox-date"> <a class="button btn btn-default btn-sm" href="#"><i class="fa fa-gear"></i>Enrolled</button></td>
+
+                          </tr>
+                          @endforeach
+
+                          </tbody>
+                        </table>
+                        <!-- /.table -->
+                      </div>
+                      <!-- /.mail-box-messages -->
+              </form>
+            </div>
+            <!-- /.tab-pane -->
+          </div>
+          <!-- /.tab-content -->
+         
           </div>
           <!-- /.tab-content -->
         </div>

@@ -21,7 +21,6 @@ class NewUserController extends BaseController
         }
     }
 
-
     public function getNewUsers(){
         $newUsers = NewUser::all();
         $userGro = Group::all();
@@ -31,9 +30,15 @@ class NewUserController extends BaseController
       return view('newusers.newuser', compact('newUsers','userGro', 'userCom', 'userCou', 'userBat'));
     }
 
+<<<<<<< HEAD
     public function getNewUserProfile(){
       $profile = NewUser::where('id',1)->first();
         return view('profiles.profile', compact('profile'));
+=======
+    public function getNewUserProfile(Request $request, $id){
+      $user = NewUser::where('newuser_id',$id)->first();
+        return view('profiles.profile', compact('user'));
+>>>>>>> 492fd952ed3855fcc2965747b4a67eef6abf5e88
     }
 
     public function editNewUser($id,Request $request){
@@ -46,6 +51,7 @@ class NewUserController extends BaseController
     }
 
     public function updateNewUser(Request $request){
+<<<<<<< HEAD
         $newUser = NewUser::where('id',$request->newuser_id)->first();
         $newUser->first_name = $request->first_name;
         $newUser->last_name = $request->last_name;
@@ -55,6 +61,10 @@ class NewUserController extends BaseController
         $newUser->company_id  = $request->company_id;
         $newUser->country_id  = $request->country_id;
         $newUser->batch_id  = $request->batch_id;
+=======
+        $newUser = Category::where('id',$request->newuser_id)->first();
+        $newUser->newuser_name = $request->newuser_name;
+>>>>>>> 492fd952ed3855fcc2965747b4a67eef6abf5e88
         $newUser->save();
         return response($newUser);
     }
