@@ -93,37 +93,44 @@ Route::get('/cambe', ['as'=>'cambes', 'uses'=>'CambeController@getCambes']);
 Route::post( '/manage/course/profile',['as'=>'profile','uses'=>'NewUserController@createProfile']);
 Route::get('/profile', ['as'=>'profiles', 'uses'=>'NewUserController@getNewUserProfile']);
 
-Route::post( '/manage/course/country',['as'=>'createCountry','uses'=>'CountryController@createCountry']);
+
+Route::post( '/manage/countries/country',['as'=>'createCountry','uses'=>'CountryController@createCountry']);
 Route::get('/countries', ['as'=>'countries', 'uses'=>'CountryController@getCountries']);
+Route::get( '/manage/countries/edit_country/{id}',['as'=>'editCountry','uses'=>'CountryController@editCountry']);
+Route::post( '/manage/countries/update_country/',['as'=>'updateCountry','uses'=>'CountryController@updateCountry']);
 
 
-Route::post( '/manage/course/company',['as'=>'createCompany','uses'=>'CompanyController@createCompany']);
+Route::post( '/manage/companies/company',['as'=>'createCompany','uses'=>'CompanyController@createCompany']);
 Route::get('/companies', ['as'=>'companies', 'uses'=>'CompanyController@getCompanies']);
+Route::get( '/manage/companies/edit_company/{id}',['as'=>'editCompany','uses'=>'CompanyController@editCompany']);
+Route::post( '/manage/companis/update_company/',['as'=>'updateCompany','uses'=>'CompanyController@updateCompany']);
 
 
-Route::post( '/manage/course/batch',['as'=>'createBatch','uses'=>'BatchController@createBatch']);
+Route::post( '/manage/bactchs/batch',['as'=>'createBatch','uses'=>'BatchController@createBatch']);
 Route::get('/batches', ['as'=>'batches', 'uses'=>'BatchController@getBatches']);
+Route::get( '/manage/newusers/edit_batch/{id}',['as'=>'editBatch','uses'=>'BatchController@editBatch']);
+Route::post( '/manage/newusers/update_batch/',['as'=>'updateBatch','uses'=>'BatchController@updateBatch']);
 
 
 Route::post( '/manage/category/category',['as'=>'createCategory','uses'=>'CategoryController@createCategory']);
 Route::get('/categories', ['as'=>'categories', 'uses'=>'CategoryController@getCategories']);
-
 Route::get( '/manage/category/edit_category/{id}',['as'=>'editCategory','uses'=>'CategoryController@editCategory']);
 Route::post( '/manage/categor/update_category/',['as'=>'updateCategory','uses'=>'CategoryController@updateCategory']);
 
 
-Route::post( '/manage/course/group',['as'=>'createGroup','uses'=>'GroupController@createGroup']);
+Route::post( '/manage/groups/group',['as'=>'createGroup','uses'=>'GroupController@createGroup']);
 Route::get('/groups', ['as'=>'groups', 'uses'=>'GroupController@getGroups']);
+Route::get( '/manage/groups/edit_group/{id}',['as'=>'editGroup','uses'=>'GroupController@editGroup']);
+Route::post( '/manage/groups/update_group/',['as'=>'updateGroup','uses'=>'GroupController@updateGroup']);
 
 
 Route::post( '/manage/course/course',['as'=>'createCourse','uses'=>'CourseController@createCourse']);
-
 Route::get( '/manage/course/edit_course/{id}',['as'=>'editCourse','uses'=>'CourseController@editCourse']);
 Route::post( '/manage/course/update_course/',['as'=>'updateCourse','uses'=>'CourseController@updateCourse']);
 
 
 Route::get('course/{id}/badges',['as'=>'getBadges', 'uses'=>'CourseController@getBadges']);
-
+Route::get('course/{id}/news',['as'=>'getNews', 'uses'=>'CourseController@getNews']);
 Route::get('coursedetail/{id}/games',['as'=>'getGames', 'uses'=>'CourseController@getGame']);
 
 

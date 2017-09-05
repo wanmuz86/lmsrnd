@@ -63,7 +63,7 @@
         </a>
       </li>
       <li class="treeview">
-        <a href="{{route('news')}}">
+        <a href="{{route('getNews', ['id'=> $course->id])}}">
           <i class="fa fa-calculator"></i> <span class="text-info">Announcement</span>
           <span class="pull-right-container">
 
@@ -110,15 +110,6 @@
           <i class="fa fa-dashboard"></i> <span class="text-info">Quiz</span>
         </a>
       </li>
-      <li class="treeview">
-        <a href="{{route('attendances')}}">
-          <i class="fa  fa-users"></i> <span class="text-info">Attendance</span>
-          <span class="pull-right-container">
-
-          </span>
-        </a>
-      </li>
-
     </ul>
     <!-- /.sidebar-menu -->
     </section>

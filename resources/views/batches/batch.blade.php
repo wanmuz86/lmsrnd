@@ -74,7 +74,8 @@
                             <td><input type="checkbox"></td>
                             <td class="mailbox-star"><a href="#">Batch </a></td>
                             <td class="mailbox-name"><a href="#"></a></td>
-
+                            <td class="mailbox-subject"><a>Last updated On</a></td>
+                            <td class="mailbox-subject"><a>Operations</a></td>
                           </tr>
                           @if (count($batches) > 0)
                           @foreach($batches as $batch)
@@ -82,7 +83,10 @@
                             <td><input type="checkbox"></td>
                             <td class="mailbox-star"><a href="#">{{$batch->batch_name}}</a></td>
                             <td class="mailbox-name"><a href="#"></a></td>
-
+                            <td class="mailbox-subject"><a>{{$batch->updated_at}}</a></td>
+                            <td class="mailbox-subject"><div class="btn-group">
+                            <a class="button btn btn-default btn-sm" href="{{route('editBatch', ['id'=> $batch->id])}}"><i class="fa fa-gear"></i> Edit</button>
+                            </div></td>
                           </tr>
                        @endforeach
 

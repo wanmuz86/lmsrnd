@@ -119,7 +119,7 @@
 
                     <!-- /.box-header -->
                     <div class="box-body no-padding">
-                      
+
                       <div class="table-responsive mailbox-messages">
                         <table class="table table-hover table-striped">
                           <tbody>
@@ -139,10 +139,8 @@
                             <td class="mailbox-subject"><a>{{$course->category->category_name}}</a></td>
                             <td class="mailbox-subject"><a>{{$course->updated_at}}</a></td>
                             <td class="mailbox-subject"><div class="btn-group">
-
-                        
-                        <a class="button btn btn-default btn-sm" href="{{route('editCourse', ['id'=> $course->id])}}"><i class="fa fa-gear"></i> Edit</button>
-                        </div></td>
+                              <a class="button btn btn-default btn-sm" href="{{route('editCourse', ['id'=> $course->id])}}"><i class="fa fa-gear"></i> Edit</button>
+                            </div></td>
                           </tr>
                        @endforeach
 
@@ -156,81 +154,6 @@
                     </div>
                     <!-- /.box-body -->
                 </div>
-            </div>
-            <!-- /.tab-pane -->
-            <div class="tab-pane" id="tab_2">
-              <div class="box">
-
-                    <div class="box-header">
-                      <h3 class="box-title">Inbox</h3>
-
-                      <div class="box-tools pull-right">
-                        <div class="has-feedback">
-                          <input type="text" class="form-control input-sm" placeholder="Search Mail">
-                          <span class="glyphicon glyphicon-search form-control-feedback"></span>
-                        </div>
-                      </div>
-                      <!-- /.box-tools -->
-                    </div>
-                    <!-- /.box-header -->
-                    <div class="box-body no-padding">
-                      <div class="mailbox-controls">
-                        <!-- Check all button -->
-                        <button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="fa fa-square-o"></i>
-                        </button>
-                        <div class="btn-group">
-                          <button type="button" class="btn btn-default btn-sm"><i class="fa fa-trash-o"></i></button>
-                          <button type="button" class="btn btn-default btn-sm"><i class="fa fa-reply"></i></button>
-                          <button type="button" class="btn btn-default btn-sm"><i class="fa fa-share"></i></button>
-                        </div>
-                        <!-- /.btn-group -->
-                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-refresh"></i></button>
-
-                        <!-- /.pull-right -->
-                      </div>
-                      <div class="table-responsive mailbox-messages">
-                        <table class="table table-hover table-striped">
-                          <tbody>
-                          <tr class="info">
-                            <td><input type="checkbox"></td>
-                            <td class="mailbox-star"><a href="#">Assignment</a></td>
-                            <td class="mailbox-name"><a href="#">Due</a></td>
-                            <td class="mailbox-attachment"><a href="#">Max Score</a></td>
-                            <td class="mailbox-date"><a href="#">To Grade/ Submitted</a></td>
-                          </tr>
-                          <tr>
-                            <td><input type="checkbox"></td>
-                            <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
-                            <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...
-                            </td>
-
-                          </tr>
-                          <tr>
-                            <td><input type="checkbox"></td>
-                            <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
-                            <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...
-                            </td>
-                          </tr>
-                          <tr>
-                            <td><input type="checkbox"></td>
-                            <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
-                            <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...
-                            </td>
-                          </tr>
-
-                          </tbody>
-                        </table>
-                        <!-- /.table -->
-                      </div>
-                      <!-- /.mail-box-messages -->
-                    </div>
-                    <!-- /.box-body -->
-                </div>
-
-            </div>
-            <div class="tab-pane" id="tab_3">
-                <h1 class="text-blue"> Assignment results</h1>
-                <h3>There are no submissions yet.</h3>
             </div>
             <!-- /.tab-pane -->
           </div>
@@ -250,16 +173,16 @@ $('#frm-course-create').on('submit',function(e){
   e.preventDefault();
   console.log('pressed');
   /*var data = $(this).serialize();
-  data.append('course_logo', $('input[type=file]')[0].files[0]); 
+  data.append('course_logo', $('input[type=file]')[0].files[0]);
   console.log(data);*/
   $.ajax({
-    url: "{{route('createCourse')}}", 
-    type: "POST",             
-    data: new FormData(this), 
-    contentType: false,       
-    cache: false,             
-    processData:false,        
-    success: function(data)  
+    url: "{{route('createCourse')}}",
+    type: "POST",
+    data: new FormData(this),
+    contentType: false,
+    cache: false,
+    processData:false,
+    success: function(data)
     {
       console.log(data);
     }

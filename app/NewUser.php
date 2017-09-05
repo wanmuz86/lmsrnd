@@ -19,21 +19,19 @@ class NewUser extends Model
        return $this->belongsTo('App\Country');
    }
 
-   public function company()
-  {
+    public function company(){
       return $this->belongsTo('App\Company');
-  }
+    }
 
-  public function batch()
- {
-     return $this->belongsTo('App\Batch');
- }
- public function group()
-{
-    return $this->belongsTo('App\Group');
-}
-public function courses()
-{
-    return $this->belongsToMany('App\Course');
-}
+    public function batch(){
+      return $this->belongsTo('App\Batch');
+    }
+
+    public function group(){
+      return $this->belongsTo('App\Group');
+    }
+
+    public function courses(){
+      return $this->belongsToMany('App\Course');
+    }
 }

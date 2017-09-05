@@ -23,4 +23,21 @@ class CompanyController extends BaseController
         $companies = Company::all();
     	return view('companies.company', compact('companies'));
     }
+
+    public function editCompany($id,Request $request){
+        $company = Company::where('id',$id)->first();
+        $image_url  = '';
+        if(Storage::exists($company->company_logo));{
+            $image_url = Storage::url($company->company_logo);
+        }
+        return view('companies.edit_company', compact('company','image_url'));
+    }
+
+    public function updateCourse(Request $request){
+        $company = Company::where('id',$request->company_id)->first();
+        $company->company_name = $request->company_name;
+        $company->save();
+        return response($course);
+    }
+
 }

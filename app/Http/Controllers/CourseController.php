@@ -49,7 +49,7 @@ class CourseController extends BaseController
         return view('course.edit_course', compact('course', 'categories','image_url'));
     }
 
-    public function updateCourse(Request $request){
+  public function updateCourse(Request $request){
         $course = Course::where('id',$request->course_id)->first();
         $course->course_name = $request->course_name;
        $course->course_logo = $request->course_logo;
@@ -63,16 +63,20 @@ class CourseController extends BaseController
         $course->save();
         return response($course);
     }
-    public function getGame($id,Request $request){
 
-        $course = Course::where('id',$id)->first();
-      return view('games.games', compact('course'));
-    }
+  public function getGame($id,Request $request){
+    $course = Course::where('id',$id)->first();
+    return view('games.games', compact('course'));
+  }
 
-    public function getBadges($id,Request $request){
+  public function getBadges($id,Request $request){
+    $course = Course::where('id',$id)->first();
+    return view('badges.badges', compact('course'));
+  }
 
-        $course = Course::where('id',$id)->first();
-      return view('badges.badges', compact('course'));
-    }
+  public function getNews($id,Request $request){
+    $course = Course::where('id',$id)->first();
+    return view('news.news', compact('course'));
+  }
 
 }

@@ -22,4 +22,17 @@ class CountryController extends BaseController
         $countries = Country::all();
     	return view('countries.country', compact('countries'));
     }
+
+    public function editCountry($id,Request $request){
+        $country = Country::where('id',$id)->first();
+        return view('countries.edit_country', compact('country'));
+    }
+
+    public function updateCountry(Request $request){
+        $country = Country::where('id',$request->country_id)->first();
+        $country->country_name = $request->country_name;
+        $country->save();
+        return response($country);
+    }
+
 }

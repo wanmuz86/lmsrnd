@@ -54,9 +54,9 @@
                           </div>
                         </div>
                         <div class="form-group">
-                          <label for="company_logo" class="col-sm-3 control-label">Address: </label>
+                          <label for="category_name" class="col-sm-3 control-label">Company Logo</label>
                           <div class="col-sm-12">
-                          <input type="text" class="form-control" name="Company_logo"  placeholder="Company Logo">
+                          <input name="company_logo" class="form-control" type="file" id="company_logo" >
                           </div>
                         </div>
                     </div>
@@ -106,7 +106,8 @@
                             <td class="mailbox-name"><a href="#">Email</a></td>
                             <td class="mailbox-subject"><a>Address</a></td>
                             <td class="mailbox-attachment"><a href="#">Fon No.</a></td>
-                            <td class="mailbox-date"><a href="#">logo</a></td>
+                            <td class="mailbox-subject"><a>Last updated On</a></td>
+                            <td class="mailbox-subject"><a>Operations</a></td>
                           </tr>
                           @if (count($companies) > 0)
                           @foreach($companies as $company)
@@ -115,8 +116,11 @@
                             <td class="mailbox-star"><a href="#">{{$company->company_name}}</a></td>
                             <td class="mailbox-name"><a href="#"></a></td>
                             <td class="mailbox-subject"><a></a></td>
-                            <td class="mailbox-attachment"><a href="#"></a></td>
                             <td class="mailbox-date"><a href="#"></a></td>
+                            <td class="mailbox-subject"><a>{{$company->updated_at}}</a></td>
+                            <td class="mailbox-subject"><div class="btn-group">
+                              <a class="button btn btn-default btn-sm" href="{{route('editCompany', ['id'=> $company->id])}}"><i class="fa fa-gear"></i> Edit</button>
+                            </div></td>
                           </tr>
                        @endforeach
 

@@ -22,4 +22,17 @@ class BatchController extends BaseController
         $batches = Batch::all();
     	return view('batches.batch', compact('batches'));
     }
+
+    public function editBatch($id,Request $request){
+        $batch = Batch::where('id',$id)->first();
+        return view('batches.edit_batch', compact('batch'));
+    }
+
+    public function updateBatch(Request $request){
+        $batch = Batch::where('id',$request->batch_id)->first();
+        $batch->batch_name = $request->batch_name;
+        $batch->save();
+        return response($batch);
+    }
+
 }
