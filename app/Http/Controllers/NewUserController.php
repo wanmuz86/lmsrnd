@@ -21,7 +21,6 @@ class NewUserController extends BaseController
         }
     }
 
-
     public function getNewUsers(){
         $newUsers = NewUser::all();
         $userGro = Group::all();
@@ -30,6 +29,7 @@ class NewUserController extends BaseController
         $userBat = Batch::all();
       return view('newusers.newuser', compact('newUsers','userGro', 'userCom', 'userCou', 'userBat'));
     }
+
     public function getNewUserProfile(Request $request, $id){
       $user = NewUser::where('newuser_id',$id)->first();
         return view('profiles.profile', compact('user'));
@@ -47,7 +47,6 @@ class NewUserController extends BaseController
     public function updateNewUser(Request $request){
         $newUser = Category::where('id',$request->newuser_id)->first();
         $newUser->newuser_name = $request->newuser_name;
-
         $newUser->save();
         return response($newUsers);
     }
