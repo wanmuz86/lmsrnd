@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Storage;
 use App\Course;
 use App\Category;
 use App\Badges;
+use Session;
+use Redirect;
 class CourseController extends BaseController
 {
   public function __construct(){
@@ -48,6 +50,12 @@ class CourseController extends BaseController
     return view('course.edit_course', compact('course', 'categories','image_url'));
   }
 
+public function deleteCourse($id, Request $request){
+  $course = Course::find($id);
+  $course->delete();
+  Session::flash('message', 'Successfully deleted the nerd!');
+  return Redirect::to('courses');
+}
   public function updateCourse(Request $request){
     $course = Course::where('id',$request->course_id)->first();
     $course->course_name = $request->course_name;

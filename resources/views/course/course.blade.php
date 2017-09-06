@@ -139,8 +139,13 @@
                             <td class="mailbox-subject"><a>{{$course->category->category_name}}</a></td>
                             <td class="mailbox-subject"><a>{{$course->updated_at}}</a></td>
                             <td class="mailbox-subject"><div class="btn-group">
-                              <a class="button btn btn-default btn-sm" href="{{route('editCourse', ['id'=> $course->id])}}"><i class="fa fa-gear"></i> Edit</button>
-                            </div></td>
+                              <a class="button btn btn-default btn-sm" href="{{route('editCourse', ['id'=> $course->id])}}"><i class="fa fa-gear"></i> Edit</a>
+                            
+                            {{ Form::open(array('url' => 'courses/' . $course->id, 'class' => 'pull-right')) }}
+                            {{ Form::hidden('_method', 'DELETE') }}
+                            {{ Form::submit('Delete', array('class' => 'button btn btn-warning btn-sm')) }}
+                            {{ Form::close() }}</td>
+
                           </tr>
                        @endforeach
 

@@ -139,8 +139,6 @@
                           <a  href="{{route('addMultipleChoice',['course_id'=> $course->id, 'quiz_id'=>$quiz->id])}}" class="button btn btn-sm btn-primary">Add Multiple Choice</a>
 
                         </div>
-
-
                         <!-- /.pull-right -->
                       </div>
                       <div class="table-responsive mailbox-messages">
