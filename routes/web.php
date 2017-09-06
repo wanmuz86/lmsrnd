@@ -165,6 +165,8 @@ Route::post('course/{course_id}/quiz/{quiz_id}/createQuestionMultiple',['as'=>'c
 Route::get('course/{id}/module',['as'=>'getModules', 'uses'=>'ModuleController@getModules']);
 Route::post('/manage/{id}/createModule',['as'=>'createModule','uses'=>'ModuleController@createModule']);
 
+Route::get('course/{id}/certification',['as'=>'getCertificate', 'uses'=>'CertificateController@getCertificate']);
+Route::post('/manage/{id}/createCertification',['as'=>'createCertificate','uses'=>'CertificateController@createCertificate']);
 
 Route::post( 'course/manage/{id}/createLesson',['as'=>'createLesson','uses'=>'LessonController@createLesson']);
 Route::get('course/{course_id}/module/{module_id}/getLesson', ['as'=>'getLesson','uses'=> 'LessonController@getLesson']);

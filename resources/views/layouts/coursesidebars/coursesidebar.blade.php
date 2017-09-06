@@ -71,7 +71,7 @@
         </a>
       </li>
       <li class="treeview">
-        <a href="#">
+        <a href="{{route('getCertificate', ['id'=> $course->id])}}">
           <i class="fa  fa-bar-chart-o (alias)"></i> <span class="text-info">Certification</span>
           <span class="pull-right-container">
 
