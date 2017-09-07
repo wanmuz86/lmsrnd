@@ -178,9 +178,8 @@ Route::post('/login', ['as'=>'login', 'uses'=>'LoginController@postLogin']);
 
 
 
-Route::group(['middleware'=>['authen']], function(){
+
 Route::get('/courses', ['as'=>'courses', 'uses'=>'CourseController@getCourses']);
 Route::delete('/courses/{id}', ['as'=>'deleteCourse', 'uses'=>'CourseController@deleteCourse']);
 Route::get('/logout',['as'=>'logout','uses'=>'LoginController@getLogout']);
 
-});

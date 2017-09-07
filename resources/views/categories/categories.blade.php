@@ -68,7 +68,7 @@
                     <!-- /.box-header -->
                     <div class="box-body no-padding">
                       <div class="table-responsive mailbox-messages">
-                        <table class="table table-hover table-striped">
+                        <table class="table table-hover table-striped" id="cat-table">
                           <tbody>
                           <tr class="info">
                             <td><input type="checkbox"></td>
@@ -81,9 +81,9 @@
                           @foreach($categories as $category)
                           <tr class="info">
                             <td><input type="checkbox"></td>
-                            <td class="mailbox-star"><a href="#">{{$category->category_name}}</a></td>
-                            <td class="mailbox-subject"><a>{{$category->updated_at}}</a></td>
-                            <td class="mailbox-subject"><div class="btn-group">
+                            <td><a href="#">{{$category->category_name}}</a></td>
+                            <td><a>{{$category->updated_at}}</a></td>
+                            <td><div class="btn-group">
                             <a class="button btn btn-default btn-sm" href="{{route('editCategory', ['id'=> $category->id])}}"><i class="fa fa-gear"></i> Edit</button>
                             </div></td>
                           </tr>
@@ -119,8 +119,16 @@ $('#frm-category-create').on('submit',function(e){
   var data = $(this).serialize();
   console.log(data);
   $.post("{{route('createCategory')}}", data, function(response){
-
     console.log(response);
+     $("[data-dismiss=modal]").trigger({ type: "click" });
+     $('#cat-table').append('<td><input type="checkbox"></td><td><a href="#">'+JSON.parse(response.slice(1)).category_name
+                            +'</a></td>'
+                            +'<td><a>'+JSON.parse(response.slice(1)).updated_at+'</a></td>'
+                            +'<td><div class="btn-group">'
+                            +'<a class="button btn btn-default btn-sm" href="{{route("editCategory", ["id"=> '+
+                            +JSON.parse(response.slice(1)).id+'])}}"><i class="fa fa-gear"></i> Edit</button>'+
+                            "</div></td>'");
+
   });
 });
 

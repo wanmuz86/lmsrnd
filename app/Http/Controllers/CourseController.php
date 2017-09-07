@@ -30,7 +30,8 @@ class CourseController extends BaseController
       $course->price = $request->price;
       $course->trainer_id = $request->trainer_id;
       $course->save();
-      return response($course);
+       Session::flash('message', 'Successfully added the course!');
+       return Redirect::to('courses');
     }
   }
 
