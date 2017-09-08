@@ -179,7 +179,17 @@ Route::post('/login', ['as'=>'login', 'uses'=>'LoginController@postLogin']);
 
 
 
-Route::get('/courses', ['as'=>'courses', 'uses'=>'CourseController@getCourses']);
-Route::delete('/courses/{id}', ['as'=>'deleteCourse', 'uses'=>'CourseController@deleteCourse']);
+Route::get('/courses', 
+	['as'=>'courses', 
+	'uses'=>'CourseController@getCourses',
+	'middleware' => ['auth','roles'],
+	'roles'=>['Admin','Trainer']
+	]);
+Route::delete('/courses/{id}', 
+	['as'=>'deleteCourse', 
+	'uses'=>'CourseController@deleteCourse',
+	'middleware' => ['auth','roles'],
+	'roles'=>['Admin','Trainer']
+	]);
 Route::get('/logout',['as'=>'logout','uses'=>'LoginController@getLogout']);
 

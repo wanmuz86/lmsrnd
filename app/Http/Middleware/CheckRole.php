@@ -15,16 +15,16 @@ class CheckRole
      */
     public function handle($request, Closure $next)
     {
-       $roles = $this->getRequiredRoleForRoute($request->route());
-        if ($request->user()->hasRole($roles) || !$roles)
-        {
-            return $next($request);
-        }
-        return redirect('/noPermission');
-    }
-    private function getRequiredRoleForRoute($route){
-          $actions = $route->getAction();
-        return isset($actions['roles']) ? $actions['roles'] : null;
+       if ($request->user()=== null) {
+        return response('Insufficient permissions', 401);
+       }
+       $actions = $request->route()->getAction();
+       $roles = isset($actions['roles']) ? $actions['roles'] : null;
 
-    }
+       if ($request->user()->hasAnyRole($roles) || !$roles){
+        return $next($request);
+       }
+       return response('Insufficient permissions', 401);
+    } 
+   
 }
