@@ -28,22 +28,22 @@ class User extends Authenticatable
     ];
 
     public function group(){
-        return $this->hasOne('App\Group');
+        return $this->belongsTo('App\Group');
     }
 
     private function checkIfUserHasRole($need_role){
-        return (strtolower($need_role)==strtolower($this->group->group_name)) ? true : null;
+        return (strtolower($need_role)==strtolower($this->group->group_name)) ? true : false;
+
     }
 
-    public function hasRole($roles)
+    public function hasAnyRole($roles)
     {
         if (is_array($roles)){
-        foreach ($roles as $need_role) {
-            if ($this->checkIfUserHasRole($need_role))
+        foreach ($roles as $role) {
+            if ($this->checkIfUserHasRole($role))
             {
                 return true;
             }
-            # code...
         }
     }
     else {
