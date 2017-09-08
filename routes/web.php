@@ -123,7 +123,6 @@ Route::get('/categories', ['as'=>'categories', 'uses'=>'CategoryController@getCa
 Route::get( '/manage/category/edit_category/{id}',['as'=>'editCategory','uses'=>'CategoryController@editCategory']);
 Route::post( '/manage/categor/update_category/',['as'=>'updateCategory','uses'=>'CategoryController@updateCategory']);
 Route::delete('/categories/{id}', ['as'=>'deleteCategory', 'uses'=>'CategoryController@deleteCategory']);
-Route::get('/categories/add_category/', ['as'=>'addCategory', 'uses'=>function(){ return view('categories/add_category'); }]);
 
 
 Route::post( '/manage/groups/group',['as'=>'createGroup','uses'=>'GroupController@createGroup']);
@@ -137,7 +136,7 @@ Route::post( '/manage/course/course',['as'=>'createCourse','uses'=>'CourseContro
 Route::get( '/manage/course/edit_course/{id}',['as'=>'editCourse','uses'=>'CourseController@editCourse']);
 Route::post( '/manage/course/update_course/',['as'=>'updateCourse','uses'=>'CourseController@updateCourse']);
 
-
+Route::get('course/{id}/assignments',['as'=>'getAssesment', 'uses'=>'CourseController@getAssesment']);
 Route::get('course/{id}/dashboardcourses',['as'=>'getDashboard', 'uses'=>'CourseController@getDashboard']);
 
 Route::get('course/{id}/badges',['as'=>'getBadges', 'uses'=>'CourseController@getBadges']);

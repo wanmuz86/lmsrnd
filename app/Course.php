@@ -13,6 +13,7 @@ class Course extends Model
     protected $fillable = [
         'category_id', 'course_name', 'course_desc', 'is_active', 'activation_date', 'end_date', 'trainer_id', 'course_logo', 'price',
     ];
+    
     public function category()
    {
        return $this->belongsTo('App\Category','id');

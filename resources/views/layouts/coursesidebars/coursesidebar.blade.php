@@ -55,7 +55,7 @@
         </a>
       </li>
       <li class="treeview">
-        <a href="#">
+        <a href="{{route('getAssesment', ['id'=> $course->id])}}">
           <i class="fa fa-calendar"></i> <span class="text-info">Course Assesment Management</span>
           <span class="pull-right-container">
 

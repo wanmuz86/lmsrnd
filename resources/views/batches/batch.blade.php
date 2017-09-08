@@ -85,7 +85,7 @@
                             <td class="mailbox-name"><a href="#"></a></td>
                             <td class="mailbox-subject"><a>{{$batch->updated_at}}</a></td>
                             <td class="mailbox-subject"><div class="btn-group">
-                              <a class="button btn btn-success btn-sm" href="{{route('editBatch', ['id'=> $batch->id])}}"><i class="fa fa-gear"></i> Edit</a>
+                              <a class="button btn btn-success btn-sm" href="{{route('editBatch', ['id'=> $batch->id])}}"><i class="fa fa-edit"></i> Edit</a>
                               {{ Form::open(array('url' => 'batches/' . $batch->id, 'class' => 'pull-right')) }}
                               {{ Form::hidden('_method', 'DELETE') }}
                               {{ Form::submit('Delete', array('class' => 'button btn btn-warning btn-sm')) }}
@@ -127,6 +127,15 @@ $('#frm-batch-create').on('submit',function(e){
   $.post("{{route('createBatch')}}", data, function(response){
 
     console.log(response);
+    $("[data-dismiss=modal]").trigger({ type: "click" });
+    $('#cat-table').append('<td><input type="checkbox"></td><td><a href="#">'+JSON.parse(response).batch_name
+                           +'</a></td>'
+                           +'<td><a>'+JSON.parse(response).updated_at+'</a></td>'
+                           +'<td><div class="btn-group">'
+                           +'<a class="button btn btn-default btn-sm" href="{{route("editBatch", ["id"=> '+
+                           +JSON.parse(response).id+'])}}"><i class="fa fa-gear"></i> Edit</button>'+
+                           "</div></td>'");
+
   });
 });
 

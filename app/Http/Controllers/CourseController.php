@@ -82,4 +82,9 @@ class CourseController extends BaseController
       return view('dashboards.dashboardcourses', compact('course'));
     }
 
+    public function getAssesment($id,Request $request){
+      $course = Course::where('id',$id)->first();
+      return view('assignments.assignments', compact('course'));
+    }
+
 }

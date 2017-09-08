@@ -119,7 +119,7 @@
                             <td class="mailbox-date"><a href="#"></a></td>
                             <td class="mailbox-subject"><a>{{$company->updated_at}}</a></td>
                             <td class="mailbox-subject"><div class="btn-group">
-                              <a class="button btn btn-success btn-sm" href="{{route('editCompany', ['id'=> $company->id])}}"><i class="fa fa-gear"></i> Edit</a>
+                              <a class="button btn btn-success btn-sm" href="{{route('editCompany', ['id'=> $company->id])}}"><i class="fa fa-edit"></i> Edit</a>
                                 {{ Form::open(array('url' => 'companies/' . $company->id, 'class' => 'pull-right')) }}
                                 {{ Form::hidden('_method', 'DELETE') }}
                                 {{ Form::submit('Delete', array('class' => 'button btn btn-warning btn-sm')) }}
@@ -162,6 +162,15 @@ $('#frm-company-create').on('submit',function(e){
   $.post("{{route('createCompany')}}", data, function(response){
 
     console.log(response);
+    $("[data-dismiss=modal]").trigger({ type: "click" });
+    $('#cat-table').append('<td><input type="checkbox"></td><td><a href="#">'+JSON.parse(response).company_name
+                           +'</a></td>'
+                           +'<td><a>'+JSON.parse(response).updated_at+'</a></td>'
+                           +'<td><div class="btn-group">'
+                           +'<a class="button btn btn-default btn-sm" href="{{route("editCompany", ["id"=> '+
+                           +JSON.parse(response).id+'])}}"><i class="fa fa-gear"></i> Edit</button>'+
+                           "</div></td>'");
+
   });
 });
 

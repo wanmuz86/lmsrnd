@@ -136,17 +136,17 @@
                             <td><input type="checkbox"></td>
 
                             <td class="mailbox-star"><a href="{{route('getModules', ['id'=> $course->id])}}">{{$course->course_name}}</a></td>
-                            <td class="mailbox-subject"><a>{{$course->category->category_name}}</a></td>
+                            <td class="mailbox-subject"><a>{{$course->category_name}}</a></td>
                             <td class="mailbox-subject"><a>{{$course->updated_at}}</a></td>
                             <td class="mailbox-subject"><div class="btn-group">
-                              <a class="button btn btn-default btn-sm" href="{{route('editCourse', ['id'=> $course->id])}}"><i class="fa fa-gear"></i> Edit</a>
+                              <a class="button btn btn-success btn-sm" href="{{route('editCourse', ['id'=> $course->id])}}"><i class="fa fa-edit"></i> Edit</a>
                             {{ Form::open(array('url' => 'courses/' . $course->id, 'class' => 'pull-right')) }}
                             {{ Form::hidden('_method', 'DELETE') }}
                             {{ Form::submit('Delete', array('class' => 'button btn btn-warning btn-sm')) }}
                             {{ Form::close() }}
                           </td>
-                        </tr>
-                       @endforeach
+                         </tr>
+                         @endforeach
 
                           </tbody>
 
@@ -175,24 +175,21 @@
 $('#frm-course-create').on('submit',function(e){
   e.preventDefault();
   console.log('pressed');
-  /*var data = $(this).serialize();
-  data.append('course_logo', $('input[type=file]')[0].files[0]);
-  console.log(data);*/
-  $.ajax({
-    url: "{{route('createCourse')}}",
-    type: "POST",
-    data: new FormData(this),
-    contentType: false,
-    cache: false,
-    processData:false,
-    success: function(data)
-    {
-      console.log(data);
-    }
-  });
-  /*$.post("{{route('createCourse')}}", data, function(response){
+  var data = $(this).serialize();
+  console.log(data);
+  $.post("{{route('createCourse')}}", data, function(response){
     console.log(response);
-  });*/
+     $("[data-dismiss=modal]").trigger({ type: "click" });
+     $('#cat-table').append('<td><input type="checkbox"></td><td><a href="#">'+JSON.parse(response).course_name
+                            +'</a></td>'
+                            +'<td><a>'+JSON.parse(response).updated_at+'</a></td>'
+                            +'<td><div class="btn-group">'
+                            +'<a class="button btn btn-default btn-sm" href="{{route("editCourse", ["id"=> '+
+                            +JSON.parse(response).id+'])}}"><i class="fa fa-gear"></i> Edit</button>'+
+                            "</div></td>'");
+
+  });
 });
+
 </script>
 @endsection
