@@ -5,6 +5,8 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 
 use App\Group;
+use Session;
+use Redirect;
 class GroupController extends BaseController
 {
    public function __construct(){
@@ -33,6 +35,13 @@ class GroupController extends BaseController
         $group->group_name = $request->group_name;
         $group->save();
         return response($group);
+    }
+
+    public function deleteGroup($id, Request $request){
+      $group = Group::find($id);
+      $group->delete();
+      Session::flash('message', 'Successfully deleted the nerd!');
+      return Redirect::to('groups');
     }
 
 }

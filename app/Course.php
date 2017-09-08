@@ -15,10 +15,10 @@ class Course extends Model
     ];
     public function category()
    {
-       return $this->belongsTo('App\Category');
+       return $this->belongsTo('App\Category','id');
    }
    public function newUsers()
    {
-       return $this->belongsToMany('App\NewUser');
+       return $this->belongsToMany('App\NewUser','id');
    }
 }

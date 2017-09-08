@@ -9,6 +9,8 @@ use App\Group;
 use App\Company;
 use App\Country;
 use App\Batch;
+use Session;
+use Redirect;
 class NewUserController extends BaseController
 {
    public function __construct(){
@@ -21,13 +23,22 @@ class NewUserController extends BaseController
         }
     }
 
-    public function getNewUsers(){
+    public function getNewUser(){
         $newUsers = NewUser::all();
         $userGro = Group::all();
         $userCom = Company::all();
         $userCou = Country::all();
         $userBat = Batch::all();
       return view('newusers.newuser', compact('newUsers','userGro', 'userCom', 'userCou', 'userBat'));
+    }
+
+    public function getAddNewUser(){
+        $newUsers = NewUser::all();
+        $userGro = Group::all();
+        $userCom = Company::all();
+        $userCou = Country::all();
+        $userBat = Batch::all();
+      return view('newusers.add_newuser', compact('newUsers','userGro', 'userCom', 'userCou', 'userBat'));
     }
 
     public function getNewUserProfile(Request $request, $id){
@@ -57,6 +68,13 @@ class NewUserController extends BaseController
         $newUser->batch_id  = $request->batch_id;
         $newUser->save();
         return response($newUser);
+    }
+
+    public function deleteNewUser($id, Request $request){
+      $newUser = NewUser::find($id);
+      $newUser->delete();
+      Session::flash('message', 'Successfully deleted the nerd!');
+      return Redirect::to('newusers');
     }
 
 }

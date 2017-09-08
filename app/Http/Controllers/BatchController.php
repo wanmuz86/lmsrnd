@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
-
+use Session;
+use Redirect;
 use App\Batch;
 class BatchController extends BaseController
 {
@@ -33,6 +34,13 @@ class BatchController extends BaseController
         $batch->batch_name = $request->batch_name;
         $batch->save();
         return response($batch);
+    }
+
+    public function deleteBatch($id, Request $request){
+      $batch = Batch::find($id);
+      $batch->delete();
+      Session::flash('message', 'Successfully deleted the nerd!');
+      return Redirect::to('batches');
     }
 
 }

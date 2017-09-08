@@ -1,4 +1,4 @@
-=<?php
+<?php
 
 /*
 |--------------------------------------------------------------------------
@@ -101,30 +101,36 @@ Route::post( '/manage/countries/country',['as'=>'createCountry','uses'=>'Country
 Route::get('/countries', ['as'=>'countries', 'uses'=>'CountryController@getCountries']);
 Route::get( '/manage/countries/edit_country/{id}',['as'=>'editCountry','uses'=>'CountryController@editCountry']);
 Route::post( '/manage/countries/update_country/',['as'=>'updateCountry','uses'=>'CountryController@updateCountry']);
+Route::delete('/countries/{id}', ['as'=>'deleteCountry', 'uses'=>'CountryController@deleteCountry']);
 
 
 Route::post( '/manage/companies/company',['as'=>'createCompany','uses'=>'CompanyController@createCompany']);
 Route::get('/companies', ['as'=>'companies', 'uses'=>'CompanyController@getCompanies']);
 Route::get( '/manage/companies/edit_company/{id}',['as'=>'editCompany','uses'=>'CompanyController@editCompany']);
 Route::post( '/manage/companis/update_company/',['as'=>'updateCompany','uses'=>'CompanyController@updateCompany']);
+Route::delete('/companies/{id}', ['as'=>'deleteCompany', 'uses'=>'CompanyController@deleteCompany']);
 
 
 Route::post( '/manage/bactchs/batch',['as'=>'createBatch','uses'=>'BatchController@createBatch']);
 Route::get('/batches', ['as'=>'batches', 'uses'=>'BatchController@getBatches']);
 Route::get( '/manage/newusers/edit_batch/{id}',['as'=>'editBatch','uses'=>'BatchController@editBatch']);
 Route::post( '/manage/newusers/update_batch/',['as'=>'updateBatch','uses'=>'BatchController@updateBatch']);
+Route::delete('/batches/{id}', ['as'=>'deleteBatch', 'uses'=>'BatchController@deleteBatch']);
 
 
 Route::post( '/manage/category/category',['as'=>'createCategory','uses'=>'CategoryController@createCategory']);
 Route::get('/categories', ['as'=>'categories', 'uses'=>'CategoryController@getCategories']);
 Route::get( '/manage/category/edit_category/{id}',['as'=>'editCategory','uses'=>'CategoryController@editCategory']);
 Route::post( '/manage/categor/update_category/',['as'=>'updateCategory','uses'=>'CategoryController@updateCategory']);
+Route::delete('/categories/{id}', ['as'=>'deleteCategory', 'uses'=>'CategoryController@deleteCategory']);
+Route::get('/categories/add_category/', ['as'=>'addCategory', 'uses'=>function(){ return view('categories/add_category'); }]);
 
 
 Route::post( '/manage/groups/group',['as'=>'createGroup','uses'=>'GroupController@createGroup']);
 Route::get('/groups', ['as'=>'groups', 'uses'=>'GroupController@getGroups']);
 Route::get( '/manage/groups/edit_group/{id}',['as'=>'editGroup','uses'=>'GroupController@editGroup']);
 Route::post( '/manage/groups/update_group/',['as'=>'updateGroup','uses'=>'GroupController@updateGroup']);
+Route::delete('/group/{id}', ['as'=>'deleteGroup', 'uses'=>'GroupController@deleteGroup']);
 
 
 Route::post( '/manage/course/course',['as'=>'createCourse','uses'=>'CourseController@createCourse']);
@@ -148,11 +154,11 @@ Route::get('/newstudents', ['as'=>'getNewstudents','uses'=> 'NewstudentControlle
 
 
 Route::post('/manage/newuser/newuser',['as'=>'createNewUser','uses'=>'NewUserController@createNewUser']);
-Route::get('/newusers', ['as'=>'newusers','uses'=> 'NewUserController@getNewUsers']);
-
+Route::get('/newusers', ['as'=>'newusers','uses'=> 'NewUserController@getNewUser']);
 Route::get( '/manage/newusers/edit_newuser/{id}',['as'=>'editNewUser','uses'=>'NewUserController@editNewUser']);
 Route::post( '/manage/newusers/update_newuser/',['as'=>'updateNewUser','uses'=>'NewUserController@updateNewUser']);
-
+Route::delete('/newusers/{id}', ['as'=>'deleteNewUser', 'uses'=>'NewUserController@deleteNewUser']);
+Route::get('/newusers/add_newuser/', ['as'=>'addNewUser','uses'=> 'NewUserController@getAddNewUser']);
 
 
 Route::post('/manage/{id}/createQuiz',['as'=>'createQuiz','uses'=>'QuizController@createQuiz']);
@@ -178,8 +184,6 @@ Route::post('/login', ['as'=>'login', 'uses'=>'LoginController@postLogin']);
 
 
 
-
 Route::get('/courses', ['as'=>'courses', 'uses'=>'CourseController@getCourses']);
 Route::delete('/courses/{id}', ['as'=>'deleteCourse', 'uses'=>'CourseController@deleteCourse']);
 Route::get('/logout',['as'=>'logout','uses'=>'LoginController@getLogout']);
-

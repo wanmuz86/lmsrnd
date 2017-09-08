@@ -1,10 +1,8 @@
 <?php
-
 namespace App\Http\Controllers;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-
 use App\Course;
 use App\Category;
 use App\Badges;
@@ -15,7 +13,6 @@ class CourseController extends BaseController
   public function __construct(){
    // $this->middleware('web');
   }
-
   public function createCourse(Request $request){
     $path = $request->file('course_logo')->store('public/logos');
     if ($request->ajax()){
@@ -34,13 +31,11 @@ class CourseController extends BaseController
        return Redirect::to('courses');
     }
   }
-
   public function getCourses(){
     $courses = Course::all();
     $courseCat = Category::all();
     return view('course.course', compact('courses', 'courseCat'));
   }
-
   public function editCourse($id,Request $request){
     $course = Course::where('id',$id)->first();
     $image_url  = '';
@@ -50,13 +45,12 @@ class CourseController extends BaseController
     $categories = Category::all();
     return view('course.edit_course', compact('course', 'categories','image_url'));
   }
-
-public function deleteCourse($id, Request $request){
-  $course = Course::find($id);
-  $course->delete();
-  Session::flash('message', 'Successfully deleted the nerd!');
-  return Redirect::to('courses');
-}
+  public function deleteCourse($id, Request $request){
+    $course = Course::find($id);
+    $course->delete();
+    Session::flash('message', 'Successfully deleted the nerd!');
+    return Redirect::to('courses');
+  }
   public function updateCourse(Request $request){
     $course = Course::where('id',$request->course_id)->first();
     $course->course_name = $request->course_name;
@@ -71,25 +65,21 @@ public function deleteCourse($id, Request $request){
     $course->save();
     return response($course);
   }
-
   public function getGame($id,Request $request){
     $course = Course::where('id',$id)->first();
     return view('games.games', compact('course'));
   }
-
   public function getBadges($id,Request $request){
     $course = Course::where('id',$id)->first();
     return view('badges.badges', compact('course'));
   }
-
   public function getNews($id,Request $request){
     $course = Course::where('id',$id)->first();
     return view('news.news', compact('course'));
   }
-
     public function getDashboard($id,Request $request){
       $course = Course::where('id',$id)->first();
       return view('dashboards.dashboardcourses', compact('course'));
     }
-    
+
 }

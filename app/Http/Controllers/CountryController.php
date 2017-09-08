@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
-
+use Session;
+use Redirect;
 use App\Country;
 class CountryController extends BaseController
 {
@@ -33,6 +34,13 @@ class CountryController extends BaseController
         $country->country_name = $request->country_name;
         $country->save();
         return response($country);
+    }
+
+    public function deleteCountry($id, Request $request){
+      $country = Country::find($id);
+      $country->delete();
+      Session::flash('message', 'Successfully deleted the nerd!');
+      return Redirect::to('countries');
     }
 
 }

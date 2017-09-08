@@ -119,7 +119,11 @@
                             <td class="mailbox-date"><a href="#"></a></td>
                             <td class="mailbox-subject"><a>{{$company->updated_at}}</a></td>
                             <td class="mailbox-subject"><div class="btn-group">
-                              <a class="button btn btn-default btn-sm" href="{{route('editCompany', ['id'=> $company->id])}}"><i class="fa fa-gear"></i> Edit</button>
+                              <a class="button btn btn-success btn-sm" href="{{route('editCompany', ['id'=> $company->id])}}"><i class="fa fa-gear"></i> Edit</a>
+                                {{ Form::open(array('url' => 'companies/' . $company->id, 'class' => 'pull-right')) }}
+                                {{ Form::hidden('_method', 'DELETE') }}
+                                {{ Form::submit('Delete', array('class' => 'button btn btn-warning btn-sm')) }}
+                                {{ Form::close() }}
                             </div></td>
                           </tr>
                        @endforeach
