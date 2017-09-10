@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Module;
 use App\Course;
+use Session;
+use Redirect;
 
 class ModuleController extends Controller
 {
@@ -22,5 +24,24 @@ class ModuleController extends Controller
         $modules = Module::where('course_id',$id)->get();
         $course = Course::where('id',$id)->first();
       return view('modules.modules', compact('course','modules'));
+    }
+
+    public function editModule($id,Request $request){
+      $module = Module::where('id',$id)->first();
+      return view('modules.edit_module', compact('module'));
+    }
+
+    public function deleteModule($id, Request $request){
+      $module = modules::find($module_id);
+      $module->delete();
+      Session::flash('message', 'Successfully deleted the nerd!');
+      return Redirect::to('module');
+    }
+    public function updateModule(Request $request){
+      $module = Module::where('id',$request->course_id)->first();
+      $module->module_title = $request->module_title;
+      $module->module_desc = $request->module_desc;
+      $module->save();
+      return response($modules);
     }
 }

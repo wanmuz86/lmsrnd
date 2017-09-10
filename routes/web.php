@@ -157,7 +157,6 @@ Route::get('/newusers', ['as'=>'newusers','uses'=> 'NewUserController@getNewUser
 Route::get( '/manage/newusers/edit_newuser/{id}',['as'=>'editNewUser','uses'=>'NewUserController@editNewUser']);
 Route::post( '/manage/newusers/update_newuser/',['as'=>'updateNewUser','uses'=>'NewUserController@updateNewUser']);
 Route::delete('/newusers/{id}', ['as'=>'deleteNewUser', 'uses'=>'NewUserController@deleteNewUser']);
-Route::get('/newusers/add_newuser/', ['as'=>'addNewUser','uses'=> 'NewUserController@getAddNewUser']);
 
 
 Route::post('/manage/{id}/createQuiz',['as'=>'createQuiz','uses'=>'QuizController@createQuiz']);
@@ -169,6 +168,10 @@ Route::post('course/{course_id}/quiz/{quiz_id}/createQuestionMultiple',['as'=>'c
 
 Route::get('course/{id}/module',['as'=>'getModules', 'uses'=>'ModuleController@getModules']);
 Route::post('/manage/{id}/createModule',['as'=>'createModule','uses'=>'ModuleController@createModule']);
+Route::get( '/course/module/{module_id}/edit_module',['as'=>'editModule','uses'=>'ModuleController@editModule']);
+Route::post( '/manage/module/update_module/',['as'=>'updateModule','uses'=>'ModuleController@updateModule']);
+Route::delete('/modulesModule/{id}', ['as'=>'deleteModule', 'uses'=>'ModuleController@deleteModule']);
+
 
 Route::get('course/{id}/certification',['as'=>'getCertificate', 'uses'=>'CertificateController@getCertificate']);
 Route::post('/manage/{id}/createCertification',['as'=>'createCertificate','uses'=>'CertificateController@createCertificate']);
@@ -181,24 +184,17 @@ Route::get('course/{course_id}/module/{module_id}/add_lesson',['as'=>'add_lesson
 Route::get('/',['as'=>'/','uses'=>'LoginController@getLogin']);
 Route::post('/login', ['as'=>'login', 'uses'=>'LoginController@postLogin']);
 
-
-
-<<<<<<< HEAD
-Route::get('/courses', ['as'=>'courses', 'uses'=>'CourseController@getCourses']);
-Route::delete('/courses/{id}', ['as'=>'deleteCourse', 'uses'=>'CourseController@deleteCourse']);
-=======
-
-Route::get('/courses', 
-	['as'=>'courses', 
+Route::get('/courses',
+	['as'=>'courses',
 	'uses'=>'CourseController@getCourses',
 	'middleware' => ['auth','roles'],
 	'roles'=>['Admin','Trainer']
 	]);
-Route::delete('/courses/{id}', 
-	['as'=>'deleteCourse', 
+Route::delete('/courses/{id}',
+	['as'=>'deleteCourse',
 	'uses'=>'CourseController@deleteCourse',
 	'middleware' => ['auth','roles'],
 	'roles'=>['Admin','Trainer']
 	]);
->>>>>>> 574cdc1a703212641718a8c77cff4322dacbee8e
+
 Route::get('/logout',['as'=>'logout','uses'=>'LoginController@getLogout']);

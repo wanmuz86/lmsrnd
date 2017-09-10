@@ -76,7 +76,7 @@
                     <!-- /.box-header -->
                     <div class="box-body no-padding">
                       <div class="mailbox-controls">
-                        
+
 
                         <!-- /.pull-right -->
                       </div>
@@ -153,14 +153,22 @@
                             <td><input type="checkbox"></td>
                             <td class="mailbox-star"><a>Module Name</a></td>
                             <td class="mailbox-name"><a >Module Description</a></td>
-
+                            <td class="mailbox-subject"><a>Last updated On</a></td>
+                            <td class="mailbox-subject"><a>Operations</a></td>
                           </tr>
                           @foreach($modules as $module)
                           <tr>
                             <td><input type="checkbox"></td>
                             <td class="mailbox-star"><a href="{{route('getLesson',['course_id'=> $course->id, 'module_id'=>$module->id])}}"><i class="fa fa-book"></i> {{$module->module_title}}</a></td>
                             <td class="mailbox-name"><a><i> {{$module->module_desc}}</i></a></td>
-
+                            <td class="mailbox-subject"><a>{{$module->updated_at}}</a></td>
+                            <td class="mailbox-subject"><div class="btn-group">
+                              <a class="button btn btn-success btn-sm" href="{{route('editModule', ['course_id'=> $course->id,'module_id'=> $module->id])}}"><i class="fa fa-edit"></i> Edit</a>
+                            {{ Form::open(array('url' => 'modules/' . $module->id, 'class' => 'pull-right')) }}
+                            {{ Form::hidden('_method', 'DELETE') }}
+                            {{ Form::submit('Delete', array('class' => 'button btn btn-warning btn-sm')) }}
+                            {{ Form::close() }}
+                          </td>
                           </tr>
 
                           @endforeach
@@ -172,81 +180,6 @@
                     </div>
                     <!-- /.box-body -->
                 </div>
-            </div>
-            <!-- /.tab-pane -->
-            <div class="tab-pane" id="tab_2">
-              <div class="box">
-
-                    <div class="box-header">
-                      <h3 class="box-title">Inbox</h3>
-
-                      <div class="box-tools pull-right">
-                        <div class="has-feedback">
-                          <input type="text" class="form-control input-sm" placeholder="Search Mail">
-                          <span class="glyphicon glyphicon-search form-control-feedback"></span>
-                        </div>
-                      </div>
-                      <!-- /.box-tools -->
-                    </div>
-                    <!-- /.box-header -->
-                    <div class="box-body no-padding">
-                      <div class="mailbox-controls">
-                        <!-- Check all button -->
-                        <button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="fa fa-square-o"></i>
-                        </button>
-                        <div class="btn-group">
-                          <button type="button" class="btn btn-default btn-sm"><i class="fa fa-trash-o"></i></button>
-                          <button type="button" class="btn btn-default btn-sm"><i class="fa fa-reply"></i></button>
-                          <button type="button" class="btn btn-default btn-sm"><i class="fa fa-share"></i></button>
-                        </div>
-                        <!-- /.btn-group -->
-                        <button type="button" class="btn btn-default btn-sm"><i class="fa fa-refresh"></i></button>
-
-                        <!-- /.pull-right -->
-                      </div>
-                      <div class="table-responsive mailbox-messages">
-                        <table class="table table-hover table-striped">
-                          <tbody>
-                          <tr class="info">
-                            <td><input type="checkbox"></td>
-                            <td class="mailbox-star"><a href="#">Assignment</a></td>
-                            <td class="mailbox-name"><a href="#">Due</a></td>
-                            <td class="mailbox-attachment"><a href="#">Max Score</a></td>
-                            <td class="mailbox-date"><a href="#">To Grade/ Submitted</a></td>
-                          </tr>
-                          <tr>
-                            <td><input type="checkbox"></td>
-                            <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
-                            <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...
-                            </td>
-
-                          </tr>
-                          <tr>
-                            <td><input type="checkbox"></td>
-                            <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
-                            <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...
-                            </td>
-                          </tr>
-                          <tr>
-                            <td><input type="checkbox"></td>
-                            <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
-                            <td class="mailbox-subject"><b>AdminLTE 2.0 Issue</b> - Trying to find a solution to this problem...
-                            </td>
-                          </tr>
-
-                          </tbody>
-                        </table>
-                        <!-- /.table -->
-                      </div>
-                      <!-- /.mail-box-messages -->
-                    </div>
-                    <!-- /.box-body -->
-                </div>
-
-            </div>
-            <div class="tab-pane" id="tab_3">
-                <h1 class="text-blue"> Assignment results</h1>
-                <h3>There are no submissions yet.</h3>
             </div>
             <!-- /.tab-pane -->
           </div>
@@ -270,6 +203,15 @@ $('#frm-module-create').on('submit',function(e){
   $.post("{{route('createModule',['id'=> $course->id])}}", data, function(response){
 
     console.log(response);
+    $("[data-dismiss=modal]").trigger({ type: "click" });
+    $('#cat-table').append('<td><input type="checkbox"></td><td><a href="#">'+JSON.parse(response).course_name
+                           +'</a></td>'
+                           +'<td><a>'+JSON.parse(response).updated_at+'</a></td>'
+                           +'<td><div class="btn-group">'
+                           +'<a class="button btn btn-default btn-sm" href="{{route("editModule", ["id"=> '+
+                           +JSON.parse(response).id+'])}}"><i class="fa fa-gear"></i> Edit</button>'+
+                           "</div></td>'");
+
   });
 });
 
