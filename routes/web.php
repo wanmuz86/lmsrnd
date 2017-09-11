@@ -91,6 +91,10 @@ Route::get('/syllabus', ['as'=>'syllabus', 'uses'=>function(){
 	return view('syllabus/syllabus');
 }]);
 
+Route::get('/profile', ['as'=>'profile', 'uses'=>function(){
+	return view('profiles/profiles');
+}]);
+
 
 
 Route::post( '/manage/course/profile',['as'=>'profile','uses'=>'NewUserController@createProfile']);

@@ -67,6 +67,7 @@
                             <td class="mailbox-subject"><a href="#"><i class="fa fa-shield"> Badges</a></td>
                             <td class="mailbox-attachment"><a href="#"><i class="fa fa-star"> Points</a></td>
                             <td class="mailbox-date"><a href="#"><i class="fa fa-male"> Players</a></td>
+                            <td class="mailbox-subject"><a>Operations</a></td>
                           </tr>
                           <tr>
                             <td><input type="checkbox"></td>
@@ -75,6 +76,7 @@
                             <td class="mailbox-subject"><a href="#">0</td>
                             <td class="mailbox-attachment"><a href="#">0</a></td>
                             <td class="mailbox-date"><a href="#">0</td>
+                          
                           </tr>
                           <tr>
                             <td><input type="checkbox"></td>

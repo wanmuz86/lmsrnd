@@ -163,12 +163,12 @@ $('#frm-company-create').on('submit',function(e){
 
     console.log(response);
     $("[data-dismiss=modal]").trigger({ type: "click" });
-    $('#cat-table').append('<td><input type="checkbox"></td><td><a href="#">'+JSON.parse(response).company_name
+    $('#cat-table').append('<td><input type="checkbox"></td><td><a href="#">'+response.comopany_name
                            +'</a></td>'
-                           +'<td><a>'+JSON.parse(response).updated_at+'</a></td>'
+                           +'<td><a>'+response.updated_at+'</a></td>'
                            +'<td><div class="btn-group">'
-                           +'<a class="button btn btn-default btn-sm" href="{{route("editCompany", ["id"=> '+
-                           +JSON.parse(response).id+'])}}"><i class="fa fa-gear"></i> Edit</button>'+
+                           +'<a class="button btn btn-default btn-sm" href="{{route("editCountry", ["id"=> '+
+                           +response.id+'])}}"><i class="fa fa-gear"></i> Edit</button>'+
                            "</div></td>'");
 
   });

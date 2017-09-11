@@ -31,8 +31,8 @@
         <!-- Profile Image -->
         <div class="box box-primary">
           <div class="box-body box-profile">
-{{ Html::image('img/user2-160x160.jpg', 'User Image',  array('class' => 'img-circle img-responsive profile-user-img')) }}
-           
+            {{ Html::image('img/user2-160x160.jpg', 'User Image',  array('class' => 'img-circle img-responsive profile-user-img')) }}
+
 
             <h3 class="profile-username text-center">{{$user->first_name}}</h3>
 
@@ -95,7 +95,7 @@
             <li ><a href="#activity" data-toggle="tab">Activity</a></li>
             <li><a href="#timeline" data-toggle="tab">Info</a></li>
             <li><a href="#settings" data-toggle="tab">Settings</a></li>
-            
+
           </ul>
           <div class="tab-content">
             <div class="tab-pane" id="activity">
@@ -379,7 +379,7 @@
                           @foreach($user->courses as $course)
                           <tr>
                             <td><input type="checkbox"></td>
-                        
+
                             <td class="mailbox-star"><a href=""><i class="fa fa-male">{{$course->course_name}}</i></a></td>
 
                             <td class="mailbox-name"></i>{{$course->pivot->created_at}}</a></td>
@@ -399,7 +399,7 @@
             <!-- /.tab-pane -->
           </div>
           <!-- /.tab-content -->
-         
+
           </div>
           <!-- /.tab-content -->
         </div>
