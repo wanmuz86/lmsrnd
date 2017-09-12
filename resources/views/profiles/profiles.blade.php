@@ -188,7 +188,6 @@
                       </div>
             </div>
             <!-- /.tab-pane -->
-            <!-- /.tab-pane -->
 
              <div class=" tab-pane" id="enrolled">
               <form class="form-horizontal">

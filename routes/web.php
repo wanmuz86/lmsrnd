@@ -143,6 +143,7 @@ Route::post( '/manage/course/update_course/',['as'=>'updateCourse','uses'=>'Cour
 Route::get('course/{id}/assignments',['as'=>'getAssesment', 'uses'=>'CourseController@getAssesment']);
 Route::get('course/{id}/dashboardcourses',['as'=>'getDashboard', 'uses'=>'CourseController@getDashboard']);
 
+
 Route::get('course/{id}/badges',['as'=>'getBadges', 'uses'=>'CourseController@getBadges']);
 Route::get('course/{id}/news',['as'=>'getNews', 'uses'=>'CourseController@getNews']);
 Route::get('coursedetail/{id}/games',['as'=>'getGames', 'uses'=>'CourseController@getGame']);
@@ -151,6 +152,12 @@ Route::get('coursedetail/{id}/games',['as'=>'getGames', 'uses'=>'CourseControlle
 Route::post('/manage/course/student',['as'=>'createStudent','uses'=>'StudentController@createStudent']);
 Route::get('/course/{id}/students', ['as'=>'students','uses'=> 'StudentController@getStudents']);
 
+
+Route::post('/manage/user/users',['as'=>'createUser','uses'=>'UserController@createUser']);
+Route::get( '/manage/users/edit_user/{id}',['as'=>'editUser','uses'=>'UserController@editUser']);
+Route::post( '/manage/users/update_user/',['as'=>'updateUser','uses'=>'UserController@updateUser']);
+Route::delete('/users/{id}', ['as'=>'deleteUser', 'uses'=>'UserController@deleteUser']);
+Route::get('/users', ['as'=>'users','uses'=> 'UserController@getUser']);
 
 
 Route::get('/newstudents', ['as'=>'getNewstudents','uses'=> 'NewstudentController@getNewstudents']);

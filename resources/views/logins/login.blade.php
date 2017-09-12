@@ -36,7 +36,7 @@
     <a href="#" class=""><b>Asia Dev</b>Academy LMS</a>
   </div>
   <!-- /.login-logo -->
-  <div class="login-box-body bg-warning ">
+  <div class="login-box-body bg-orange ">
     <p class="login-box-msg ">Sign in to start your session</p>
 
     <form action="{{route('login')}}" method="post">
