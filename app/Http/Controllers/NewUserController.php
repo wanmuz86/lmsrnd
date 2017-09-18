@@ -11,6 +11,7 @@ use App\Country;
 use App\Batch;
 use Session;
 use Redirect;
+use Auth;
 class NewUserController extends BaseController
 {
    public function __construct(){
@@ -29,7 +30,8 @@ class NewUserController extends BaseController
         $userCom = Company::all();
         $userCou = Country::all();
         $userBat = Batch::all();
-      return view('newusers.newuser', compact('newUsers','userGro', 'userCom', 'userCou', 'userBat'));
+        $user = Auth::getUser();
+      return view('newusers.newuser', compact('newUsers','userGro', 'userCom', 'userCou', 'userBat','user'));
     }
 
     public function getNewUserProfile(Request $request, $id){
@@ -67,5 +69,9 @@ class NewUserController extends BaseController
       Session::flash('message', 'Successfully deleted the nerd!');
       return Redirect::to('newusers');
     }
+    public function getInbox(Request $request) {
+        $user = Auth::getUser();
+    return view('inboxs.inbox', compact('user'));
+  }
 
 }

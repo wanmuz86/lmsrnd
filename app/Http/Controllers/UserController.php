@@ -7,6 +7,7 @@ use App\User;
 use App\Group;
 use Session;
 use Redirect;
+use Auth;
 class UserController extends BaseController
 {
   public function __construct(){
@@ -49,4 +50,6 @@ class UserController extends BaseController
     Session::flash('message', 'Successfully deleted the nerd!');
     return Redirect::to('users');
   }
+
+  
 }

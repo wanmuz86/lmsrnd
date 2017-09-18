@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Group;
 use Session;
 use Redirect;
+use Auth;
 class GroupController extends BaseController
 {
    public function __construct(){
@@ -22,7 +23,8 @@ class GroupController extends BaseController
     public function getGroups(){
       $groups = [];
       $groups = Group::all();
-    	return view('groups.group', compact('groups'));
+      $user = Auth::user();
+    	return view('groups.group', compact('groups', 'user'));
     }
 
     public function editGroup($id,Request $request){

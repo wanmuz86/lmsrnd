@@ -8,6 +8,10 @@ use App\Category;
 use App\Badges;
 use Session;
 use Redirect;
+use Mail;
+use Auth;
+use App\Mail\RegisterMail;
+
 class CourseController extends BaseController
 {
   public function __construct(){
@@ -34,7 +38,9 @@ class CourseController extends BaseController
   public function getCourses(){
     $courses = Course::all();
     $courseCat = Category::all();
-    return view('course.course', compact('courses', 'courseCat'));
+    $user = Auth::user();
+
+    return view('course.course', compact('courses', 'courseCat', 'user'));
   }
   public function editCourse($id,Request $request){
     $course = Course::where('id',$id)->first();
@@ -67,6 +73,7 @@ class CourseController extends BaseController
   }
   public function getGame($id,Request $request){
     $course = Course::where('id',$id)->first();
+    //Mail::to('wanmuz86@gmail.com')->send(new RegisterMail);
     return view('games.games', compact('course'));
   }
   public function getBadges($id,Request $request){
@@ -87,4 +94,8 @@ class CourseController extends BaseController
       return view('assignments.assignments', compact('course'));
     }
 
+    public function getBundle(Request $request){
+      $user = Auth::getUser();
+      return view('bundles.bundle', compact('user'));
+    } 
 }

@@ -120,6 +120,7 @@
                     <!-- /.box-header -->
                     <div class="box-body no-padding">
 
+
                       <div class="table-responsive mailbox-messages">
                         <table class="table table-hover table-striped">
                           <tbody>
@@ -136,7 +137,7 @@
                             <td><input type="checkbox"></td>
 
                             <td class="mailbox-star"><a href="{{route('getModules', ['id'=> $course->id])}}">{{$course->course_name}}</a></td>
-                            <td class="mailbox-subject"><a>{{$course->category_id}}</a></td>
+                            <td class="mailbox-subject"><a>{{$course->category->category_name}}</a></td>
                             <td class="mailbox-subject"><a>{{$course->updated_at}}</a></td>
                             <td class="mailbox-subject"><div class="btn-group">
                               <a class="button btn btn-success btn-sm" href="{{route('editCourse', ['id'=> $course->id])}}"><i class="fa fa-edit"></i> Edit</a>

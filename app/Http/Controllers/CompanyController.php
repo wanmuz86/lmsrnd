@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Session;
 use Redirect;
 use App\Company;
+use Auth;
 class CompanyController extends BaseController
 {
    public function __construct(){
@@ -22,7 +23,8 @@ class CompanyController extends BaseController
     public function getCompanies(){
         $companies = [];
         $companies = Company::all();
-    	return view('companies.company', compact('companies'));
+        $user = Auth::user();
+    	return view('companies.company', compact('companies', 'user'));
     }
 
     public function editCompany($id,Request $request){

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Session;
 use Redirect;
 use App\Country;
+use Auth;
 class CountryController extends BaseController
 {
    public function __construct(){
@@ -21,7 +22,8 @@ class CountryController extends BaseController
     public function getCountries(){
         $countries = [];
         $countries = Country::all();
-    	return view('countries.country', compact('countries'));
+        $user = Auth::user();
+    	return view('countries.country', compact('countries', 'user'));
     }
 
     public function editCountry($id,Request $request){

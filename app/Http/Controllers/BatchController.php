@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Session;
 use Redirect;
 use App\Batch;
+use Auth;
 class BatchController extends BaseController
 {
    public function __construct(){
@@ -21,7 +22,8 @@ class BatchController extends BaseController
     public function getBatches(){
         $batches = [];
         $batches = Batch::all();
-    	return view('batches.batch', compact('batches'));
+        $user = Auth::user();
+    	return view('batches.batch', compact('batches','user'));
     }
 
     public function editBatch($id,Request $request){

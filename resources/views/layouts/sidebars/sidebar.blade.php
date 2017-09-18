@@ -10,7 +10,7 @@
           {{ HTML::image('img/user2-160x160.jpg', 'User Image',  array('class' => 'img-circle')) }}
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
+          <p> {{$user->name}}</p>
           <!-- Status -->
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>

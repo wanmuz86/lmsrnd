@@ -122,7 +122,7 @@
                {{ HTML::image('img/user2-160x160.jpg', 'User Image',  array('class' => 'user-image')) }}
               
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">Alexander Pierce</span>
+              <span class="hidden-xs">{{$user->name}}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
@@ -130,7 +130,7 @@
               {{ HTML::image('img/user2-160x160.jpg', 'User Image',  array('class' => 'img-circle')) }}
 
                 <p>
-                  Alexander Pierce - Web Developer
+                  {{$user->name}} - {{$user->group->group_name}}
                   <small>Member since Nov. 2012</small>
                 </p>
               </li>

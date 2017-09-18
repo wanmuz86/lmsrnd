@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Category;
 use Session;
 use Redirect;
+use Auth;
 class CategoryController extends BaseController
 {
    public function __construct(){
@@ -24,7 +25,8 @@ class CategoryController extends BaseController
     public function getCategories(){
         $categories = [];
         $categories = Category::all();
-    	return view('categories.categories', compact('categories'));
+        $user = Auth::user();
+    	return view('categories.categories', compact('categories', 'user'));
     }
 
     public function editCategory($id,Request $request){
