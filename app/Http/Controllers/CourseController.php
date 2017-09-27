@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Course;
 use App\Category;
 use App\Badges;
+use App\NewUser;
 use Session;
 use Redirect;
 use Mail;
@@ -15,7 +16,7 @@ use App\Mail\RegisterMail;
 class CourseController extends BaseController
 {
   public function __construct(){
-   // $this->middleware('web');
+ 
   }
   public function createCourse(Request $request){
     $path = $request->file('course_logo')->store('public/logos');
@@ -71,18 +72,21 @@ class CourseController extends BaseController
     $course->save();
     return response($course);
   }
-  public function getGame($id,Request $request){
+  public function getGames($id,Request $request){
     $course = Course::where('id',$id)->first();
     //Mail::to('wanmuz86@gmail.com')->send(new RegisterMail);
-    return view('games.games', compact('course'));
+    $user = Auth::getUser();
+    return view('games.games', compact('course','user'));
   }
   public function getBadges($id,Request $request){
     $course = Course::where('id',$id)->first();
-    return view('badges.badges', compact('course'));
+    $user = Auth::getUser();
+    return view('badges.badges', compact('course', 'user'));
   }
   public function getNews($id,Request $request){
     $course = Course::where('id',$id)->first();
-    return view('news.news', compact('course'));
+    $user = Auth::getUser();
+    return view('news.news', compact('course', 'user'));
   }
     public function getDashboard($id,Request $request){
       $course = Course::where('id',$id)->first();
@@ -98,4 +102,30 @@ class CourseController extends BaseController
       $user = Auth::getUser();
       return view('bundles.bundle', compact('user'));
     } 
+
+    public function getCourseDashboard($id,Request $request){
+      $user = Auth::getUser();
+      $course = Course::where('id',$id)->first();
+      return view('dashboards.dashboardcourses', compact('user','course'));
+    } 
+
+    public function getAssignment($id,Request $request){
+      $user = Auth::getUser();
+      $course = Course::where('id',$id)->first();
+      return view('assignments.assignments', compact('user','course'));
+    }
+
+    public function addUserToCourse($id, Request $request){
+
+      $course = Course::where('id',$id)->first();
+      $users  = $request->user;
+      $response = [];
+      foreach ($users as $user) {
+      $course->newUsers()->attach($user);
+      $newUser = NewUser::where('newuser_id',$user)->first();
+      array_push($response, $newUser);
+      }
+      return response($response);
+
+    }
 }

@@ -7,7 +7,7 @@ use App\Module;
 use App\Course;
 use Session;
 use Redirect;
-
+use Auth;
 class ModuleController extends Controller
 {
     //
@@ -23,7 +23,8 @@ class ModuleController extends Controller
     public function getModules($id,Request $request){
         $modules = Module::where('course_id',$id)->get();
         $course = Course::where('id',$id)->first();
-      return view('modules.modules', compact('course','modules'));
+        $user = Auth::getUser();
+      return view('modules.modules', compact('course','modules','user'));
     }
 
     public function editModule($id,Request $request){

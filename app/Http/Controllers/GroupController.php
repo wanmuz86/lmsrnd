@@ -29,7 +29,8 @@ class GroupController extends BaseController
 
     public function editGroup($id,Request $request){
         $group = Group::where('id',$id)->first();
-        return view('groups.edit_group', compact('group'));
+        $user = Auth::getUser();
+        return view('groups.edit_group', compact('group','user'));
     }
 
     public function updateGroup(Request $request){

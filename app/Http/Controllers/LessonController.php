@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Lesson;
 use App\Course;
 use App\Module;
-
+use Auth;
 class LessonController extends Controller
 {
   //
@@ -26,7 +26,8 @@ class LessonController extends Controller
      $course = Course::where('id',$course_id)->first();
      $module = Module::where('id',$module_id)->first();
      $lessons = Lesson::where('module_id',$module_id)->get();
-   return view('lessons.lessons', compact('course','module', 'lessons'));
+     $user = Auth::getUser();
+   return view('lessons.lessons', compact('course','module', 'lessons','user'));
  }
 
  public function getAddLesson($course_id,$module_id,Request $request){

@@ -82,7 +82,7 @@
                       </div>
 
                       <div class="table-responsive mailbox-messages">
-                        <table class="table table-hover table-striped">
+                        <table class="table table-hover table-striped" id="table-certificate-listing">
                           <tbody>
                           <tr class="info ">
                             <td><input type="checkbox"></td>
@@ -130,6 +130,17 @@ $('#frm-certificate-create').on('submit',function(e){
   $.post("{{route('createCertificate',['id'=> $course->id])}}", data, function(response){
 
     console.log(response);
+   $("[data-dismiss=modal]").trigger({ type: "click" });
+    
+  $('#table-certificate-listing').append('<tr><td><input type="checkbox"></td><td><a href="#"><i class="fa fa-book"></i>'
+    +response.certificate_title
+    +'</a></td>'
+    +'<td><a>'+response.certificate_desc
+    +'</a></td><td></td>'
+    +"</div></td></tr>'");
+
+
+      
   });
 });
 

@@ -38,7 +38,7 @@
                           <label for="batch_id" class="col-sm-3 control-label">Category: </label>
 
                           <div class="col-sm-9">
-                          <select class="form-control" name="category_id" id="category_id" data-placeholder="Select " style="width: 100%;">
+                          <select class="form-control" name="category_id" id="  " data-placeholder="Select " style="width: 100%;">
                           @foreach($courseCat as $cat)
                              <option value="{{$cat->id}}">{{$cat->category_name}}</option>
                             @endforeach

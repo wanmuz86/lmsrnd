@@ -20,6 +20,6 @@ class Course extends Model
    }
    public function newUsers()
    {
-       return $this->belongsToMany('App\NewUser');
+       return $this->belongsToMany('App\NewUser')->withTimestamps();
    }
 }

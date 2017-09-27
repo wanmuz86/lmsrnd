@@ -34,9 +34,9 @@
             {{ Html::image('img/user2-160x160.jpg', 'User Image',  array('class' => 'img-circle img-responsive profile-user-img')) }}
 
 
-            <h3 class="profile-username text-center">{{$user->first_name}}</h3>
+            <h3 class="profile-username text-center">{{$currentUser->first_name}}</h3>
 
-            <p class="text-muted text-center">{{$user->company->company_name}}</p>
+            <p class="text-muted text-center">{{$currentUser->company->company_name}}</p>
 
             <ul class="list-group list-group-unbordered">
               <li class="list-group-item">
@@ -72,11 +72,11 @@
             <hr>
 
             <strong><i class="fa fa-pencil margin-r-5"></i> Company</strong>
-            <p class="text-muted">{{$user->company->company_name}}</p>
+            <p class="text-muted">{{$currentUser->company->company_name}}</p>
             <hr>
 
             <strong><i class="fa fa-map-marker margin-r-5"></i> Country</strong>
-            <p> {{$user->country->country_name}}</p>
+            <p> {{$currentUser->country->country_name}}</p>
             <hr>
 
             <strong><i class="fa fa-file-text-o margin-r-5"></i> Batch</strong>
@@ -92,12 +92,43 @@
         <div class="nav-tabs-custom">
           <ul class="nav nav-tabs">
             <li class="active"><a href="#enrolled" data-toggle="tab">Enrolled</a></li>
+            <li ><a href="#certificate" data-toggle="tab">Certificate</a></li>
             <li ><a href="#activity" data-toggle="tab">Activity</a></li>
             <li><a href="#timeline" data-toggle="tab">Info</a></li>
             <li><a href="#settings" data-toggle="tab">Settings</a></li>
 
           </ul>
           <div class="tab-content">
+            <div class="tab-pane" id="certificate">
+              <form class="form-horizontal">
+                <div class="table-responsive mailbox-messages">
+                        <table class="table table-hover table-striped">
+                          <tbody>
+                          <tr class="info">
+                            <td><input type="checkbox"></td>
+                            <td class="mailbox-star"><a href="#">Certificate</a></td>
+                            <td class="mailbox-date"><a href="#">Obtained Date</a></td>
+                            <td class="mailbox-date"><a href="#">Operation</a></td>
+                          </tr>
+                          @foreach($currentUser->courses as $course)
+                          <tr>
+                            <td><input type="checkbox"></td>
+
+                            <td class="mailbox-star"><a href=""><i class="fa fa-male">{{$course->course_name}}</i></a></td>
+
+                            <td class="mailbox-name"></i>{{$course->pivot->created_at}}</a></td>
+                            <td class="mailbox-date"> <a class="button btn btn-default btn-sm" href="#"><i class="fa fa-gear"></i>Enrolled</button></td>
+
+                          </tr>
+                          @endforeach
+
+                          </tbody>
+                        </table>
+                        <!-- /.table -->
+                      </div>
+                      <!-- /.mail-box-messages -->
+              </form>
+            </div>
             <div class="tab-pane" id="activity">
               <!-- Post -->
               <div class="post">
@@ -363,7 +394,6 @@
               </form>
             </div>
             <!-- /.tab-pane -->
-            {{$user->lessons }}
              <div class="active tab-pane" id="enrolled">
               <form class="form-horizontal">
                 <div class="table-responsive mailbox-messages">
@@ -376,7 +406,7 @@
                             <td class="mailbox-date"><a href="#">Completion Date</a></td>
                             <td class="mailbox-date"><a href="#">Operation</a></td>
                           </tr>
-                          @foreach($user->courses as $course)
+                          @foreach($currentUser->courses as $course)
                           <tr>
                             <td><input type="checkbox"></td>
 
@@ -396,8 +426,11 @@
                       <!-- /.mail-box-messages -->
               </form>
             </div>
+
+
             <!-- /.tab-pane -->
           </div>
+
           <!-- /.tab-content -->
 
           </div>

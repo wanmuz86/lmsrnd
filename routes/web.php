@@ -13,14 +13,6 @@
 
 
 
-
-
-
-Route::get('/dashboardcourses',['as'=>'dashboardcourses', 'uses'=>function(){
-	return view('dashboards/dashboardcourses');
-}]);
-
-
 Route::get('/login',['as'=>'login', 'uses'=>function(){
 	return view('logins/login');
 }]);
@@ -29,14 +21,9 @@ Route::get('/modules',['as'=>'modules', 'uses'=>function(){
 	return view('modules/modules');
 }]);
 
-Route::get('/news',['as'=>'news', 'uses'=>function(){
-	return view('news/news');
-}]);
 
 
-Route::get('/assignments', ['as'=>'assignments', 'uses'=>function(){
-	return view('assignments/assignments');
-}]);
+
 
 
 Route::get('/mastery', ['as'=>'mastery', 'uses'=>function(){
@@ -47,9 +34,7 @@ Route::get('/forums', ['as'=>'forums', 'uses'=>function(){
 	return view('forums/forums');
 }]);
 
-Route::get('/games', ['as'=>'games', 'uses'=>function(){
-	return view('games/games');
-}]);
+
 
 Route::get('/attendances', ['as'=>'attendances', 'uses'=>function(){
 	return view('attendance/attendance');
@@ -59,14 +44,8 @@ Route::get('/syllabus', ['as'=>'syllabus', 'uses'=>function(){
 	return view('syllabus/syllabus');
 }]);
 
-Route::get('/profile', ['as'=>'profile', 'uses'=>function(){
-	return view('profiles/profiles');
-}]);
-
-
 
 Route::post( '/manage/course/profile',['as'=>'profile','uses'=>'NewUserController@createProfile']);
-Route::get('/profile/{id}', ['as'=>'profile', 'uses'=>'NewUserController@getNewUserProfile']);
 
 
 Route::post( '/manage/countries/country',['as'=>'createCountry','uses'=>'CountryController@createCountry']);
@@ -99,26 +78,24 @@ Route::delete('/categories/{id}', ['as'=>'deleteCategory', 'uses'=>'CategoryCont
 
 Route::post( '/manage/groups/group',['as'=>'createGroup','uses'=>'GroupController@createGroup']);
 
-Route::get( '/manage/groups/edit_group/{id}',['as'=>'editGroup','uses'=>'GroupController@editGroup']);
+
 Route::post( '/manage/groups/update_group/',['as'=>'updateGroup','uses'=>'GroupController@updateGroup']);
 Route::delete('/group/{id}', ['as'=>'deleteGroup', 'uses'=>'GroupController@deleteGroup']);
 
 
-Route::post( '/manage/course/course',['as'=>'createCourse','uses'=>'CourseController@createCourse']);
+
 Route::get( '/manage/course/edit_course/{id}',['as'=>'editCourse','uses'=>'CourseController@editCourse']);
 Route::post( '/manage/course/update_course/',['as'=>'updateCourse','uses'=>'CourseController@updateCourse']);
 
-Route::get('course/{id}/assignments',['as'=>'getAssesment', 'uses'=>'CourseController@getAssesment']);
-Route::get('course/{id}/dashboardcourses',['as'=>'getDashboard', 'uses'=>'CourseController@getDashboard']);
 
 
-Route::get('course/{id}/badges',['as'=>'getBadges', 'uses'=>'CourseController@getBadges']);
-Route::get('course/{id}/news',['as'=>'getNews', 'uses'=>'CourseController@getNews']);
-Route::get('coursedetail/{id}/games',['as'=>'getGames', 'uses'=>'CourseController@getGame']);
+
+
+
 
 
 Route::post('/manage/course/student',['as'=>'createStudent','uses'=>'StudentController@createStudent']);
-Route::get('/course/{id}/students', ['as'=>'students','uses'=> 'StudentController@getStudents']);
+
 
 
 Route::post('/manage/user/users',['as'=>'createUser','uses'=>'UserController@createUser']);
@@ -139,9 +116,9 @@ Route::delete('/newusers/{id}', ['as'=>'deleteNewUser', 'uses'=>'NewUserControll
 
 
 Route::post('/manage/{id}/createQuiz',['as'=>'createQuiz','uses'=>'QuizController@createQuiz']);
-Route::get('course/{id}/quiz',['as'=>'getQuiz', 'uses'=>'QuizController@getQuiz']);
-Route::get('course/{course_id}/quiz/{quiz_id}',['as'=>'getQuizDetail', 'uses'=>'QuizController@getQuizDetail']);
-Route::get('course/{course_id}/quiz/{quiz_id}/addMultipleChoice',['as'=>'addMultipleChoice', 'uses'=>'QuizController@addMultipleChoice']);
+
+
+
 Route::post('course/{course_id}/quiz/{quiz_id}/createQuestionMultiple',['as'=>'createQuestionMultiple', 'uses'=>'QuizController@createQuestionMultiple']);
 
 
@@ -152,11 +129,11 @@ Route::post( '/manage/module/update_module/',['as'=>'updateModule','uses'=>'Modu
 Route::delete('/modulesModule/{id}', ['as'=>'deleteModule', 'uses'=>'ModuleController@deleteModule']);
 
 
-Route::get('course/{id}/certification',['as'=>'getCertificate', 'uses'=>'CertificateController@getCertificate']);
+
 Route::post('/manage/{id}/createCertification',['as'=>'createCertificate','uses'=>'CertificateController@createCertificate']);
 
 Route::post( 'course/manage/{id}/createLesson',['as'=>'createLesson','uses'=>'LessonController@createLesson']);
-Route::get('course/{course_id}/module/{module_id}/getLesson', ['as'=>'getLesson','uses'=> 'LessonController@getLesson']);
+
 Route::get('course/{course_id}/module/{module_id}/add_lesson',['as'=>'add_lesson', 'uses'=>'LessonController@getAddLesson']);
 
 
@@ -229,9 +206,88 @@ Route::middleware(['auth','roles'])->group(function () {
 		'roles'=>['Admin','Trainer'],
 		'uses'=>'DashboardController@getReporting'] 
 		);
-	Route::get('course/{id}/module',['as'=>'getModules', 'uses'=>'ModuleController@getModules']);
+	Route::get('course/{id}/module',
+		['as'=>'getModules', 
+		'roles'=>['Admin','Trainer'],
+		'uses'=>'ModuleController@getModules']);
+
+	Route::get('/course/{id}/dashboardcourses',
+		['as'=>'getDashboard', 
+		'roles'=>['Admin','Trainer'],
+		'uses'=>'CourseController@getCourseDashboard'] );
+
+	Route::get('course/{course_id}/module/{module_id}/getLesson', ['as'=>'getLesson',
+		'roles'=>['Admin','Trainer'],
+		'uses'=> 'LessonController@getLesson']);
+
+	Route::get('/course/{id}/assignments', 
+		['as'=>'assignments', 
+		'roles'=>['Admin','Trainer'],
+		'uses'=>'CourseController@getAssignment']);
+
+	Route::get('course/{id}/news',
+		['as'=>'getNews',
+		'roles'=>['Admin','Trainer'],
+		'uses'=>'CourseController@getNews']);
+
+	Route::get('course/{id}/certification',
+		['as'=>'getCertificate', 
+		'roles'=>['Admin','Trainer'],
+		'uses'=>'CertificateController@getCertificate']);
+	
+	Route::get('coursedetail/{id}/games',
+	['as'=>'getGames', 
+	'roles'=>['Admin','Trainer'],
+	'uses'=>'CourseController@getGames']);
+
+	Route::get('course/{id}/badges',
+		['as'=>'getBadges', 
+		'roles'=>['Admin','Trainer'],
+		'uses'=>'CourseController@getBadges']);
+
+	Route::get('/course/{id}/students', 
+		['as'=>'students',
+		'roles'=>['Admin','Trainer'],
+		'uses'=> 'StudentController@getStudents']);
+
+	Route::get('/profile/{id}', 
+		['as'=>'profile', 
+		'roles'=>['Admin','Trainer'],
+		'uses'=>'NewUserController@getNewUserProfile']);
+
+	Route::get('course/{id}/quiz',
+		['as'=>'getQuiz', 
+		'roles'=>['Admin','Trainer'],
+		'uses'=>'QuizController@getQuiz']);
+
+	Route::get('course/{course_id}/quiz/{quiz_id}',
+		['as'=>'getQuizDetail', 
+		'roles'=>['Admin','Trainer'],
+		'uses'=>'QuizController@getQuizDetail']);
+
+	Route::get('course/{course_id}/quiz/{quiz_id}/addMultipleChoice',
+		['as'=>'addMultipleChoice', 
+		'roles'=>['Admin','Trainer'],
+		'uses'=>'QuizController@addMultipleChoice']);
+
+	Route::get( '/manage/groups/edit_group/{id}',
+		['as'=>'editGroup',
+		'roles'=>['Admin','Trainer'],
+		'uses'=>'GroupController@editGroup']);
+Route::post( '/manage/courses/addUserToCourse/{id}',
+		['as'=>'addUserToCourse',
+		'roles'=>['Admin','Trainer'],
+		'uses'=>'CourseController@addUserToCourse']);
+
+Route::post( '/manage/course/course',
+	['as'=>'createCourse',
+	'roles'=>['Admin','Trainer'],
+	'uses'=>'CourseController@createCourse']);
+
+	
 
 });
+
 
 /*
 Route::get('/courses',

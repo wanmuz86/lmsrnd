@@ -7,6 +7,7 @@ use App\Quiz;
 use App\Course;
 use App\Question;
 use App\Answer;
+use Auth;
 class QuizController extends Controller
 {
     //
@@ -22,19 +23,25 @@ class QuizController extends Controller
     public function getQuiz($id,Request $request){
         $quizes = Quiz::all();
         $course = Course::where('id',$id)->first();
-    	return view('quiz.quiz', compact('course','quizes'));
+        $user = Auth::getUser();
+    	return view('quiz.quiz', compact('course','quizes', 'user'));
     }
+
      public function getQuizDetail($course_id,$quiz_id,Request $request){
         $course = Course::where('id',$course_id)->first();
         $quiz = Quiz::where('id',$quiz_id)->first();
         $questions = Question::where('quiz_id', $quiz_id)->get();
-    	return view('quiz.question', compact('course','quiz', 'questions'));
+         $user = Auth::getUser();
+    	return view('quiz.question', compact('course','quiz', 'questions','user'));
     }
+
     public function addMultipleChoice($course_id,$quiz_id,Request $request){
         $course = Course::where('id',$course_id)->first();
         $quiz = Quiz::where('id',$quiz_id)->first();
-    	return view('quiz.question_multiple', compact('course','quiz'));
+        $user = Auth::getUser();
+    	return view('quiz.question_multiple', compact('course','quiz','user'));
     }
+
     public function  createQuestionMultiple($course_id, $quiz_id, Request $request){
 
         if ($request->ajax()){

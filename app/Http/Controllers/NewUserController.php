@@ -35,8 +35,9 @@ class NewUserController extends BaseController
     }
 
     public function getNewUserProfile(Request $request, $id){
-      $user = NewUser::where('newuser_id',$id)->first();
-        return view('profiles.profile', compact('user'));
+      $currentUser = NewUser::where('newuser_id',$id)->first();
+      $user = Auth::getUser();
+        return view('profiles.profile', compact('currentUser','user'));
 
     }
 

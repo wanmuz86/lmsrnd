@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Certificate;
 use App\Course;
+use Auth;
 
 class CertificateController extends Controller
 {
@@ -21,6 +22,7 @@ class CertificateController extends Controller
     public function getCertificate($id,Request $request){
         $certificates = Certificate::where('course_id',$id)->get();
         $course = Course::where('id',$id)->first();
-      return view('certifications.certification', compact('course','certificates'));
+        $user = Auth::getUser();
+      return view('certifications.certification', compact('course','certificates','user'));
     }
 }
